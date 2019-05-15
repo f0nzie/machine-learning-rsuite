@@ -1,0 +1,22 @@
+new_session: yes
+rmd_files: [
+  "index.Rmd",
+
+# regression 101
+  "regression_114-nested_temperature.Rmd",
+  "regression_136-happiness.Rmd",
+  "regression_138-advertising.Rmd",
+  "regression_141.1-3a.Rmd",
+  "regression_141.2-3b.Rmd",
+
+#
+
+  "06-references.Rmd"
+
+]
+book_filename: "Applications of Machine Learning"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+output_dir: ../../export/book_out

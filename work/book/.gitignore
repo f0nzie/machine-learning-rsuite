@@ -1,0 +1,8 @@
+*
+!.gitignore
+!book/
+!*.Rmd
+!*.bib
+!*.yml
+!*.tex
+!*.css

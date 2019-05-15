@@ -1,0 +1,23 @@
+new_session: yes
+rmd_files: [
+  "index.Rmd",
+
+# regression 101
+  "meta_110a-PCA-prcomp_vs_princomp.Rmd",
+  "meta_110b-PCA-Principal_Component_Methods_in_R.Rmd",
+  "meta_110c-PCA-Phan_2016-Introduction_To_PCA_with_examples_in_R.Rmd",
+  "meta_131-dealing_with_unbalanced_data.Rmd",
+  "meta_133-variable_importance.Rmd",
+  "meta_137-logistic_regression-diabetes.Rmd",
+
+# other
+
+  "06-references.Rmd"
+
+]
+book_filename: "Applications of Machine Learning - Meta"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+output_dir: ../../export/book_out

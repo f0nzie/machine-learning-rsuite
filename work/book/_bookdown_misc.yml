@@ -1,0 +1,20 @@
+new_session: yes
+rmd_files: [
+  "index.Rmd",
+
+# regression 101
+  "misc_111a-diagnostic_plots.Rmd",
+  "misc_111b-what_is_dot_hat.Rmd",
+  "misc_111c-comparing_distributions_with_qq_plot.Rmd",
+  "misc_140-data_visualization-modeling.Rmd",
+
+# other
+
+  "06-references.Rmd"
+]
+book_filename: "Applications of Machine Learning - Meta"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+output_dir: ../../export/book_out
