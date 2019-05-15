@@ -70,3 +70,50 @@ rmarkdown::render_site(
 # render PDF
 # rmarkdown::render_site(output_format = 'bookdown::pdf_book', encoding = 'UTF-8')
 
+# function to print RMD files
+knit_rmd <- function() {
+  # rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
+  rmarkdown::render_site(encoding = 'UTF-8')
+}
+
+# function to handle what to do with the arguments
+kniter <- function(which) {
+  unlink("_bookdown_files", recursive = TRUE, force = TRUE) # remove folder
+  if (which == "all") {
+    print(rmd_files)
+    rmd_built <- list.files(".", "*.Rmd$")
+    knit_rmd()  # do not change anything
+  }  else if (which == "regre") {
+    file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    file.copy("_bookdown_regression.yml", "_bookdown.yml", overwrite = TRUE)
+    knit_rmd()
+    file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+  } else if (which == "class") {
+    file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    file.copy("_bookdown_classification.yml", "_bookdown.yml", overwrite = TRUE)
+    knit_rmd()
+    file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+  } else if (which == "comp") {
+    file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    file.copy("_bookdown_comparison.yml", "_bookdown.yml", overwrite = TRUE)
+    knit_rmd()
+    file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+  } else if (which == "meta") {
+    file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    file.copy("_bookdown_meta.yml", "_bookdown.yml", overwrite = TRUE)
+    knit_rmd()
+    file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+  } else if (which == "custom") {
+    file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    file.copy("_bookdown_custom.yml", "_bookdown.yml", overwrite = TRUE)
+    knit_rmd()
+    file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+  }
+  which
+}
+
+# retrieve the arguments from the command line
+rmd_built <- kniter(
+  which = args$get(name = "which", required = FALSE, default = "all")
+)
+
