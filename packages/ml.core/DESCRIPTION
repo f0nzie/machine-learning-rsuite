@@ -1,0 +1,50 @@
+Package: ml.core
+Type: Package
+Title: Machine Learning Core Packages
+Version: 0.1
+Date: 2019-05-12
+Author: datascience
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
+Imports: logging,
+  caret,
+  mlbench,
+  mlr,
+  corrplot,
+  randomForest,
+  e1071,
+  rpart,
+  kernlab,
+  Cubist,
+  glmnet,
+  gbm,
+  klaR,
+  C50,
+  ade4,
+  tm,
+  SnowballC,
+  gmodels,
+  tree,
+  TH.data,
+  socviz,
+  gapminder,
+  factoextra, 
+  ExPosition,
+  ggplot2,
+  ggbiplot,
+  lattice,
+  ellipse,
+  wordcloud,
+  readr,
+  tibble,
+  dplyr,
+  tidyr,
+  purrr,
+  broom,
+  skimr,
+  rmarkdown,
+  bookdown,
+  usethis,
+  tictoc
+RoxygenNote: 6.1.1

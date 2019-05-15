@@ -1,0 +1,46 @@
+Package: ml.ahead
+Type: Package
+Title: Intermediate Machine Learning packages
+Version: 0.1
+Date: 2019-05-12
+Author: datascience
+Maintainer: Who to complain to <yourfault@somewhere.net>
+Description: More about what it does (maybe more than one line)
+License: What license is it under?
+Imports: logging,
+  rpart,
+  pls,
+  pamr,
+  kknn,
+  mda,
+  ROSE,
+  DMwR,
+  RANN,
+  fastAdaboost,
+  xgboost,
+  caretEnsemble,
+  earth,
+  Boruta,
+  DALEX,
+  relaimpo,
+  InformationValue,
+  car,
+  RRF,
+  rsm,
+  psych,
+  mice,
+  rpart.plot,
+  rattle,
+  outbreaks,
+  UsingR,
+  data.table,
+  stargazer,
+  RColorBrewer,
+  gplots,
+  gridExtra,
+  grid,
+  GGally,
+  rworldmap,
+  rbenchmark,
+  microbenchmark
+RoxygenNote: 6.1.1
