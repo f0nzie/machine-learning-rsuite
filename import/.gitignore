@@ -1,3 +1,6 @@
 *
 !.gitignore
 !*.csv
+!*.rds
+!*.txt
+!*.data
