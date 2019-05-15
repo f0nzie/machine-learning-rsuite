@@ -4,3 +4,17 @@
 .Rbuildignore
 .Ruserdata
 config.txt
+
+packages/ml\.core/man/
+
+packages/ml\.ahead/man/
+
+packages/ml\.advanced/man/
+
+packages/ml\.pro/man/
+
+packages/tree\.Rcheck/
+
+packages/ggbiplot/man/
+
+packages/tree/man/
