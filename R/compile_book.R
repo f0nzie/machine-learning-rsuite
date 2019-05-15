@@ -23,15 +23,6 @@ args <- args_parser()
 # load libraries
 library(ml.core)
 
-# project_root <- rprojroot::find_rstudio_root_file()
-# book_src_dir <- file.path(project_root, "work", "book")
-# book_out_dir <- file.path(project_root, "export", "book_out")
-# model_out_dir <- file.path(project_root, "export", "model_out")
-#
-# data_raw_dir <- file.path(project_root, "import")
-#
-# save.image(file.path(project_root, "workspace.RData"))
-
 source("R/set_folders.R")
 
 # book_src_dir <- file.path(project_root, "work", "book1")
@@ -62,10 +53,10 @@ if (dir.exists("_book")) {
 logdebug(book_out_dir)
 
 # build the book
-rmarkdown::render_site(
-                      encoding = 'UTF-8'
-                      # output_format = "bookdown::pdf_book"
-                      )
+# rmarkdown::render_site(
+#                       encoding = 'UTF-8'
+#                       # output_format = "bookdown::pdf_book"
+#                       )
 
 # render PDF
 # rmarkdown::render_site(output_format = 'bookdown::pdf_book', encoding = 'UTF-8')
@@ -76,12 +67,22 @@ knit_rmd <- function() {
   rmarkdown::render_site(encoding = 'UTF-8')
 }
 
+
+selection <- list(
+  regre_101 = list(yaml = "_bookdown_regression_101.yml"),
+  regre_202 = list(yaml = "_bookdown_regression_202.yml"),
+  class_101 = list(yaml = "_bookdown_classification_101.yml"),
+  class_202 = list(yaml = "_bookdown_classification_202.yml"),
+  comp = list(yaml = "_bookdown_comparison.yml"),
+  meta = list(yaml = "_bookdown_meta.yml"),
+  misc = list(yaml = "_bookdown_misc.yml"),
+  custom = list(yaml = "_bookdown_custom.yml")
+)
+
 # function to handle what to do with the arguments
 kniter <- function(which) {
   unlink("_bookdown_files", recursive = TRUE, force = TRUE) # remove folder
   if (which == "all") {
-    print(rmd_files)
-    rmd_built <- list.files(".", "*.Rmd$")
     knit_rmd()  # do not change anything
   }  else if (which == "regre") {
     file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
@@ -103,17 +104,23 @@ kniter <- function(which) {
     file.copy("_bookdown_meta.yml", "_bookdown.yml", overwrite = TRUE)
     knit_rmd()
     file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+  } else if (which == "misc") {
+    file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    file.copy("_bookdown_misc.yml", "_bookdown.yml", overwrite = TRUE)
+    knit_rmd()
+    file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
   } else if (which == "custom") {
     file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
     file.copy("_bookdown_custom.yml", "_bookdown.yml", overwrite = TRUE)
     knit_rmd()
     file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
   }
-  which
 }
 
 # retrieve the arguments from the command line
 rmd_built <- kniter(
   which = args$get(name = "which", required = FALSE, default = "all")
 )
+
+loginfo(selection)
 
