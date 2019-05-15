@@ -1,0 +1,22 @@
+new_session: yes
+rmd_files: [
+  "index.Rmd",
+
+# regression 101
+#  "comparison_312-compare_classification_algorithms-multi.Rmd",
+#  "comparison_320-ml_project_iris-multi.Rmd",
+#  "comparison_321-ml_project-boston-regression-multi.Rmd",
+#  "comparison_322-BreastCancer-mlbench-classification-multi.Rmd",
+#  "comparison_330.1-flu_outcome_ML-classification-multi.Rmd",
+#  "comparison_332-orange_juice-classification-multi.Rmd",
+  "comparison_342-employee_attrition-lime-classification-multi.Rmd",
+
+# other
+  "06-references.Rmd"
+]
+book_filename: "Applications of Machine Learning - Comparison"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+output_dir: ../../export/book_out
