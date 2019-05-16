@@ -18,3 +18,5 @@ packages/tree\.Rcheck/
 packages/ggbiplot/man/
 
 packages/tree/man/
+
+export/PCA\.pdf
