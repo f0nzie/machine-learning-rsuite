@@ -104,6 +104,16 @@ replace_in_index_rmd <- function(rmd_file, stop_word, replace, append = TRUE) {
   # new_text[nLine]
 }
 
+set_bookdown_yaml <- function(suffix, cover_title) {
+  bookdown_yaml <- "_bookdown.yml"
+  file.copy(bookdown_yaml, "_bookdown.yml.bak", overwrite = TRUE)
+  new_filename <- paste0(tools::file_path_sans_ext(bookdown_yaml), "_", suffix, ".yml")
+  logdebug(new_filename)
+  file.copy(new_filename, bookdown_yaml, overwrite = TRUE)
+  replace_in_index_rmd("index.Rmd", "title:", cover_title, append = FALSE)
+  knit_rmd()
+  file.copy("_bookdown.yml.bak", bookdown_yaml, overwrite = TRUE)
+}
 
 # function to handle what to do with the arguments
 kniter <- function(which) {
@@ -111,41 +121,75 @@ kniter <- function(which) {
   if (which == "all") {
     knit_rmd()  # do not change anything
   }  else if (which == "regre") {
-    file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
-    file.copy("_bookdown_regression.yml", "_bookdown.yml", overwrite = TRUE)
-    replace_in_index_rmd("index.Rmd", "title:", "Regression ML", append = FALSE)
-    knit_rmd()
-    file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    # file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    # file.copy("_bookdown_regression.yml", "_bookdown.yml", overwrite = TRUE)
+    # replace_in_index_rmd("index.Rmd", "title:", "Regression ML", append = FALSE)
+    # knit_rmd()
+    # file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    set_bookdown_yaml(suffix = "regression", cover_title = "Regression at ML")
+  }  else if (which == "regre-101") {
+    # file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    # file.copy("_bookdown_regression_101.yml", "_bookdown.yml", overwrite = TRUE)
+    # replace_in_index_rmd("index.Rmd", "title:", "Regression 101", append = FALSE)
+    # knit_rmd()
+    # file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    set_bookdown_yaml(suffix = "regression_101", cover_title = "Regression 101, ML")
+  }  else if (which == "regre-202") {
+    # file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    # file.copy("_bookdown_regression_202.yml", "_bookdown.yml", overwrite = TRUE)
+    # replace_in_index_rmd("index.Rmd", "title:", "Regression 202", append = FALSE)
+    # knit_rmd()
+    # file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    set_bookdown_yaml(suffix = "regression_202", cover_title = "Regression 202, ML")
   } else if (which == "class") {
-    file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
-    file.copy("_bookdown_classification.yml", "_bookdown.yml", overwrite = TRUE)
-    replace_in_index_rmd("index.Rmd", "title:", "Classification ML", append = FALSE)
-    knit_rmd()
-    file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    # file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    # file.copy("_bookdown_classification.yml", "_bookdown.yml", overwrite = TRUE)
+    # replace_in_index_rmd("index.Rmd", "title:", "Classification ML", append = FALSE)
+    # knit_rmd()
+    # file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    set_bookdown_yaml(suffix = "classification", cover_title = "Classification, ML")
+  }  else if (which == "class-101") {
+    # file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    # file.copy("_bookdown_classification_101.yml", "_bookdown.yml", overwrite = TRUE)
+    # replace_in_index_rmd("index.Rmd", "title:", "Classification 101", append = FALSE)
+    # knit_rmd()
+    # file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    set_bookdown_yaml(suffix = "classification_101", cover_title = "Classification 101, ML")
+  }  else if (which == "class-202") {
+    # file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    # file.copy("_bookdown_classification_202.yml", "_bookdown.yml", overwrite = TRUE)
+    # replace_in_index_rmd("index.Rmd", "title:", "Classification 202", append = FALSE)
+    # knit_rmd()
+    # file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    set_bookdown_yaml(suffix = "classification_202", cover_title = "Classification 202, ML")
   } else if (which == "comp") {
-    file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
-    file.copy("_bookdown_comparison.yml", "_bookdown.yml", overwrite = TRUE)
-    replace_in_index_rmd("index.Rmd", "title:", "Comparison Algorithms ML", append = FALSE)
-    knit_rmd()
-    file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    # file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    # file.copy("_bookdown_comparison.yml", "_bookdown.yml", overwrite = TRUE)
+    # replace_in_index_rmd("index.Rmd", "title:", "Comparison Algorithms ML", append = FALSE)
+    # knit_rmd()
+    # file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    set_bookdown_yaml(suffix = "comparison", cover_title = "ML Algortihms Comparison")
   } else if (which == "meta") {
-    file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
-    file.copy("_bookdown_meta.yml", "_bookdown.yml", overwrite = TRUE)
-    replace_in_index_rmd("index.Rmd", "title:", "Meta Use of ML algorithms", append = FALSE)
-    knit_rmd()
-    file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    # file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    # file.copy("_bookdown_meta.yml", "_bookdown.yml", overwrite = TRUE)
+    # replace_in_index_rmd("index.Rmd", "title:", "Meta Use of ML algorithms", append = FALSE)
+    # knit_rmd()
+    # file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    set_bookdown_yaml(suffix = "comparison", cover_title = "Meta Use of ML Algortihms")
   } else if (which == "misc") {
-    file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
-    file.copy("_bookdown_misc.yml", "_bookdown.yml", overwrite = TRUE)
-    replace_in_index_rmd("index.Rmd", "title:", "Miscellaneous ML", append = FALSE)
-    knit_rmd()
-    file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    # file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    # file.copy("_bookdown_misc.yml", "_bookdown.yml", overwrite = TRUE)
+    # replace_in_index_rmd("index.Rmd", "title:", "Miscellaneous ML", append = FALSE)
+    # knit_rmd()
+    # file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    set_bookdown_yaml(suffix = "misc", cover_title = "Miscellaneous ML")
   } else if (which == "custom") {
-    file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
-    file.copy("_bookdown_custom.yml", "_bookdown.yml", overwrite = TRUE)
-    replace_in_index_rmd("index.Rmd", "title:", "Custom ML", append = FALSE)
-    knit_rmd()
-    file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    # file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
+    # file.copy("_bookdown_custom.yml", "_bookdown.yml", overwrite = TRUE)
+    # replace_in_index_rmd("index.Rmd", "title:", "Custom ML", append = FALSE)
+    # knit_rmd()
+    # file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
+    set_bookdown_yaml(suffix = "custom", cover_title = "Customized list of ML Applications")
   }
 }
 
