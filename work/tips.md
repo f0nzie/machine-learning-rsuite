@@ -2,22 +2,22 @@
 
 
 
+## Compile book from prompt
+
 ```
 rmarkdown::render_site(output_format = 'bookdown::pdf_book', encoding = 'UTF-8')
 ```
 
 
 
-
-
-## Packages
+## Packages not in CRAN
 
 * <https://github.com/vqv/ggbiplot>
-* 
+* <https://github.com/cran/data.tree>
 
 
 
-### Changing the path of data and images in notebooks
+### Changing the path of data files and images in notebooks
 
 ```
 emails_full <- get(load(file.path(data_raw_dir,"the_data.Rdata")))
@@ -32,17 +32,21 @@ knitr::include_graphics(file.path(assets_dir, "the_figure.png"))
 ```
 
 ```
+# read CSV file as matrix
 probs_t <- as.vector(as.matrix(read.csv(file.path(data_raw_dir, "the_data.csv"),
                                         header = F)))
 ```
 
 ```
+# just read a CSV file
 read.csv(file = file.path(data_raw_dir, "the_data.csv"))
 ```
 
 
 
 ## Knitr header
+
+Your typical `knitr` header:
 
 ```R
 ​```{r setup, include=FALSE, error=TRUE, message=FALSE, warning=FALSE} 
@@ -62,11 +66,13 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ## Call to exclusive library path (rsuite)
 
-To enable the use of dated libraries, we have to indicate the new library path using a command to call the definitions by `rsuite`. Include the following chunk at the beginning of any notebook.
+To enable the use of dated libraries from MRAN, we have to indicate the new library path using a command to call the definitions by `rsuite`. Include the following chunk at the beginning of any notebook.
 
 ```
 ​```{r echo=FALSE}
+# first line kind of optional; for me it will provide the project folders
 load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
+# this line is key; it will point to the location of user packages
 .libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
 ​```
 ```
@@ -111,7 +117,7 @@ bookdown::gitbook:
 
 
 
-## _output.yml` for PDF
+## `_output.yml` for PDF
 
 ```
 bookdown::pdf_book:
@@ -153,6 +159,10 @@ bookdown::pdf_book:
 
 ## Bookdown and rsuite
 
+Sometimes we could find a little trouble compiling notebooks using rsuite and the packages provided in user environment through the folder in `deployment`. No discard is not rsuite, it is better to test a demo bookdown sample first and see it compiles alright.
+
+Just ensure that the `libPaths` is pointing to the right location of all packages. **This is essential.**
+
 1. Start by creating a bookdown book at any folder under the project. Preferably, under `work`.
 2. Test that the demo works
 3. Remove most of the demo notebooks and replace them with your own.
@@ -165,9 +175,9 @@ new_session: yes
 
 to prevent collision of chunk labels.
 
-6. Simplify the file `_output.yml` to generate one type of output. By default, it creates html, pdf and ebook one after the other. I selected only to generate a `html` book.
-7. Do not use notebooks as symbolic links. It will confuse `rmarkdown` or `bookdown`. It is better to make a dry run of the standalone notebooks in another folder, such as `RMD`, and then move the notebook to `book` after it passed the tests.
-8. 
+6. Simplify the file `_output.yml` to generate one type of output. By default, it creates `html`, `pdf` and `ebook`, one after the other. I selected only to generate a `html` book.
+7. Do not use notebooks as symbolic links. It will confuse `rmarkdown` or `bookdown`. It is better to make a dry run of the standalone notebooks in another folder, such as `RMD`, and then move the notebook to the `book` folder after it passed all the tests.
+8. To reduce the time of bookdown compilation, only include the notebooks that require testing using the parameter `rmd_files`. When the book is in the final status you can enable all of the notebooks for compilation.
 
 
 
