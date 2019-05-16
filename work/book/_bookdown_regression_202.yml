@@ -4,9 +4,8 @@ rmd_files: [
 
 # regression 202
   "regression_248-linear_regression_with_stan.Rmd",
-    "regression_246-Generalised_Additive_Models-mauna_loa.Rmd",
+  "regression_246-Generalised_Additive_Models-mauna_loa.Rmd",
   "regression_247-gam_motorcycle.Rmd",
-
 
 # other
   "06-references.Rmd"

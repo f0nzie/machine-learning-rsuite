@@ -3,6 +3,7 @@ rmd_files: [
   "index.Rmd",
 
 # classification 101
+  "classification_112-social_networks-SVM.Rmd",
   "classification_115-standalone_model-rf.Rmd",
   "classification_116-glass-svm.Rmd",
   "classification_117-ozone_nlr-svm.Rmd",

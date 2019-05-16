@@ -1,17 +1,17 @@
 new_session: yes
 rmd_files: [
-  "index-class.Rmd",
+  "index.Rmd",
 
-# classification 101
-  "classification_115-standalone_model-rf.Rmd",
-  "classification_116-glass-svm.Rmd",
-  "classification_117-ozone_nlr-svm.Rmd",
-  "classification_118-gentle_intro_to_SVM.Rmd",
+# regression 202
+  "regression_248-linear_regression_with_stan.Rmd",
+  "regression_246-Generalised_Additive_Models-mauna_loa.Rmd",
+  "regression_247-gam_motorcycle.Rmd",
 
 # other
   "06-references.Rmd"
+
 ]
-book_filename: "Applications of Machine Learning - Classification 101"
+book_filename: "Applications of Machine Learning - Regression 202"
 delete_merged_file: true
 language:
   ui:
