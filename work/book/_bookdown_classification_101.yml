@@ -1,6 +1,6 @@
 new_session: yes
 rmd_files: [
-  "index-class.Rmd",
+  "index.Rmd",
 
 # classification 101
   "classification_115-standalone_model-rf.Rmd",

@@ -9,12 +9,14 @@ rmd_files: [
 #  "comparison_322-BreastCancer-mlbench-classification-multi.Rmd",
 #  "comparison_330.1-flu_outcome_ML-classification-multi.Rmd",
 #  "comparison_332-orange_juice-classification-multi.Rmd",
-  "comparison_342-employee_attrition-lime-classification-multi.Rmd",
-
+#  "comparison_342-employee_attrition-lime-classification-multi.Rmd",
+#  "comparison_321-ml_project-boston-regression-multi.Rmd",
+#  "comparison_322-BreastCancer-mlbench-classification-multi.Rmd",
+  "comparison_332-orange_juice-classification-multi.Rmd"
 # other
-  "06-references.Rmd"
+# "06-references.Rmd"
 ]
-book_filename: "Applications of Machine Learning - Comparison"
+book_filename: "Applications of Machine Learning - BreastCancer, Classification, Comparison"
 delete_merged_file: true
 language:
   ui:

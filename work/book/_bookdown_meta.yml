@@ -11,9 +11,7 @@ rmd_files: [
   "meta_137-logistic_regression-diabetes.Rmd",
 
 # other
-
   "06-references.Rmd"
-
 ]
 book_filename: "Applications of Machine Learning - Meta"
 delete_merged_file: true

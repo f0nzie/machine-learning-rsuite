@@ -9,12 +9,10 @@ rmd_files: [
   "regression_141.1-3a.Rmd",
   "regression_141.2-3b.Rmd",
 
-#
-
+# Other
   "06-references.Rmd"
-
 ]
-book_filename: "Applications of Machine Learning"
+book_filename: "Applications of Machine Learning - Regression 101"
 delete_merged_file: true
 language:
   ui:
