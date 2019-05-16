@@ -1,4 +1,4 @@
 *
 !.gitignore
-# !*.pdf
-!book_out
+#!*.pdf
+#!book_out
