@@ -5,6 +5,8 @@ import(caret)
 import(ggplot2)
 import(logging)
 
+import(ElemStatLearn)
+import(ISLR)
 import(mlbench)
 import(mlr)
 import(corrplot)
