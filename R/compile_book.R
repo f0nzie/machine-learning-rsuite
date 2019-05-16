@@ -79,6 +79,32 @@ selection <- list(
   custom = list(yaml = "_bookdown_custom.yml")
 )
 
+
+replace_in_index_rmd <- function(rmd_file, stop_word, replace, append = TRUE) {
+  # stop if not Rmd file
+  # stop if keyword not having colon
+  space <- " "
+  text <- readLines(rmd_file)
+  nLine <- grep(pattern = stop_word, x = text)
+  if (length(nLine) == 0) return(FALSE)
+  pat <- text[nLine]
+  txt_line <- grep(pattern = stop_word, x = text, value = TRUE) # get whole line
+  orig_txt_line <- gsub(pattern = "title:", replacement = "", x = txt_line)
+  orig_txt_line <- trimws(gsub(pattern = '\"', replacement = "",
+                               x = orig_txt_line,  perl=TRUE)) # get rid of the stop_word
+  if (append) {
+    new_sentence <- paste0(stop_word, space, "\\'", orig_txt_line, space,
+                           replace, "\\'")  # append to current sentence
+  } else {
+    new_sentence <- paste0(stop_word, space, "\\'",
+                           replace, "\\'")  # make a new sentence
+  }
+  new_text <- gsub(pattern = pat, replace = new_sentence, x = text) # replace in line
+  writeLines(new_text, con = rmd_file)
+  # new_text[nLine]
+}
+
+
 # function to handle what to do with the arguments
 kniter <- function(which) {
   unlink("_bookdown_files", recursive = TRUE, force = TRUE) # remove folder
@@ -87,31 +113,37 @@ kniter <- function(which) {
   }  else if (which == "regre") {
     file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
     file.copy("_bookdown_regression.yml", "_bookdown.yml", overwrite = TRUE)
+    replace_in_index_rmd("index.Rmd", "title:", "Regression ML", append = FALSE)
     knit_rmd()
     file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
   } else if (which == "class") {
     file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
     file.copy("_bookdown_classification.yml", "_bookdown.yml", overwrite = TRUE)
+    replace_in_index_rmd("index.Rmd", "title:", "Classification ML", append = FALSE)
     knit_rmd()
     file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
   } else if (which == "comp") {
     file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
     file.copy("_bookdown_comparison.yml", "_bookdown.yml", overwrite = TRUE)
+    replace_in_index_rmd("index.Rmd", "title:", "Comparison Algorithms ML", append = FALSE)
     knit_rmd()
     file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
   } else if (which == "meta") {
     file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
     file.copy("_bookdown_meta.yml", "_bookdown.yml", overwrite = TRUE)
+    replace_in_index_rmd("index.Rmd", "title:", "Meta Use of ML algorithms", append = FALSE)
     knit_rmd()
     file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
   } else if (which == "misc") {
     file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
     file.copy("_bookdown_misc.yml", "_bookdown.yml", overwrite = TRUE)
+    replace_in_index_rmd("index.Rmd", "title:", "Miscellaneous ML", append = FALSE)
     knit_rmd()
     file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
   } else if (which == "custom") {
     file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
     file.copy("_bookdown_custom.yml", "_bookdown.yml", overwrite = TRUE)
+    replace_in_index_rmd("index.Rmd", "title:", "Custom ML", append = FALSE)
     knit_rmd()
     file.copy("_bookdown.yml.bak", "_bookdown.yml", overwrite = TRUE)
   }
@@ -122,5 +154,5 @@ rmd_built <- kniter(
   which = args$get(name = "which", required = FALSE, default = "all")
 )
 
-loginfo(selection)
+# loginfo(selection)
 
