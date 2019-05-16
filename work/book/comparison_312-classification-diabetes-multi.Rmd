@@ -1,4 +1,4 @@
-# Compare classification algorithms
+# Classification algorithms comparison. `PimaIndiansDiabetes` dataset
 
 ```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE} 
 knitr::opts_chunk$set(echo = TRUE, 
@@ -13,6 +13,25 @@ knitr::opts_chunk$set(echo = TRUE,
 load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 .libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
 ```
+
+## Introduction
+We compare the following clasification algorithms:
+
+* CART
+* LDA
+* SVM
+* KNN
+* RF
+
+## Workflow
+
+1. Load dataset
+2. Create the train dataset
+3. Train the models
+4. Collect resamples
+5. Plot comparison
+6. Summarize p-values
+
 
 ```{r warning=FALSE, message=FALSE}
 # load packages
@@ -30,11 +49,13 @@ dplyr::glimpse(PimaIndiansDiabetes)
 tibble::as_tibble(PimaIndiansDiabetes)
 ```
 
-## Train the models
+## Train the models using cross-validation
 
 ```{r set-train-control}
 # prepare training scheme
-trainControl <- trainControl(method = "repeatedcv", number=10, repeats=3)
+trainControl <- trainControl(method = "repeatedcv", 
+                             number=10, 
+                             repeats=3)
 ```
 
 ```{r run-cart}
@@ -89,6 +110,7 @@ results <- resamples(list(CART=fit.cart,
 summary(results)
 ```
 
+## Plot comparison
 
 ```{r}
 # box and whisker plots to compare models
@@ -125,10 +147,11 @@ splom(results)
 xyplot(results, models=c("LDA", "SVM"))
 ```
 
-```{r differences}
+```{r differences_for_p_values}
 # difference in model predictions
 diffs <- diff(results)
 # summarize p-values for pairwise comparisons
 summary(diffs)
 ```
+
 
