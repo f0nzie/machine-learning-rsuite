@@ -14,6 +14,8 @@ load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 .libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
 ```
 
+## Introduction
+
 https://mgimond.github.io/ES218/Week06a.html
 
 Thus far, we have used the quantile-quantile plots to compare the distributions between two empirical (i.e. observational) datasets. This is sometimes referred to as an empirical Q-Q plot. We can also use the q-q plot to compare an *empirical* observation to a *theoretical* observation (i.e. one defined mathematically). Such a plot is usually referred to as a **theoretical Q-Q plot**. Examples of popular theoretical observations are the normal distribution (aka the Gaussian distribution), the chi-square distribution, and the exponential distribution just to name a few.
@@ -36,7 +38,7 @@ p3 <- ggplot(data = data.frame(x = seq(0, 10, by=0.1)), aes(x)) +
 grid.arrange(p1, p2, p3, nrow=1)
 ```
 
-
+## Why we want to compare emprirical vs theoretical distributions
 There are many reasons we might want to compare empirical data to theoretical distributions:
 
 * A theoretical distribution is easy to parameterize. For example, if the shape of the distribution of a batch of numbers can be approximated by a normal distribution we can reduce the complexity of our data to just two values: the mean and the standard deviation.
@@ -51,10 +53,10 @@ But very few empirical datasets follow any theoretical distributions exactly. So
 
 The theoretical quantile-quantile plot is a tool to explore how a batch of numbers deviates from a theoretical distribution and to visually assess whether the difference is significant for the purpose of the analysis. In the following examples, we will compare empirical data to the normal distribution using the normal quantile-quantile plot.
 
-# The normal q-q plot
+## The normal q-q plot
 The normal q-q plot is just a special case of the empirical q-q plot we’ve explored so far; the difference being that we assign the normal distribution quantiles to the x-axis.
 
-## Drawing a normal q-q plot from scratch
+### Drawing a normal q-q plot from scratch
 In the following example, we’ll compare the Alto 1 group to a normal distribution. First, we’ll extract the Alto 1 height values and save them as an atomic vector object using dplyr’s piping operations. 
 
 However, dplyr’s operations will return a dataframe–even if a single column is selected. To force the output to an atomic vector, we’ll pipe the subset to `pull(height)` which will extract the height column into a plain vector element.

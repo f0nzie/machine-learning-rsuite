@@ -1,18 +1,122 @@
-# Breast Cancer
+# Classification algorithms comparison. `BreastCancer` dataset
+
+```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE} 
+knitr::opts_chunk$set(echo = TRUE, 
+                      comment = "#>", 
+                      error = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE,
+                      fig.align = 'center')
+```
 
 ```{r echo=FALSE}
 load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 .libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
 ```
 
+## Introduction
+In this classification problem we apply these algorithms:
+
+* Linear
+  1. LG (logistic regression)
+  2. LDA (linear discriminant analysis)
+  3. GLMNET (Regularized logistic regression)
+  
+* Non-linear
+  4. KNN (k-Nearest Neighbors)
+  5. CART (Classification and Regression Trees)
+  6. NB (Naive Bayes)
+  7. SVM (Support Vector Machines)
+
 ```{r}
 # load packages
 library(mlbench)
 library(caret)
+library(tictoc)
 
 # Load data
 data(BreastCancer)
 ```
+
+## Workflow
+
+1. Load dataset 
+2. Create train and validation datasets, 80/20
+3. Inspect dataset:
+  * dimension
+  * class of variables
+  * `skimr`
+4. Clean up features
+  - Convert character to numeric
+  - Frequency table on class
+  - remove NAs
+5. Visualize features
+  * histograms (loop on variables)
+  * density plots (loop)
+  * boxplot (loop)
+  * Pairwise jittered plot
+  * Barplots for all features (loop)
+6. Train as-is  
+  - Set the train control to
+    * 10 cross-validations
+    * 3 repetitions
+    * Metric: Accuracy
+  - Train the models 
+  - Numeric comparison of model results
+  - Visual comparison
+    * dot plot
+7. Train with data transformation
+  - data transformatiom
+    * BoxCox
+  - Train models 
+  - Numeric comparison
+  - Visual comparison
+    * dot plot 
+8. Tune the best model: SVM
+  - Set the train control to
+    * 10 cross-validations
+    * 3 repetitions
+    * Metric: Accuracy
+  - Train the models 
+    * Radial SVM
+    * Sigma vector
+    * `.C`
+    * BoxCox
+  - Evaluate tuning parameters
+9. Tune the best model: KNN
+  - Set the train control to
+    * 10 cross-validations
+    * 3 repetitions
+    * Metric: Accuracy
+  - Train the models 
+    * .k
+    * BoxCox
+  - Evaluate tuning parameters
+    * Scatter plot
+10, Ensembling
+  - Select the algorithms
+    * Bagged CART
+    * Random Forest
+    * Stochastic Gradient Boosting
+    * C5.0
+  - Numeric comparison
+    * resamples
+    * summary
+  - Visual comparison
+    * dot plot       
+11. Finalize the model
+  - Back transformation
+    * `preProcess`
+    * `predict`
+12. Apply model to validation set
+  - Prepare validation set
+  - Transform the dataset
+  * Make prediction
+    - `knn3Train`
+  * Calculate accuracy
+    - Confusion Matrix
+
+## Inspect the dataset
 
 ```{r}
 dplyr::glimpse(BreastCancer)
@@ -186,7 +290,8 @@ metric <- "Accuracy"
 ```
 
 
-```{r models-first-run}
+```{r models-first-run, warning=FALSE, message=FALSE}
+tic()
 # LG
 set.seed(7)
 fit.glm <- train(Class~., data=dataset, method="glm", metric=metric,
@@ -224,6 +329,7 @@ results <- resamples(list(LG     = fit.glm,
                           CART   = fit.cart, 
                           NB     = fit.nb, 
                           SVM    = fit.svm))
+toc()
 summary(results)
 dotplot(results)
 ```

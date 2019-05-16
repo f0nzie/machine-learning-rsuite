@@ -1,4 +1,4 @@
-# Regression. Boston
+# Regression algorithms comparison. Boston dataset
 Comparison of various algorithms.
 
 
@@ -15,6 +15,17 @@ knitr::opts_chunk$set(echo = TRUE,
 load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 .libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
 ```
+
+## Introduction
+These are the algorithms used:
+
+1. LM
+2. GLM
+3. GLMNET
+4. SVM
+5. CART
+6. KNN
+
 
 ```{r}
 # load packages
@@ -35,7 +46,89 @@ tibble::as_tibble(BostonHousing)
 ```
 
 
+## Workflow
 
+1. Load dataset 
+2. Create train and test datasets, 80/20
+3. Inspect dataset:
+  * Dimension
+  * classes
+  * `skimr`
+4. Analyze features
+  * correlation
+5. Visualize features
+  * histograms
+  * density plots
+  * pairwise
+  * correlogram
+5. Train as-is  
+  - Set the train control to
+    * 10 cross-validations
+    * 3 repetitions
+    * Metric: RMSE
+  - Train the models 
+  - Compare accuracy of models
+  - Visual comparison
+    * dot plot
+6. Train with Feature selection
+  - Feature selection
+    * `findCorrelation`
+    * generate new dataset
+  - Train models again  
+  - Compare RMSE again
+  - Visual comparison
+    * dot plot  
+7. Train with dataset transformation
+  * data transformatiom
+    * Center
+    * Scale
+    * BoxCox
+  - Train models 
+  - Compare RMSE 
+  - Visual comparison
+    * dot plot 
+8. Tune the best model
+  - Set the train control to
+    * 10 cross-validations
+    * 3 repetitions
+    * Metric: RMSE
+  - Train the models 
+    * Radial SVM
+    * Sigma vector
+    * .C
+    * BoxCox
+9, Ensembling
+  - Select the algorithms
+    * Random Forest
+    * Stochastic Gradient Boosting
+    * Cubist
+  - Numeric comparison
+    * resample
+    * summary
+  - Visual comparison
+  * dot plot 
+10. Tune the best model: Cubist
+  - Set the train control to
+    * 10 cross-validations
+    * 3 repetitions
+    * Metric: RMSE
+  - Train the models 
+    * Cubist
+    * `.committees`
+    * `.neighbors`
+    * BoxCox
+  - Evaluate the tuning parameters
+    - Numeric comparison
+      * print tuned model
+    - Visual comparison
+      * scatter plot
+11. Finalize the model
+  - Back transformation
+  - Summary
+12. Apply model to validation set
+    - Transform the dataset
+    - Make prediction
+    - Calculate the RMSE
 
 ```{r}
 # Split out validation dataset

@@ -119,7 +119,7 @@ p2
 ```
 
 
-The standard Q-Q diagnostic for linear models plots quantiles of the standardized residuals vs. theoretical quantiles of N(0,1). @Peter's ggQQ function plots the residuals. The snippet below amends that and adds a few cosmetic changes to make the plot more like what one would get from plot(lm(...)).
+The standard Q-Q diagnostic for linear models plots quantiles of the standardized residuals vs. theoretical quantiles of N(0,1). Peter's ggQQ function plots the residuals. The snippet below amends that and adds a few cosmetic changes to make the plot more like what one would get from plot(lm(...)).
 
 ```{r}
 # https://stackoverflow.com/a/19990107/5270873
@@ -203,5 +203,3 @@ ggQQ(model)
 
 p6
 ```
-
-# 

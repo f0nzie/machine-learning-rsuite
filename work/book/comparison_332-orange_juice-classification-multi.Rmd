@@ -1,4 +1,4 @@
-# Orange Juice
+# Classification algorithm comparison. *Orange Juice* dataset
 
 Source: https://www.machinelearningplus.com/machine-learning/caret-package/
 Data: https://raw.githubusercontent.com/selva86/datasets/master/orange_juice_withmissing.csv
@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.align = 'center')
 ```
 
-```{r echo=FALSE}
+```{r rsuite, echo=FALSE}
 load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 .libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
 ```
@@ -26,7 +26,35 @@ A lot of exciting stuff ahead. To make it simpler, this tutorial is structured t
 4. Training and Tuning the model
 5. Ensembling the predictions
 
-## 2. Initial Setup – load the package and dataset
+### Algorithms used
+1. Random Forest
+2. Multivariate Adaptive Regresion Splines
+3. AdaBoost
+4. XGBoost DART
+5. SVM
+
+
+
+### Workflow
+
+1. Feature Engineering
+    - Random Forest
+
+1. Tuning
+
+1. Compare models
+    - summary
+    - Box plot of ROC and Sensitivity
+1. Ensembling
+    - Training 
+        - RF
+        - AdaBoost
+        - Earth
+        - XGb DART
+        - SVM
+    
+
+## Initial Setup – load the package and dataset
 For this tutorial, I am going to use a modified version of the Orange Juice Data, originally made available in the ISLR package.
 
 The goal of this dataset is to predict which of the two brands of orange juices did the customers buy.
@@ -53,7 +81,7 @@ Let’s import the dataset and see it’s structure and starting few rows.
 # head(orange[, 1:10])
 ```
 
-```{r}
+```{r load_libraries}
 library(caret)
 library(readr)
 library(tictoc)
@@ -69,9 +97,9 @@ head(orange[, 1:10])
 ```
 
 
-## 3. Data Preparation and Preprocessing
+## Data Preparation and Preprocessing
 
-### 3.1. How to split the dataset into training and validation?
+### How to split the dataset into training and validation?
 The dataset is ready.
 
 The first step is to split it into training(80%) and test(20%) datasets using caret’s `createDataPartition` function.
@@ -88,7 +116,7 @@ The model is then used to predict the Y in test data by looking only the `X` val
 
 Alright, let’s create the training and test datasets.
 
-```{r}
+```{r tarining_test_ds}
 # Create the training and test datasets
 set.seed(100)
 
@@ -110,7 +138,7 @@ y = trainData$Purchase
 
 Plus, you need to set `list=F`, to prevent returning the result as a list.
 
-### 3.2. Descriptive statistics
+### Descriptive statistics
 Before moving to missing value imputation and feature preprocessing, let’s observe the descriptive statistics of each column in the training dataset.
 
 The `skimr` package provides a nice solution to show key descriptive stats for each column.
@@ -127,7 +155,7 @@ Notice the number of missing values for each feature, mean, median, proportion s
 
 We will examine how important each of these features is in predicting the **response** (Purchase) in section 4, once we are done with the data preprocessing.
 
-### 3.3. How to impute missing values using preProcess()?
+### How to impute missing values using preProcess()?
 We’ve seen that the dataset has few missing values across all columns, we may to do well to impute it. Impute, means to fill it up with some meaningful values.
 
 If the feature is a continuous variable, it is a common practice to replace the missing values with the mean of the column. And if it’s a categorical variable, replace the missings with the most frequently occurring value, aka, the mode.
@@ -145,7 +173,7 @@ Then use `predict()` on the created preprocess model by setting the newdata argu
 
 Caret also provides `bagImpute` as an alternative imputation algorithm.
 
-```{r}
+```{r preProcess_knn_impute}
 # Create the knn imputation model on the training data
 preProcess_missingdata_model <- preProcess(trainData, method='knnImpute')
 preProcess_missingdata_model
@@ -157,9 +185,9 @@ That is, it has centered (subtract by mean) 16 variables, ignored 2, used `k=5` 
 
 Let’s now use this model to predict the missing values in `trainData`.
 
-```{r}
+```{r impute_by_rann}
 # Use the imputation model to predict the values of missing data points
-library(RANN)  # required for knnInpute
+library(RANN)    # required for knnInpute
 
 trainData <- predict(preProcess_missingdata_model, newdata = trainData)
 anyNA(trainData)
@@ -168,14 +196,14 @@ anyNA(trainData)
 All the missing values are successfully imputed.
 
 
-```{r}
+```{r confirm_missing_data}
 # confirmed no more missing data
 skimmed <- skim_to_wide(trainData)
 skimmed[, c(1:5, 9:11, 13, 15:16)]
 ```
 We confirm that there no more missing rows.
 
-### 3.4. How to create One-Hot Encoding (dummy variables)?
+### How to create One-Hot Encoding (dummy variables)?
 Let me first explain what is one-hot encoding and why it is required.
 
 Suppose if you have a categorical column as one of the features, it needs to be converted to numeric in order for it to be used by the machine learning algorithms.
@@ -188,7 +216,7 @@ An important aspect you should be careful about here is, in real-world environme
 
 In `caret`, one-hot-encodings can be created using `dummyVars()`. Just pass in all the features to `dummyVars()` as the training data and all the factor columns will automatically be converted to one-hot-encodings.
 
-```{r}
+```{r convert_to_dummy_vars}
 # One-Hot Encoding
 # Creating dummy variables is converting a categorical variable to as many binary variables as here are categories.
 dummies_model <- dummyVars(Purchase ~ ., data = trainData)
@@ -206,7 +234,7 @@ str(trainData)
 
 In the above case, we had one categorical variable, `Store7` with 2 categories. It was one-hot-encoded to produce two new columns – `Store7.No` and `Store7.Yes`.
 
-### 3.5. How to preprocess to transform the data?
+### How to preprocess to transform the data?
 With the missing values handled and the factors one-hot-encoded, our training dataset is now ready to undergo variable transformations if required.
 
 So what type of preprocessing are available in caret?
@@ -223,7 +251,7 @@ So what type of preprocessing are available in caret?
 
 For our problem, let’s convert all the numeric variables to range between 0 and 1, by setting `method=range` in `preProcess()`.
 
-```{r}
+```{r preProcess-transform_range}
 tic()
 preProcess_range_model <- preProcess(trainData, method = 'range')
 trainData <- predict(preProcess_range_model, newdata = trainData)
@@ -239,7 +267,7 @@ toc()
 
 All the predictor now range between 0 and 1.
 
-## 4. How to visualize the importance of variables using featurePlot()
+## How to visualize the importance of variables using featurePlot()
 Now that the preprocessing is complete, let’s visually examine how the predictors influence the `Y` (Purchase).
 
 In this problem, the `X` variables are numeric whereas the `Y` is categorical.
@@ -256,7 +284,7 @@ Simply set the X and Y parameters and set `plot='box'`. You can additionally adj
 
 > This plot initially was of the `box` type, but it is now giving out a `NULL` value.
 
-```{r}
+```{r featurePlot-pairs}
 x = trainData[, 1:18]
 y = trainData$Purchase
 
@@ -269,7 +297,7 @@ featurePlot(x, y, "pairs")
 
 
 
-```{r}
+```{r featurePlot-box_training}
 featurePlot(x = trainData[, 1:18], 
             y = trainData$Purchase, 
             plot = "box",
@@ -300,7 +328,7 @@ In this case, for a variable to be important, I would expect the density curves 
 
 Take a look at the density curves of the two categories for ‘`LoyalCH`’, ‘`STORE`’, ‘`StoreID`’, ‘`WeekofPurchase`’. Are they different?
 
-```{r}
+```{r featurePlot-density_training}
 featurePlot(x = trainData[, 1:18], 
             y = trainData$Purchase, 
             plot = "density",
@@ -315,7 +343,7 @@ Because sometimes, variables with uninteresting pattern can help explain certain
 
 So to be safe, let’s not arrive at conclusions about excluding variables prematurely.
 
-## 5. How to do feature selection using recursive feature elimination (RFE)?
+## How to do feature selection using recursive feature elimination (RFE)?
 Most machine learning algorithms are able to determine what features are important to predict the Y. But in some scenarios, you might be need to be careful to include only variables that may be significantly important and makes strong business sense.
 
 This is quite common in banking, economics and financial institutions.
@@ -341,6 +369,7 @@ RFE works in 3 broad steps:
 It can be implemented using the rfe() function and you have the flexibility to control what algorithm rfe uses and how it cross validates by defining the `rfeControl()`.
 
 ```{r model-rfe-run}
+tic()
 set.seed(100)
 options(warn=-1)
 
@@ -354,7 +383,7 @@ ctrl <- rfeControl(functions = rfFuncs,
 lmProfile <- rfe(x=trainData[, 1:18], y=trainData$Purchase,
                  sizes = subsets,
                  rfeControl = ctrl)
-
+toc()
 lmProfile
 ```
 
@@ -388,9 +417,9 @@ Plus also, since the training dataset isn’t large enough, the other predictors
 In the next step, we will build the actual randomForest model on `trainData`.
 
 
-## 6. Training and Tuning the model
+## Training and Tuning the model
 
-### 6.1. How to train the model and interpret the results?
+### How to train the model and interpret the results?
 Now comes the important stage where you actually build the machine learning model.
 
 To know what models caret supports, run the following:
@@ -457,23 +486,22 @@ When we used `model_mars` to predict the Y, this final model was automatically u
 
 Plotting the model shows how the various iterations of hyperparameter search performed.
 
-```{r}
+```{r plot_mars_tuning_params}
 plot(model_mars, main="Model Accuracies with MARS")
-
 ```
 
-### 6.2 How to compute variable importance?
+### How to compute variable importance?
 Excellent, since MARS supports computing variable importances, let’s extract the variable importances using `varImp()` to understand which variables came out to be useful.
 
 
-```{r}
+```{r variable_importance}
 varimp_mars <- varImp(model_mars)
 plot(varimp_mars, main="Variable Importance with MARS")
 ```
 
 As suspected, LoyalCH was the most used variable, followed by PriceDiff and StoreID.
 
-### 6.3. Prepare the test dataset and predict
+### Prepare the test dataset and predict
 A default MARS model has been selected.
 
 Now in order to use the model to predict on new data, the data has to be preprocessed and transformed just the way we did on the training data.
@@ -502,7 +530,7 @@ testData4 <- predict(preProcess_range_model, testData3)
 head(testData4[, 1:10])
 ```
 
-### 6.4. Predict on testData
+### Predict on testData
 The test dataset is prepared. Let’s predict the Y.
 
 ```{r}
@@ -511,7 +539,7 @@ predicted <- predict(model_mars, testData4)
 predicted
 ```
 
-### 6.5. Confusion Matrix
+### Confusion Matrix
 The confusion matrix is a tabular representation to compare the predictions (data) vs the actuals (reference). By setting `mode='everything` pretty much most classification evaluation metrics are computed.
 
 ```{r}
@@ -523,7 +551,7 @@ confusionMatrix(reference = testData$Purchase,
 
 You have an overall accuracy of 82%.
 
-## 7. How to do hyperparameter tuning to optimize the model for better performance?
+## How to do hyperparameter tuning to optimize the model for better performance?
 There are two main ways to do hyper parameter tuning using the `train()` function:
 
 1. Set the `tuneLength`
@@ -537,7 +565,7 @@ Alternately, if you want to explicitly control what values should be considered 
 
 Let’s see an example of both these approaches but first let’s setup the `trainControl()`.
 
-### 7.1. Setting up the `trainControl()`
+### Setting up the `trainControl()`
 The `train()` function takes a `trControl` argument that accepts the output of `trainControl()`.
 
 Inside `trainControl()` you can control how the `train()` will:
@@ -573,7 +601,7 @@ fitControl <- trainControl(
 ) 
 ```
 
-### 7.2 Hyper Parameter Tuning using `tuneLength`
+### Hyper Parameter Tuning using `tuneLength`
 Let’s take the `train()` function we used before, plus, additionally set the `tuneLength`, `trControl` and `metric.`
 
 
@@ -595,7 +623,7 @@ confusionMatrix(reference = testData$Purchase,
                 mode='everything', positive='MM')
 ```
 
-### 7.3. Hyper Parameter Tuning using `tuneGrid`
+### Hyper Parameter Tuning using `tuneGrid`
 Alternately, you can set the `tuneGrid` instead of `tuneLength.`
 
 
@@ -605,6 +633,7 @@ marsGrid <-  expand.grid(nprune = c(2, 4, 6, 8, 10),
                         degree = c(1, 2, 3))
 
 # Step 2: Tune hyper parameters by setting tuneGrid
+tic()
 set.seed(100)
 model_mars3 = train(Purchase ~ ., 
                     data = trainData, 
@@ -612,6 +641,7 @@ model_mars3 = train(Purchase ~ .,
                     metric = 'ROC', 
                     tuneGrid = marsGrid, 
                     trControl = fitControl)
+toc()
 model_mars3
 
 # Step 3: Predict on testData and Compute the confusion matrix
@@ -622,14 +652,15 @@ confusionMatrix(reference = testData$Purchase,
                 positive = 'MM')
 ```
 
-## 8. How to evaluate performance of multiple machine learning algorithms?
+## How to evaluate performance of multiple machine learning algorithms?
 Caret provides the `resamples()` function where you can provide multiple machine learning models and collectively evaluate them.
 
 Let’s first train some more algorithms.
 
-### 8.1. Training Adaboost
+### Training Adaboost
 
 ```{r model-adaboost-run}
+tic()
 set.seed(100)
 
 # Train the model using adaboost
@@ -637,13 +668,15 @@ model_adaboost = train(Purchase ~ ., data = trainData,
                        method = 'adaboost', 
                        tuneLength = 2, 
                        trControl = fitControl)
+toc()
 model_adaboost
 ```
 
-### 8.2. Training Random Forest
+### Training Random Forest
 
 
 ```{r model-rf-run}
+tic()
 set.seed(100)
 
 # Train the model using rf
@@ -651,10 +684,11 @@ model_rf = train(Purchase ~ ., data = trainData,
                  method = 'rf', 
                  tuneLength = 5, 
                  trControl = fitControl)
+toc()
 model_rf
 ```
 
-### 8.3. Training xgBoost Dart
+### Training xgBoost Dart
 Ref.: https://xgboost.readthedocs.io/en/latest/tutorials/dart.html
 Kaggle: http://blog.kaggle.com/2017/01/23/a-kaggle-master-explains-gradient-boosting/
 Papers:
@@ -678,12 +712,13 @@ model_xgbDART = train(Purchase ~ .,
                       verbose = F)
 toc()
 
-head(model_xgbDART)
+summary(model_xgbDART)
 ```
 
-### 8.4. Training SVM
+### Training SVM
 
 ```{r model-svm-run}
+tic()
 set.seed(100)
 
 # Train the model using MARS
@@ -692,10 +727,11 @@ model_svmRadial = train(Purchase ~ .,
                         method = 'svmRadial', 
                         tuneLength = 15, 
                         trControl = fitControl)
+toc()
 model_svmRadial
 ```
 
-### 8.5. Run `resamples()` to compare the models
+### Run `resamples()` to compare the models
 
 ```{r models-compare}
 # Compare model performances using resample()
@@ -713,7 +749,7 @@ summary(models_compare)
 
 Let’s plot the resamples summary output.
 
-```{r}
+```{r boxplot_comparison_algos}
 # Draw box plots to compare models
 scales <- list(x = list(relation="free"), y = list(relation = "free"))
 bwplot(models_compare, scales = scales)
@@ -725,9 +761,9 @@ The `xgbDART` model appears to be the be best performing model overall because o
 
 Either way, you can now make an informed decision on which model to pick.
 
-## 9. Ensembling the predictions
+## Ensembling the predictions
 
-### 9.1. How to ensemble predictions from multiple models using `caretEnsemble`?
+### How to ensemble predictions from multiple models using `caretEnsemble`?
 So we have predictions from multiple individual models. To do this we had to run the `train()` function once for each model, store the models and pass it to the res
 
 The `caretEnsemble` package lets you do just that.
@@ -735,7 +771,7 @@ The `caretEnsemble` package lets you do just that.
 All you have to do is put the names of all the algorithms you want to run in a vector and pass it to `caretEnsemble::caretList()` instead of `caret::train()`.
 
 
-```{r models-ensemble-run}
+```{r models-ensemble-run-takes_a_while}
 library(caretEnsemble)
 tic()
 # Stacking Algorithms - Run multiple algos in one call.
@@ -760,7 +796,7 @@ summary(results)
 
 Plot the resamples output to compare the models.
 
-```{r}
+```{r boxplot_comparison_enssemble}
 # Box plots to compare models
 scales <- list(x = list(relation="free"), y = list(relation="free"))
 bwplot(results, scales = scales)
@@ -769,7 +805,7 @@ bwplot(results, scales = scales)
 Excellent! It is possible for further tune the model within `caretList` in a customised way.
 
 
-### 9.2. How to combine the predictions of multiple models to form a final prediction
+### How to combine the predictions of multiple models to form a final prediction
 
 That one function simplified a whole lot of work in one line of code.
 
@@ -811,7 +847,7 @@ stack_predicteds <- predict(stack.glm, newdata=testData4)
 head(stack_predicteds)
 ```
 
-## 10. Conclusion
+## Conclusion
 The purpose of this post was to cover the core pieces of the `caret` package and how you can effectively use it to build machine learning models.
 
 This information should serve as a reference and also as a template you can use to build a standardised machine learning workflow, so you can develop it further from there.

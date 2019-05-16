@@ -1,4 +1,4 @@
-# Data Visualization. 6 Work with models
+# Data Visualization: Working with models
 
 ```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE, 
@@ -14,8 +14,8 @@ load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 .libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
 ```
 
+## Introduction
 https://socviz.co/modeling.html
-
 
 Data visualization is about more than generating figures that display the raw numbers from a table of data. Right from the beginning, it involves summarizing or transforming parts of the data, and then plotting the results. Statistical models are a central part of that process. In this Chapter, we will begin by looking briefly at how `ggplot` can use various modeling techniques directly within geoms. Then we will see how to use the `broom` and `margins` libraries to tidily extract and plot estimates from models that we fit ourselves. \
 
@@ -57,7 +57,7 @@ Histograms, density plots, boxplots, and other geoms compute either single numbe
 
 Both the `geom_smooth()` and `geom_quantile()` functions can also be instructed to use different formulas to produce their fits. In the top panel of Figure 6.1, we access the `MASS` library’s `rlm` function to fit a robust regression line. In the second panel, the `bs` function is invoked directly from the `splines` library in the same way, to fit a polynominal curve to the data. This is the same approach to directly accessing functions without loading a whole library that we have already used several times when using functions from the `scales` library. The `geom_quantile()` function, meanwhile, is like a specialized version of `geom_smooth()` that can fit quantile regression lines using a variety of methods. The `quantiles` argument takes a vector specifying the quantiles at which to fit the lines.
 
-## 6.1 Show several fits at once, with a legend
+## Show several fits at once, with a legend
 As we just saw in the first panel of Figure 6.1, where we plotted both an OLS and a robust regression line, we can look at several fits at once on the same plot by layering on new smoothers with `geom_smooth()`. As long as we set the color and fill aesthetics to different values for each fit, we can easily distinguish them visually. However, `ggplot` will not draw a legend that guides us about which fit is which. This is because the smoothers are not logically connected to one another. They exist as separate layers. What if we are comparing several different fits and want a legend describing them?
 
 As it turns out, `geom_smooth()` can do this via the slightly unusual route of mapping the color and fill aesthetics to a string describing the model we are fitting, and then using `scale_color_manual()` and `scale_fill_manual()` to create the legend. First we use `brewer.pal()` from the `RColorBrewer` library to extract three qualitatively different colors from a larger palette. The colors are represented as hex values. As before use the `::` convention to use the function without loading the whole library: \
@@ -93,7 +93,7 @@ Here we take advantage of that behavior, creating a new single-value variable fo
 These model-fitting features make `ggplot` very useful for exploratory work, and make it straightforward to generate and compare model-based trends and other summaries as part of the process of descriptive data visualization. The various `stat_` functions are a flexible way to add summary estimates of various kinds to plots. But we will also want more than this, including presenting results from models we fit ourselves.
 
 
-## 6.2 Look inside model objects
+## Look inside model objects
 Covering the details of fitting statistical models in R is beyond the scope of this book. For a comprehensive, modern introduction to that topic you should work your way through (Gelman & Hill, 2018). (Harrell, 2016) is also very good on the many practical connections between modeling and graphing data. Similarly, (Gelman, 2004) provides a detailed discussion of the use of graphics as a tool in model-checking and validation. Here we will discuss some ways to take the models that you fit and extract information that is easy to work with in ggplot. Our goal, as always, is to get from however the object is stored to a tidy table of numbers that we can plot. Most classes of statistical model in R will contain the information we need, or will have a special set of functions, or methods, designed to extract it.
 
 We can start by learning a little more about how the output of models is stored in R. Remember, we are always working with objects, and objects have an internal structure consisting of named pieces. Sometimes these are single numbers, sometimes vectors, and sometimes lists of things like vectors, matrices, or formulas.
@@ -140,21 +140,21 @@ The `out` object created by `lm` contains several different named elements. Some
 Just like the tables of data we saw earlier in Section A.1.3, the output of `summary()` is presented in a way that is compact and efficient in terms of getting information across, but also untidy when considered from the point of view of further manipulation. There is a table of coefficients, but the variable names are in the rows. The column names are awkward, and some information (e.g. at the bottom of the output) has been calculated and printed out, but is not stored in the model object.
 
 
-## 6.3 Get model-based graphics right
+## Get model-based graphics right
 Figures based on statistical models face all the ordinary challenges of effective data visualization, and then some. This is because model results usually carry a considerable extra burden of interpretation and necessary background knowledge. The more complex the model, the trickier it becomes to convey this information effectively, and the easier it becomes to lead one’s audience or oneself into error. Within the social sciences, our ability to clearly and honestly present model-based graphics has greatly improved over the past ten or fifteen years. Over the same period, it has become clearer that some kinds of models are quite tricky to understand, even ones that had previously been seen as straightforward elements of the modeling toolkit (Ai & Norton, 2003; Brambor, Clark, & Golder, 2006).
 
 Plotting model estimates is closely connected to properly estimating models in the first place. This means there is no substitute for learning the statistics. You should not use graphical methods as a substitute for understanding the model used to produce them. While this book cannot teach you that material, we can make a few general points about what good model-based graphics look like, and work through some examples of how `ggplot` and some additional libraries can make it easier to get good results.
 
-### 6.3.1 Present your findings in substantive terms
+### Present your findings in substantive terms
 Useful model-based plots show results in ways that are substantively meaningful and directly interpretable with respect to the questions the analysis is trying to answer. This means showing results in a context where other variables in the analysis are held at sensible values, such as their means or medians. With continuous variables, it can often be useful to generate predicted values that cover some substantively meaningful move across the distribution, such as from the 25th to the 75th percentile, rather than a single-unit increment in the variable of interest. For unordered categorical variables, predicted values might be presented with respect to the modal category in the data, or for a particular category of theoretical interest. Presenting substantively interpretable findings often also means using (and sometimes converting to) a scale that readers can easily understand. If your model reports results in log-odds, for example, converting the estimates to predicted probabilities will make it easier to interpret. All of this advice is quite general. Each of these points applies equally well to the presentation of summary results in a table rather than a graph. There is nothing distinctively graphical about putting the focus on the substantive meaning of your findings.
 
-### 6.3.2 Show your degree of confidence
+### Show your degree of confidence
 Much the same applies to presenting the degree of uncertainty or confidence you have in your results. Model estimates come with various measures of precision, confidence, credence, or significance. Presenting and interpreting these measures is notoriously prone to misinterpretation, or over-interpretation, as researchers and audiences both demand more from things like confidence intervals and p-values than these statistics can deliver. At a minimum, having decided on an appropriate measure of model fit or the right assessment of confidence, you should show their range when you present your results. A family of related `ggplot` geoms allow you to show a range or interval defined by position on the x-axis and then a `ymin` and `ymax` range on the y-axis. These geoms include `geom_pointrange()` and `geom_errorbar()`, which we will see in action shortly. A related geom, `geom_ribbon()` uses the same arguments to draw filled areas, and is useful for plotting ranges of y-axis values along some continuously varying x-axis.
 
-### 6.3.3 Show your data when you can
+### Show your data when you can
 Plotting the results from a multivariate model generally means one of two things. First, we can show what is in effect a table of coefficients with associated measures of confidence, perhaps organizing the coefficients into meaningful groups, or by the size of the predicted association, or both. Second, we can show the predicted values of some variables (rather than just a model’s coefficients) across some range of interest. The latter approach lets us show the original data points if we wish. The way `ggplot` builds graphics layer by layer allows us to easily combine model estimates (e.g. a regression line and an associated range) and the underlying data. In effect these are manually-constructed versions of the automatically-generated plots that we have been producing with `geom_smooth()` since the beginning of this book.
 
-## 6.4 Generate predictions to graph
+## Generate predictions to graph
 Having fitted a model, then, we might want to get a picture of the estimates it produces over the range of some particular variable, holding other covariates constant at some sensible values. The `predict()` function is a generic way of using model objects to produce this kind of prediction. In R, “generic” functions take their inputs and pass them along to more specific functions behind the scenes, ones that are suited to working with the particular kind of model object we have. The details of getting predicted values from a OLS model, for instance, will be somewhat different from getting predictions out of a logistic regression. But in each case we can use the same `predict()` function, taking care to check the documentation to see what form the results are returned in for the kind of model we are working with. Many of the most commonly-used functions in R are generic in this way. The `summary()` function, for example, works on objects of many different classes, from vectors to data frames and statistical models, producing appropriate output in each case by way of a class-specific function in the background.
 
 For `predict()` to calculate the new values for us, it needs some new data to fit the model to. We will generate a new data frame whose columns have the same names as the variables in the model’s original data, but where the rows have new values. A very useful function called `expand.grid()` will help us do this. We will give it a list of variables, specifying the range of values we want each variable to take. Then `expand.grid()` will generate the will multiply out the full range of values for all combinations of the values we give it, thus creating a new data frame with the new data we need.
@@ -221,7 +221,7 @@ We use a new geom here to draw the area covered by the prediction intervals: `ge
 
 In practice, you may not use `predict()` directly all that often. Instead, you might write code using additional libraries that encapsulate the process of producing predictions and plots from models. These are especially useful when your model is a little more complex and the interpretation of coefficients becomes trickier. This happens, for instance, when you have a binary outcome variable and need to convert the results of a logistic regression into predicted probabilities, or when you have interaction terms amongst your predictions. We will discuss some of these helper libraries in the next few sections. However, bear in mind that `predict()` and its ability to work safely with different classes of model underpins many of those libraries. So it’s useful to see it in action first hand in order to understand what it is doing.
 
-## 6.5 Tidy model objects with `broom`
+## Tidy model objects with `broom`
 The `predict` method is very useful, but there are a lot of other things we might want to do with our model output. We will use David Robinson’s `broom` package to help us out. It is a library of functions that help us get from the model results that R generates to numbers that we can plot. It will take model objects and turn pieces of them into data frames that you can use easily with `ggplot.`
 
 
@@ -232,7 +232,7 @@ library(broom)
 
 Broom takes ggplot’s approach to tidy data and extends it to the model objects that R produces. Its methods can tidily extract three kinds of information. First, we can see component-level information about aspects of the model itself, such as coefficients and t-statistics. Second, we can obtain observation-level information about the model’s connection to the underlying data. This includes the fitted values and residuals for each observation in the data. And finally we can get model-level information that summarizes the fit as a whole, such as an F-statistic, the model deviance, or the r-squared. There is a `broom` function for each of these tasks.
 
-### 6.5.1 Get component-level statistics with `tidy()`
+### Get component-level statistics with `tidy()`
 The `tidy()` function takes a model object and returns a data frame of component-level information. We can work with this to make plots in a familiar way, and much more easily than fishing inside the model object to extract the various terms. Here is an example, using the default results as just returned. For a more convenient display of the results, we will pipe the object we create with `tidy()` through a function that rounds the numeric columns of the data frame to two decimal places. This doesn’t change anything about the object itself, of course. \
 
 ```{r}
@@ -240,7 +240,7 @@ out_comp <- tidy(out)
 out_comp %>% round_df()
 ```
 
-We are now able to treat this data frame just like all the other data that we have seen so far. \
+We are now able to treat this dataframe just like all the other data that we have seen so far. \
 
 ```{r}
 p <- ggplot(out_comp, mapping = aes(x = term,
@@ -273,7 +273,7 @@ p + geom_pointrange() + coord_flip() + labs(x="", y="OLS Estimate")
 
 Dotplots of this kind can be very compact. The vertical axis can often be compressed quite a bit, with no loss in comprehension. In fact, they are often easier to read with much less room between the rows than given by a default square shape.
 
-### 6.5.2 Get observation-level statistics with `augment()`
+### Get observation-level statistics with `augment()`
 The values returned by `augment()` are all statistics calculated at the level of the original observations. As such, they can be added on to the data frame that the model is based on. Working from a call to `augment()` will return a data frame with all the original observations used in the estimation of the model, together with columns like the following:
 
 * **.fitted** — The fitted values of the model.
@@ -292,16 +292,16 @@ head(out_aug) %>% round_df()
 
 ```
 
-By default, `augment()` will extract the available data from the model object. This will usually include the variables used in the model itself, but not any additional ones contained in the original data frame. Sometimes it is useful to have these. We can add them by specifying the data argument: \
+By default, `augment()` will extract the available data from the model object. This will usually include the variables used in the model itself, but not any additional ones contained in the original data frame. Sometimes it is useful to have these. We can add them by specifying the `data` argument: \
 
 ```{r}
 out_aug <- augment(out, data = gapminder)
 head(out_aug) %>% round_df()
 ```
 
-If some rows containing missing data were dropped to fit the model, then these will not be carried over to the augmented data frame.
+If some rows containing missing data were dropped to fit the model, then these will not be carried over to the augmented dataframe.
 
-The new columns created by `augment()` can be used to create some standard regression plots. For example, we can plot the residuals versus the fitted values. Figure 6.7 suggests, unsurprisingly, that our country-year data has rather more structure than is captured by our OLS model. \
+The new columns created by `augment()` can be used to create some standard regression plots. For example, we can plot the residuals versus the fitted values. Figure 6.7 suggests, unsurprisingly, that our country-year data has rather more structure than is captured by our `OLS` model. \
 
 ```{r fig-67}
 p <- ggplot(data = out_aug,
@@ -309,7 +309,7 @@ p <- ggplot(data = out_aug,
 p + geom_point()
 ```
 
-### 6.5.3 Get model-level statistics with `glance()`
+### Get model-level statistics with `glance()`
 This function organizes the information typically presented at the bottom of a model’s `summary()` output. By itself, it usually just returns a table with a single row in it. But as we shall see in a moment, the real power of broom’s approach is the way that it can scale up to cases where we are grouping or subsampling our data.
 
 ```{r}
@@ -338,7 +338,7 @@ p + geom_line() +
 ```
 
 
-## 6.6 Grouped analysis and list-columns
+## Grouped analysis and list-columns
 Broom makes it possible to quickly fit models to different subsets of your data and get consistent and usable tables of results out the other end. For example, let’s say we wanted to look at the gapminder data by examining the relationship between life expectancy and GDP by continent, for each year in the data.
 
 The `gapminder` data is at bottom organized by country-years. That is the unit of observation in the rows. If we wanted, we could take a slice of the data manually, such as “all countries observed in Asia, in 1962” or “all in Africa, 2002”. Here is “Europe, 1977”: \
@@ -412,7 +412,7 @@ out_tidy <- gapminder %>%
 out_tidy %>% sample_n(5)
 ```
 
-We now have tidy regression output with an estimate of the association between log GDP per capita and life expectancy for each year, within continents. We can plot these estimates in a way that takes advantage of their groupiness. \
+We now have tidy regression output with an estimate of the association between `log` GDP per capita and life expectancy for each year, within continents. We can plot these estimates in a way that takes advantage of their groupiness. \
 
 ```{r}
 # Figure 6.9: Yearly estimates of the association between GDP and Life Expectancy, pooled by continent.
@@ -430,7 +430,7 @@ p + geom_pointrange(position = position_dodge(width = 1)) +
 
 The call to `position_dodge()` within `geom_pointrange()` allows the point ranges for each continent to be near each other within years, instead of being plotted right on top of one another. We could have faceted the results by continent, but doing it this way lets us see differences in the yearly estimates much more easily. This technique is very useful not just for cases like this, but also when you want to compare the coefficients given by different kinds of statistical model. This sometimes happens when we’re interested in seeing how, say, OLS performs against some other model specification.
 
-## 6.7 Plot marginal effects
+## Plot marginal effects
 Our earlier discussion of `predict()` was about obtaining estimates of the average effect of some coefficient, net of the other terms in the model. Over the past decade, estimating and plotting partial or marginal effects from a model has become an increasingly common way of presenting accurate and interpretively useful predictions. Interest in marginal effects plots was stimulated by the realization that the interpretation of terms in logistic regression models, in particular, was trickier than it seemed—especially when there were interaction terms in the model (Ai & Norton, 2003). Thomas Leeper’s `margins` package can make these plots for us.
 
 ```{r}
@@ -496,7 +496,7 @@ p + geom_hline(yintercept = 0, color = "gray80") +
 
 The `margins` package is under active development. It can do much more than described here. The vignettes that come with the package provide more extensive discussion and numerous examples.
 
-## 6.8 Plots from complex surveys
+## Plots from complex surveys
 Social scientists often work with data collected using a complex survey design. Survey instruments may be stratified by region or some other characteristic, contain replicate weights to make them comparable to a reference population, have a clustered structure, and so on. In Chapter 4 we learned how calculate and then plot frequency tables of categorical variables, using some data from the General Social Survey (GSS). However, if we want accurate estimates of US households from the GSS, we will need to take the survey’s design into account, and use the survey weights provided in the dataset. Thomas Lumley’s `survey` library provides a comprehensive set of tools for addressing these issues. The tools and the theory behind them are discussed in detail in Lumley (2010), and an overview of the package is provided in Lumley (2004). While the functions in the `survey` package are straightforward to use and return results in a generally tidy form, the package predates the tidyverse and its conventions by several years. This means we cannot use survey functions directly with `dplyr`. However, Greg Freedman Ellis has written a helper package, `srvyr`, that solves this problem for us, and lets us use the `survey` library’s functions within a data analysis pipeline in a familiar way.
 
 For example, the `gss_lon` data contains a small subset of measures from every wave of the GSS since its inception in 1972. It also contains several variables that describe the design of the survey and provide replicate weights for observations in various years. These technical details are described in the GSS documentation. Similar information is typically provided by other complex surveys. Here we will use this design information to calculate weighted estimates of the distribution of educational attainment by race, for selected survey years from 1976 to 2016.
@@ -562,7 +562,7 @@ out_mrg
 
 The call to `separate()` says to take the `racedeg` column, split each value when it sees a period, and reorganize the results into two columns, race and degree. This gives us a tidy table much like `out_grp`, but for the marginal frequencies.
 
-Reasonable people can disagree over how best to plot a small multiple of a frequency table while faceting by year, especially when there is some measure of uncertainty attached. A barplot is the obvious approach for a single case, but when there are many years it can become difficult to compare bars across panels. This is especially the case when standard errors or confidence intervals are used in conjunction with bars.Sometimes it may be preferable to show that the underlying variable is categorical, as a bar chart makes clear, and not continuous, as a line graph suggests. Here the trade-off is in favor of the line graphs as the bars are very hard to compare across facets. This is sometimes called a “dynamite plot”, not because it looks amazing but because the t-shaped error bars on the tops of the columns make them look like cartoon dynamite plungers. An alternative is to use a line graph to join up the time observations, faceting on educational categories instead of year. Figure 6.12 shows the results for our GSS data in dynamite-plot form, where the error bars are defined as twice the standard error in either direction around the point estimate. \
+Reasonable people can disagree over how best to plot a small multiple of a frequency table while faceting by year, especially when there is some measure of uncertainty attached. A barplot is the obvious approach for a single case, but when there are many years it can become difficult to compare bars across panels. This is especially the case when standard errors or confidence intervals are used in conjunction with bars.Sometimes it may be preferable to show that the underlying variable is categorical, as a bar chart makes clear, and not continuous, as a line graph suggests. Here the trade-off is in favor of the line graphs as the bars are very hard to compare across facets. This is sometimes called a “dynamite plot”, not because it looks amazing but because the t-shaped error bars on the tops of the columns make them look like cartoon dynamite plungers. An alternative is to use a line graph to join up the time observations, faceting on educational categories instead of year. Figure 6.12 shows the results for our GSS data in *dynamite-plot* form, where the error bars are defined as twice the standard error in either direction around the point estimate. \
 
 ```{r fig.height=12, fig.width=8}
 p <- ggplot(data = subset(out_grp, race %nin% "Other"),
@@ -613,10 +613,10 @@ p + geom_ribbon(alpha = 0.3, aes(color = NULL)) +
     theme(legend.position = "top")
 ```
 
-## 6.9 Where to go next
+## Where to go next
 In general, when you estimate models and want to plot the results, the difficult step is not the plotting but rather calculating and extracting the right numbers. Generating predicted values and measures of confidence or uncertainty from models requires that you understand the model you are fitting, and the function you use to fit it, especially when it involves interactions, cross-level effects, or transformations of the predictor or response scales. The details can vary substantially from model type to model type, and also with the goals of any particular analysis. It is unwise to approach them mechanically. That said, several tools exist to help you work with model objects and produce a default set of plots from them.
 
-### 6.9.1 Default plots for models
+### Default plots for models
 Just as model objects in R usually have a default `summary()` method, printing out an overview tailored to the type of model it is, they will usually have a default `plot()` method, too. Figures produced by `plot()` are typically not generated via `ggplot`, but it is usually worth exploring them. They typically make use of either R’s base graphics or the `lattice` library (Sarkar, 2008). These are two plotting systems that we do not cover in this book. Default plot methods are easy to examine. Let’s take a look again at our simple OLS model. \
 
 ```{r}
@@ -642,10 +642,10 @@ out <- lm(formula = lifeExp ~ log(gdpPercap) + log(pop) + continent, data = gapm
 coefplot(out, sort = "magnitude", intercept = FALSE)
 ```
 
-### 6.9.2 Tools in development
+### Tools in development
 Tidyverse tools for modeling and model exploration are being actively developed. The `broom` and `margins` libraries continue to get more and more useful. There are also other projects worth paying attention to. The `infer`  packageinfer.netlify.com is in its early stages but can already do useful things in a pipeline-friendly way. You can install it from CRAN with `install.packages("infer")`.
 
-### 6.9.3 Extensions to ggplot
+### Extensions to ggplot
 The `GGally` package provides a suite of functions designed to make producing standard but somewhat complex plots a little easier. For instance, it can produce generalized pairs plots, a useful way of quickly examining possible relationships between several different variables at once. This sort of plot is like the visual version of a correlation matrix. It shows a bivariate plot for all pairs of variables in the data. This is relatively straightforward when all the variables are continuous measures. Things get more complex when, as is often the case in the social sciences, some or all variables are categorical or otherwise limited in the range of values they can take. A generalized pairs plot can handle these cases. For example, Figure ?? shows a generalized pairs plot for five variables from the `organdata` dataset.
 
 ```{r message=FALSE, warning=FALSE}
@@ -661,4 +661,4 @@ ggpairs(data = organdata_sm,
         lower = list(continuous = wrap("points"), combo = wrap("dot_no_facet")))
 ```
 
-Multi-panel plots like this are intrinsically very rich in information. When combined with several within-panel types of representation, or any more than a modest number of variables, they can become quite complex. They should be used less for the presentation of finished work, although it is possible. More often they are a useful tool for the working researcher to quickly investigate aspects of a data set. The goal is not to pithily summarize a single point one already knows, but to open things up for further exploration.
+Multi-panel plots like this are intrinsically very rich in information. When combined with several within-panel types of representation, or any more than a modest number of variables, they can become quite complex. They should be used less for the presentation of finished work, although it is possible. More often they are a useful tool for the working researcher to quickly investigate aspects of a dataset. The goal is not to pithily summarize a single point one already knows, but to open things up for further exploration.

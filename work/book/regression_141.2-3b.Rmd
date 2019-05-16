@@ -1,14 +1,24 @@
-# Regression 3b
+# Regression 3b. `Rates` dataset
 
-## Introduction
-> line 29 does not plot
+```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      comment = NA, 
+                      error = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = 'center')
+```
 
 ```{r echo=FALSE}
 load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 .libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
 ```
 
-https://www.matthewrenze.com/workshops/practical-machine-learning-with-r/lab-3b-regression.html
+## Introduction
+
+> line 29 does not plot
+
+**Source:** https://www.matthewrenze.com/workshops/practical-machine-learning-with-r/lab-3b-regression.html
 
 ```{r}
 library(readr)
@@ -36,14 +46,13 @@ palette <- brewer.pal(9, "Reds")
 
 ```{r}
 library(corrgram)
-corrgram(policies)
 
+corrgram(policies)
 ```
 
 
 ```{r}
 cor(policies[3:8])
-
 ```
 
 ```{r}
@@ -58,19 +67,17 @@ plot(
   y = policies$Rate)
 ```
 
-## 2. Split the Data into Test and Training Sets
+## Split the Data into Test and Training Sets
 
 ```{r}
 set.seed(42)
 
 ```
 
+
 ```{r}
 library(caret)
 
-```
-
-```{r}
 indexes <- createDataPartition(
   y = policies$Rate,
   p = 0.80,
@@ -84,10 +91,9 @@ test <- policies[-indexes, ]
 ```{r}
 print(nrow(train))
 print(nrow(test))
-
 ```
 
-## 3. Predict with Simple Linear Regression
+## Predict with Simple Linear Regression
 
 ```{r}
 simpleModel <- lm(
@@ -109,7 +115,6 @@ lines(
 
 ```{r}
 summary(simpleModel)
-
 ```
 
 ```{r}
@@ -135,10 +140,9 @@ points(
 ```{r}
 simpleRMSE <- sqrt(mean((test$Rate - simplePredictions)^2))
 print(simpleRMSE)
-
 ```
 
-## 4. Predict with Multiple Linear Regression
+## Predict with Multiple Linear Regression
 
 ```{r}
 multipleModel <- lm(
@@ -148,7 +152,6 @@ multipleModel <- lm(
 
 ```{r}
 summary(multipleModel)
-
 ```
 
 ```{r}
@@ -173,11 +176,9 @@ points(
 ```{r}
 multipleRMSE <- sqrt(mean((test$Rate - multiplePredictions)^2))
 print(multipleRMSE)
-
 ```
 
-## 6. Predict with Neural Network Regression
-
+## Predict with Neural Network Regression
 
 ```{r}
 normalize <- function(x) {
@@ -245,21 +246,19 @@ points(
 
 ```{r}
 library(NeuralNetTools)
-plotnet(neuralRegressor)
 
+plotnet(neuralRegressor)
 ```
 
 ```{r}
 neuralRMSE <- sqrt(mean((test$Rate - neuralPredictions)^2))
 print(neuralRMSE)
-
 ```
 
-## 7. Evaluate the Regression Models
+## Evaluate the Regression Models
 
 ```{r}
 print(simpleRMSE)
 print(multipleRMSE)
 print(neuralRMSE)
-
 ```

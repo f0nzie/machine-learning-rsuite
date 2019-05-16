@@ -1,4 +1,4 @@
-# Multiclass classification. iris
+# Multiclass classification comparison. `iris` dataset
 
 ```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE} 
 knitr::opts_chunk$set(echo = TRUE, 
@@ -15,6 +15,13 @@ load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 ```
 
 ## Introduction
+These are the algorithms used:
+
+1. LDA
+2. CART
+3. KNN
+4. SVM
+5. RF
 
 ```{r}
 # load the caret package
@@ -24,6 +31,21 @@ data(iris)
 # rename the dataset
 dataset <- iris
 ```
+
+## Workflow
+
+1. Load dataset 
+2. Create train and test datasets, 80/20
+3. Inspect dataset
+4. Visualize features
+5. Set the train control to
+  * 10 cross-validations
+  * Metric: accuracy
+6. Train the models 
+7. Compare accuracy of models
+8. Visual comparison
+9. Make predictions on `validation` set
+
 
 We will split the loaded dataset into two, 80% of which we will use to train our models and 20% that we will hold back as a validation dataset.
 

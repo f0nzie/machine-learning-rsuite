@@ -1,4 +1,4 @@
-# Can we predict flu outcome with Machine Learning in R?
+# Classification algorithms comparison. `outbreaks` dataset
 
 ```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE} 
 knitr::opts_chunk$set(echo = TRUE, 
@@ -15,6 +15,7 @@ load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 .libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
 ```
 
+## Introduction
 Among the many nice R packages containing data collections is the [outbreaks](https://mran.microsoft.com/web/packages/outbreaks/outbreaks.pdf
 ) package. It contains datsets on epidemics and among them is data from the 2013 outbreak of [influenza A H7N9](http://www.who.int/influenza/human_animal_interface/faq_H7N9/en/) in [China](http://www.who.int/influenza/human_animal_interface/influenza_h7n9/ChinaH7N9JointMissionReport2013u.pdf?ua=1) as analysed by Kucharski et al. (2014): 
 
@@ -22,6 +23,69 @@ Among the many nice R packages containing data collections is the [outbreaks](ht
 
 > A. Kucharski, H. Mills, A. Pinsent, C. Fraser, M. Van Kerkhove, C. A. Donnelly, and S. Riley. 2014. Data from: Distinguishing between reservoir exposure and human-to-human transmission for emerging pathogens using case onset data. Dryad Digital Repository. http://dx.doi.org/10.5061/dryad.2g43n.
 
+### Algorithms
+We compare these classification algorithms:
+
+1. Random Forest
+2. GLM net
+3. k-Nearest Neighbors
+4. Penalized Discriminant Analysis
+5. Stabilized Linear Discriminant Analysis
+6. Nearest Shrunken Centroids
+7. Single C5.0 Tree
+8. Partial Least Squares
+
+### Workflow
+
+1. Load dataset
+2. Data wrangling
+  - Many dates as one variable: `gather`
+  - Convert group to factor: `factor`
+  - Change dates descriptions: `dplyr::mapvalues`
+  - Set several provinces as Other: `mapvalues`
+  - Convert gender to factor
+  - Convert province to factor
+3. Features visualization
+  - Area density plot of Month vs Age by Province, by date group, by outcome, by gender
+  - Number of flu cases by gender, by province
+  - Age density plot of flu cases by outcome
+  - Days passed from outset by province, by age, by gender, by outcome
+4. Feature engineering
+  - Generate new features
+  - Gender to numeric
+  - Provinces to binary classifiers
+  - Outcome to binary classifier
+  - Impute missing data: `mice`
+5. Split dataset in training, validation and test sets  
+6. Feature importance
+  - with Decision Trees
+  - with Random Forest
+  - Wrangling dataset
+  - Plot Importance vs Variable
+7. Impact on Datasets  
+  - Density plot of training, validation and test datasets
+  - Features vs outcome by age, days onset to hospital, day onset to outcome
+8. Train models on training validation dataset
+  - Numeric and visual Comparison of models
+    - Accuracy
+    - Kappa
+  - Compare predictions on training validation set  
+    - Create dataset for results
+    - New variable for outcome
+11. Predicting on unknown outcomes on training data  
+  - Numeric and visual Comparison of models
+    - Accuracy
+    - Kappa
+  - Compare predictions on training validation set  
+    - Create dataset for results
+    - New variable for outcome
+  - Calculate predicted outcome
+  - Save to CSV file
+  - Calculate recovery cases
+  - Summarize outcome
+  - Plot month vs log2-ratio of recovery vs death, by gender, by age, by date group
+
+### Can we predict flu outcome with Machine Learning in R?
 I will be using their data as an example to show how to use Machine Learning algorithms for predicting disease outcome.
 
 To do so, I selected and extracted features from the raw data, including age, days between onset and outcome, gender, whether the patients were hospitalised, etc. Missing values were imputed and different model algorithms were used to predict outcome (death or recovery). The prediction accuracy, sensitivity and specificity. The thus prepared dataset was devided into training and testing subsets. The test subset contained all cases with an unknown outcome. Before I applied the models to the test data, I further split the training data into validation subsets.

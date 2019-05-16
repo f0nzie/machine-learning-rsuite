@@ -28,6 +28,7 @@ load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 library(caret)
 library(mlbench)
 library(randomForest)
+library(tictoc)
 
 # load dataset
 data(Sonar)
@@ -54,6 +55,7 @@ training   <- Sonar[validationIndex,]
 ```
 
 ```{r train_model-takes_a_while}
+tic()
 # train a model and summarize model
 set.seed(7)
 trainControl <- trainControl(method="repeatedcv", number=10, repeats=3)
@@ -62,7 +64,7 @@ fit.rf <- train(Class~., data=training,
                 metric = "Accuracy", 
                 trControl = trainControl, 
                 ntree = 2000)
-
+toc()
 print(fit.rf)
 print(fit.rf$finalModel)
 ```

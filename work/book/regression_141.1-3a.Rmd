@@ -1,13 +1,25 @@
-# Lab 3A: Regression
+# Lab 3A: Regression. `iris` dataset
 
-https://www.matthewrenze.com/workshops/practical-machine-learning-with-r/lab-3a-regression.html
+```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, 
+                      comment = NA, 
+                      error = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = 'center')
+```
 
 ```{r echo=FALSE}
 load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 .libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
 ```
 
-## 1. Explore the Data
+## Introduction
+
+https://www.matthewrenze.com/workshops/practical-machine-learning-with-r/lab-3a-regression.html
+
+
+## Explore the Data
 Load Iris data
 
 ```{r}
@@ -50,7 +62,7 @@ plot(
   ylim = c(0.25, 2.5))
 ```
 
-## 2. Create Training and Test Sets
+## Create Training and Test Sets
 
 ```{r}
 set.seed(42)
@@ -69,8 +81,8 @@ train <- iris[indexes, ]
 test <- iris[-indexes, ]
 ```
 
-## 3. Predict with Simple Linear Regression
 
+## Predict with Simple Linear Regression
 
 ```{r}
 simpleModel <- lm(
@@ -96,7 +108,6 @@ lines(
 
 ```{r}
 summary(simpleModel)
-
 ```
 
 
@@ -133,10 +144,9 @@ points(
 ```{r}
 simpleRMSE <- sqrt(mean((test$Petal.Width - simplePredictions)^2))
 print(simpleRMSE)
-
 ```
 
-## 4. Predict with Multiple Regression
+## Predict with Multiple Regression
 
 ```{r}
 multipleModel <- lm(
@@ -144,19 +154,16 @@ multipleModel <- lm(
   data = train)
 ```
 
-
 ```{r}
 summary(multipleModel)
 
 ```
-
 
 ```{r}
 multiplePredictions <- predict(
   object = multipleModel,
   newdata = test)
 ```
-
 
 ```{r}
 plot(
@@ -183,7 +190,6 @@ points(
 ```{r}
 multipleRMSE <- sqrt(mean((test$Petal.Width - multiplePredictions)^2))
 print(multipleRMSE)
-
 ```
 
 
@@ -194,7 +200,6 @@ normalize <- function(x) {
   (x - min(x)) / (max(x) - min(x)) - 0.5
 }
 ```
-
 
 ```{r}
 denormalize <- function(x, y) {
@@ -216,17 +221,11 @@ scaledIris <- data.frame(
 ```{r}
 scaledTrain <- scaledIris[indexes, ]
 scaledTest <- scaledIris[-indexes, ]
-
 ```
-
 
 ```{r}
 library(nnet)
 
-```
-
-
-```{r}
 neuralRegressor <- nnet(
   formula = Petal.Width ~ .,
   data = scaledTrain,
@@ -241,12 +240,7 @@ neuralRegressor <- nnet(
 ```{r}
 library(NeuralNetTools)
 
-```
-
-
-```{r}
 plotnet(neuralRegressor)
-
 ```
 
 
@@ -288,11 +282,9 @@ points(
 ```{r}
 neuralRMSE <- sqrt(mean((test$Petal.Width - neuralPredictions)^2))
 print(neuralRMSE)
-
 ```
 
 ## 6. Evaluate Regression Models
-
 
 ```{r}
 print(simpleRMSE)
