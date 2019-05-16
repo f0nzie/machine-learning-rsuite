@@ -15,6 +15,7 @@ load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 ```
 
 ## Introduction
+**Source**: https://www.geeksforgeeks.org/classifying-data-using-support-vector-machinessvms-in-r/
 
 ## Data Operations
 
