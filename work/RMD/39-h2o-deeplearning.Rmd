@@ -35,7 +35,7 @@ The R package h2o provides a convenient interface to **H2O**, which is an open-s
 First, we need to load the packages and connect to the Spark instance (for demonstration purposes, I am using a local instance).
 
 ```{r}
-options(rsparkling.sparklingwater.version = "2.1.14")
+# options(rsparkling.sparklingwater.version = "2.1.14")
 
 library(rsparkling)
 library(sparklyr)
@@ -304,6 +304,44 @@ summary(valid$diagnosis, exact_quantiles = TRUE)
 summary(test$diagnosis, exact_quantiles = TRUE)
 ```
 
+```{r eval=FALSE}
+# PCA demo
+# https://www.rdocumentation.org/packages/h2o/versions/3.22.1.1/topics/h2o.prcomp
+
+library(h2o)
+h2o.init()
+australia_path <- system.file("extdata", "australia.csv", package = "h2o")
+australia <- h2o.uploadFile(path = australia_path)
+
+australia.pca <- h2o.prcomp(training_frame = australia, 
+                            k = 8, 
+                            transform = "STANDARDIZE")
+print(australia.pca)
+summary(australia.pca)
+```
+
+
+```{r eval=FALSE}
+# PCA demo
+library(h2o)
+h2o.init()
+d <- as.h2o(matrix(runif(2000),nrow = 40, ncol = 50))
+m = h2o.prcomp(d, k = 20)
+m
+```
+
+```{r eval=FALSE}
+# PCA demo
+library(h2o)
+h2o.init()
+d <- as.h2o(matrix(runif(2000),nrow = 40, ncol = 50))
+m = h2o.prcomp(d, 
+               k = 20,
+               transform = "NORMALIZE"
+               )
+m
+```
+
 If we had more categorical features, we could use the `h2o.interaction()` function to define interaction terms, but since we only have numeric features here, we don’t need this.
 
 We can also run a PCA on the training data, using the `h2o.prcomp()` function to calculate the singular value decomposition of the Gram matrix with the power method. \
@@ -315,7 +353,6 @@ pca <- h2o.prcomp(training_frame = train,
            transform = "NORMALIZE",
            k = 3,
            seed = 42)
-
 pca
 ```
 
