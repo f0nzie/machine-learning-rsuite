@@ -1,0 +1,225 @@
+# ML in practice 5a
+
+```{r echo=FALSE}
+load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
+.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
+```
+
+https://www.matthewrenze.com/workshops/practical-machine-learning-with-r/lab-5a-ml-in-practice.html
+
+```{r}
+library(readr)
+
+raw <- read_csv(file = file.path(data_raw_dir, "Titanic.csv"))
+```
+
+```{r}
+head(raw)
+```
+
+
+```{r}
+summary(raw)
+```
+
+```{r}
+plot(raw)
+```
+
+
+```{r}
+library(corrgram)
+corrgram(raw)
+
+```
+
+```{r}
+sum(is.na(raw))
+
+```
+
+
+```{r}
+library(dplyr)
+
+clean <- raw %>%
+  mutate(age = ifelse(is.na(age), mean(na.omit(age)), age)) %>%
+  mutate(family = sibsp + parch) %>%
+  mutate(survived = as.factor(ifelse(survived == 0, "No", "Yes"))) %>%
+  select(
+    Class = pclass,
+    Sex = sex,
+    Age = age,
+    Family = family,
+    Survived = survived) %>%
+  as.data.frame()
+```
+
+## 2. Create Training and Test Set
+
+```{r}
+library(caret)
+
+```
+
+
+```{r}
+set.seed(42)
+
+indexes <- createDataPartition(
+  clean$Survived, 
+  p = .8, 
+  list = FALSE, 
+  times = 1)
+
+train <- clean[indexes, ]
+test <- clean[-indexes, ]
+
+
+```
+
+```{r}
+preProcess <- c("center", "scale")
+
+```
+
+
+```{r}
+control <- trainControl(
+  method = "cv",
+  number = 10)
+```
+
+## 3. Train KNN Models
+
+```{r}
+knnModel <- train(
+  form = Survived ~ .,
+  data = train,
+  method = "knn",
+  preProcess = preProcess,
+  trControl = control,
+  tuneLength = 5,
+  metric = "Accuracy")
+```
+
+
+```{r}
+print(knnModel)
+
+```
+
+```{r}
+plot(knnModel)
+
+```
+
+## 4. Train Decision Tree Models
+
+```{r}
+treeModel <- train(
+  form = Survived ~ .,
+  data = train,
+  method = "rpart",
+  preProcess = preProcess,
+  trControl = control,
+  tuneLength = 5,
+  metric = "Accuracy")
+
+print(treeModel)
+
+```
+
+```{r}
+plot(treeModel)
+
+```
+
+## 5. Train Neural Network Models
+
+
+```{r}
+neuralTuneGrid <- data.frame(
+  size = c(3, 4, 5, 3, 4, 5, 3, 4, 5),
+  decay = c(0.1, 0.1, 0.1, 0.01, 0.01, 0.01, 0.001, 0.001, 0.001))
+```
+
+```{r}
+neuralModel <- train(
+  form = Survived ~ .,
+  data = train,
+  method = "nnet",
+  preProcess = preProcess,
+  trControl = control,
+  tuneGrid = neuralTuneGrid)
+
+print(neuralModel)
+
+```
+
+
+```{r}
+plot(neuralModel)
+
+```
+
+## 6. Evaluate the Models
+
+```{r}
+results <- resamples(list(
+  knn = knnModel,
+  tree = treeModel,
+  nnet = neuralModel))
+
+summary(results)
+
+```
+
+
+```{r}
+dotplot(results)
+
+```
+
+```{r}
+bwplot(results)
+
+```
+
+
+```{r}
+densityplot(results, auto.key = TRUE)
+
+```
+
+## 7. Evalute the Final Model
+
+```{r}
+final_predictions <- predict(
+  object = treeModel,
+  newdata = test)
+```
+
+
+```{r}
+finalMatrix <- confusionMatrix(
+  data = final_predictions,
+  reference = test$Survived)
+
+print(finalMatrix)
+
+```
+
+## 8. Deploy the Model
+
+```{r}
+predict(
+  object = neuralModel,
+  newdata = data.frame(
+    Class = 3,
+    Sex = "male",
+    Age = 20, 
+    Family = 1),
+  type = "prob")
+```
+
