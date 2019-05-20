@@ -8,6 +8,7 @@ rmd_files: [
   "regression_138-advertising.Rmd",
   "regression_141.1-3a.Rmd",
   "regression_141.2-3b.Rmd",
+  "regression_142-neural_network_yacht.Rmd",
 
 # Other
   "06-references.Rmd"
