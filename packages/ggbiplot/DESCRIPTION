@@ -15,3 +15,4 @@ URL: http://github.com/vqv/ggbiplot
 Collate:
     'ggbiplot.r'
     'ggscreeplot.r'
+RoxygenNote: 6.1.1

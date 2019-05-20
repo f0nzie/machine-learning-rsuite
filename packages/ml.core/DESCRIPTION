@@ -46,8 +46,8 @@ Imports: logging,
   broom,
   skimr,
   rmarkdown,
-  bookdown,
   usethis,
   tictoc,
-  faraway
+  faraway,
+  bookdown
 RoxygenNote: 6.1.1
