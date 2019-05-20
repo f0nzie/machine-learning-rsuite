@@ -134,7 +134,6 @@ kniter <- function(which) {
   }  else if (which == "class-202") {
     set_bookdown_yaml(suffix = "classification_202", cover_title = "Classification 202, ML")
   } else if (which == "comp") {
-    # file.copy("_bookdown.yml", "_bookdown.yml.bak", overwrite = TRUE)
     set_bookdown_yaml(suffix = "comparison", cover_title = "ML Algortihms Comparison")
   } else if (which == "meta") {
     set_bookdown_yaml(suffix = "comparison", cover_title = "Meta Use of ML Algortihms")
