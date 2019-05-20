@@ -1,0 +1,83 @@
+# Simple Linear Regression in Stan
+
+```{r}
+d <- read.delim("winequality-red.csv", sep = ";")
+dim(d)
+```
+
+```{r}
+d <- d[!duplicated(d), ] # remove the duplicates
+dim(d)
+
+names(d)
+
+```
+
+## Scaling the data
+
+```{r}
+ds <- scale(d)
+ds[1:3, 1:5]
+```
+
+```{r}
+round(apply(ds, 2, function(x) c(mean = mean(x), sd = sd(x))), 2)[, 1:5]
+```
+
+```{r}
+class(ds)
+ds <- as.data.frame(ds)
+```
+
+```{r}
+str(ds)
+```
+
+```{r}
+dim(ds)
+head(ds)
+```
+
+```{r}
+ds100 <- dplyr::sample_n(ds, 200)
+dim(ds100)
+head(ds100)
+```
+
+## Running Stan from R
+
+```{r}
+library(rstan)
+data <- with(ds100, list(alcohol = alcohol, quality = quality, N = nrow(ds100)))
+quality <- ds$quality
+
+dim(data)
+names(data)
+str(data)
+```
+
+```{r}
+m1 <- stan_model("lin_reg.stan")
+f1 <- sampling(m1, iter = 300, data = data)
+saveRDS(f1, file = "f1.Rds")
+# print(f1) # don't do this for large models
+```
+
+```{r}
+f1 <- stan(file = 'lin_reg.stan', data = data, 
+            iter = 300)
+```
+
+
+Downloaded from: https://archive.ics.uci.edu/ml/datasets/wine+quality
+
+
+```{r}
+library(rstan)
+data <- with(ds, list(X = as.matrix(ds[, 1:11]), 
+                      K = ncol(ds), N = nrow(ds)), y = quality)
+m2 <- stan_model("lin_reg1.stan")
+f2 <- sampling(m2, iter = 300, data = data); saveRDS(f2, file = "f2.Rds")
+print(f2) # don't do this for large models
+```
+

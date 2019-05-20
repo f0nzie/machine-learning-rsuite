@@ -1,0 +1,29 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+## You Do Not Need Stan to Specify a Model
+Here we specify a Bernoulli model in R and sample from the posterior to infer the proportion $\theta$. You can do same in pretty much any language.
+
+```{r}
+log_p <- function(theta, data) {
+  lp <- 0
+  for (i in 1:length(data)) 
+    lp <- lp + log(theta) * data[i] + log(1 - theta) * (1 - data[i])
+  return(lp)
+}
+data <- c(0, 1, 0, 1, 1); theta <- seq(0.001, 0.999, length.out = 250)
+log_lik <- log_p(theta = theta, data)
+log_prior <- log(dbeta(theta, 1, 1))
+log_posterior <- log_lik + log_prior
+posterior <- exp(log_posterior)
+posterior <- posterior / sum(posterior)
+post_draws <- sample(theta, size = 1e5, replace = TRUE, prob = posterior)
+```
+
+```{r}
+post_draws
+```
+

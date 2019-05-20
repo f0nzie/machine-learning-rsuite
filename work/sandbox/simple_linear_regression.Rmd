@@ -1,0 +1,21 @@
+# Simple linear regression
+
+```{r}
+set.seed(123)
+n <- 100
+x <- rnorm(n)
+y <- x+rnorm(n)
+mydata <- list(N = n, y = y, x=x)
+
+fit <- stan(file = 'linreg.stan', data = mydata, 
+            iter = 1000, chains = 4)
+```
+
+```{r}
+names(mydata)
+```
+
+```{r}
+mydata
+```
+
