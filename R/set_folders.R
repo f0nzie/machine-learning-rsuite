@@ -25,7 +25,8 @@ book_out_dir <- file.path(project_root, "export", "book_out")
 model_out_dir <- file.path(project_root, "export", "model_out")
 data_raw_dir <- file.path(project_root, "import")
 data_out_dir <- file.path(project_root, "export")
-assets_dir    <- file.path(project_root, "import", "assets")
+assets_dir   <- file.path(project_root, "import", "assets")
+r_code_dir   <- file.path(project_root, "R")
 
 save.image(file.path(project_root, "workspace.RData"))
 
