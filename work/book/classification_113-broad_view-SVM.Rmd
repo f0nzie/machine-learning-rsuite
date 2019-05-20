@@ -282,7 +282,6 @@ pred.te <- predict(out, newdata=dat.te)
 table(pred.te, dat.te$y)
 ```
 
-
 The model correctly identifies 18 of the 20 testing observations. SVMs and the boundaries they impose are more difficult to interpret at higher dimensions, but these results seem to suggest that our model is a good classifier for the gene data.
 
 

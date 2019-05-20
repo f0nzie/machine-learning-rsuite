@@ -26,6 +26,11 @@ Load Iris data
 data(iris)
 ```
 
+```{r}
+write.csv(iris, file.path(data_raw_dir, "iris.csv"))
+```
+
+
 Create scatterplot matrix
 
 ```{r}
@@ -36,8 +41,6 @@ plot(iris[1:4])
 ```{r}
 library(corrgram)
 corrgram(iris[1:4])
-
-
 ```
 
 
