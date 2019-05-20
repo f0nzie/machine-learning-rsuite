@@ -1,5 +1,13 @@
 # A gentle introduction to support vector machines using R
 
+```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE} 
+knitr::opts_chunk$set(echo = TRUE, 
+                      comment = "#>", 
+                      error = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE,
+                      fig.align = 'center')
+```
 
 ```{r echo=FALSE}
 load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
