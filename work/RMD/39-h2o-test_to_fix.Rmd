@@ -1,0 +1,138 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r echo=FALSE}
+load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
+.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
+```
+
+```{r}
+options(rsparkling.sparklingwater.version = "2.1.14")
+
+library(rsparkling)
+library(sparklyr)
+library(dplyr)
+library(h2o)
+library(pcaGoPromoter)
+
+sc <- spark_connect(master = "local", version = "2.1.0")
+```
+
+```{r data}
+arrhythmia <- read.table(file.path(data_raw_dir, "arrhythmia.data.txt"), sep = ",")
+arrhythmia[arrhythmia == "?"] <- NA
+
+# making sure, that all feature columns are numeric
+arrhythmia[-280] <- lapply(arrhythmia[-280], as.character)
+arrhythmia[-280] <- lapply(arrhythmia[-280], as.numeric)
+
+#  renaming output column and converting to factor
+colnames(arrhythmia)[280] <- "class"
+arrhythmia$class <- as.factor(arrhythmia$class)
+```
+
+```{r}
+#  all arrhythmia cases into one class
+arrhythmia$diagnosis <- ifelse(arrhythmia$class == 1, "healthy", "arrhythmia")
+arrhythmia$diagnosis <- as.factor(arrhythmia$diagnosis)
+```
+
+```{r}
+# Find what columns have NAs and the quantity
+for (col in names(arrhythmia)) {
+    n_nas <- length(which(is.na(arrhythmia[, col])))
+    if (n_nas > 0) cat(col, n_nas, "\n")
+}
+```
+
+```{r}
+# Replace NAs with zeros
+arrhythmia[is.na(arrhythmia)] <- 0
+```
+
+```{r plot-pca}
+pcaOutput <- pca(t(arrhythmia[-c(280, 281)]), printDropped=FALSE, 
+                 scale=TRUE, 
+                 center = TRUE)
+pcaOutput2 <- as.data.frame(pcaOutput$scores)
+
+pcaOutput2$groups <- arrhythmia$class
+#p1 <- pca_func(pcaOutput2, group_name = "class")
+
+pcaOutput2$groups <- arrhythmia$diagnosis
+#p2 <- pca_func(pcaOutput2, group_name = "diagnosis")
+
+```
+
+
+```{r}
+weights <- ifelse(pcaOutput2$PC1 < -5 & abs(pcaOutput2$PC2) > 10, 2, 1)
+```
+
+```{r}
+library(matrixStats)
+
+colvars <- data.frame(feature = colnames(arrhythmia[-c(280, 281)]),
+                      variance = colVars(as.matrix(arrhythmia[-c(280, 281)])))
+
+```
+
+
+```{r bind-weights}
+arrhythmia_subset <- cbind(weights, 
+                           arrhythmia[, c(281, 280, which(colvars$variance > 50))])
+```
+
+```{r copyto-spark}
+arrhythmia_sc <- copy_to(sc, arrhythmia_subset, overwrite = TRUE)
+arrhythmia_hf <- as_h2o_frame(sc, arrhythmia_sc, strict_version_check = FALSE)
+# arrhythmia_sc <- arrhythmia_subset
+# arrhythmia_hf <- h2o.getFrame(arrhythmia_sc)
+
+```
+
+```{r}
+# diagnosis is now a characer column and we need to convert it again
+arrhythmia_hf[, 2] <- h2o.asfactor(arrhythmia_hf[, 2]) 
+arrhythmia_hf[, 3] <- h2o.asfactor(arrhythmia_hf[, 3]) # same for class
+
+cor <- h2o.cor(arrhythmia_hf[, -c(1, 3)])
+rownames(cor) <- colnames(cor)
+```
+
+
+```{r h2o-splits}
+splits <- h2o.splitFrame(arrhythmia_hf, 
+                         ratios = c(0.7, 0.15), 
+                         seed = 1)
+
+train <- splits[[1]]
+valid <- splits[[2]]
+test <- splits[[3]]
+
+response <- "diagnosis"
+weights <- "weights"
+features <- setdiff(colnames(train), c(response, weights, "class"))
+```
+
+
+```{r}
+summary(train$diagnosis, exact_quantiles = TRUE)
+
+summary(valid$diagnosis, exact_quantiles = TRUE)
+
+summary(test$diagnosis, exact_quantiles = TRUE)
+```
+
+```{r h2o-pca}
+pca <- h2o.prcomp(training_frame = train,
+           x = features,
+           validation_frame = valid,
+           transform = "NORMALIZE",
+           k = 3,
+           seed = 42
+           )
+pca
+```
