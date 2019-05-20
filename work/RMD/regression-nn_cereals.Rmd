@@ -33,7 +33,7 @@ Now we will fit a neural network model in R. In this article, we use a subset of
 
  Please set working directory in R using setwd( ) function, and keep cereal.csv in the working directory. We use rating as the dependent variable and calories, proteins, fat, sodium and fiber as the independent variables. We divide the data into training and test set. Training set is used to find the relationship between dependent and independent variables while the test set assesses the performance of the model. We use 60% of the dataset as training set. The assignment of the data to training and test set is done using random sampling. We perform random sampling on R using sample ( ) function. We have used set.seed( ) to generate same random sample everytime and   maintain consistency. We will use the index variable while fitting neural network to create training and test data sets. The R script is as follows:
 
-```{r}
+```{r partition_datasets}
 ## Creating index variable 
 
 # Read the Data
@@ -52,7 +52,7 @@ datatest = data[ -index, ]
  
 Now we fit a neural network on our data. We use neuralnet library for the analysis. The first step is to scale the cereal dataset. The scaling of data is essential because otherwise a variable may have large impact on the prediction variable only because of its scale. Using unscaled may lead to meaningless results. The common techniques to scale data are: min-max normalization, Z-score normalization, median and MAD, and tan-h estimators. The min-max normalization transforms the data into a common range, thus removing the scaling effect from all the variables. Unlike Z-score normalization and median and MAD method, the min-max method retains the original distribution of the variables. We use min-max normalization to scale the data. The R script for scaling the data is as follows. 
 
-```{r}
+```{r scale_data}
 ## Scale data for neural network
 
 max = apply(data , 2 , max)
@@ -61,7 +61,7 @@ scaled = as.data.frame(scale(data, center = min, scale = max - min))
 ```
 
 
-```{r}
+```{r fit_nn}
 ## Fit neural network 
 
 # install library
@@ -83,7 +83,7 @@ plot(NN)
 ```
 
 
-```{r}
+```{r predict_nn}
 ## Prediction using neural network
 
 predict_testNN = compute(NN, testNN[,c(1:5)])
@@ -98,7 +98,7 @@ RMSE.NN = (sum((datatest$rating - predict_testNN)^2) / nrow(datatest)) ^ 0.5
 ```
 
 
-```{r}
+```{r cross_validation_nn}
 ## Cross validation of neural network model
 
 # install relevant libraries
@@ -137,7 +137,7 @@ for(j in 10:65){
 Matrix.RMSE = do.call(cbind, List)
 ```
 
-```{r}
+```{r boxplot}
 ## Prepare boxplot
 boxplot(Matrix.RMSE[,56], ylab = "RMSE", main = "RMSE BoxPlot (length of traning set = 65)")
 ```

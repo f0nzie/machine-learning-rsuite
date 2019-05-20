@@ -1,0 +1,365 @@
+# MXnet - an intuitive Deep Learning framework with CNN & RNN
+
+```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE} 
+knitr::opts_chunk$set(echo = TRUE, 
+                      comment = "#>", 
+                      error = TRUE, 
+                      warning = FALSE, 
+                      message = FALSE,
+                      fig.align = 'center')
+```
+
+```{r echo=FALSE}
+load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
+.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
+```
+
+
+http://tjo-en.hatenablog.com/entry/2016/03/30/233848
+
+## Preparing the datasets
+
+As raised in the title of this section, let's use the short version of MNIST handwritten digits dataset on my GitHub repository (5,000 rows for training and 1,000 for test). This dataset is not large so I think no classifiers can reach accuracy 0.98. Let's run as below to transform the dataset that can be handle by {mxnet}.
+
+### Read data
+
+```{r}
+# it will take around a minute
+train <-read.csv('https://github.com/ozt-ca/tjo.hatenablog.samples/raw/master/r_samples/public_lib/jp/mnist_reproduced/short_prac_train.csv')
+test <-read.csv('https://github.com/ozt-ca/tjo.hatenablog.samples/raw/master/r_samples/public_lib/jp/mnist_reproduced/short_prac_test.csv')
+```
+
+```{r eval=FALSE}
+# write the online datasets to local disk
+write.csv(train, file = file.path(data_raw_dir, "mnist-short_prac_train.csv"))
+write.csv(train, file = file.path(data_raw_dir, "mnist-short_prac_test.csv"))
+```
+
+
+```{r}
+# Data preparation
+
+train <-data.matrix(train)
+test <-data.matrix(test)
+train.x <-train[,-1]
+train.y <-train[,1]
+train.x <-t(train.x/255)
+test_org <-test
+test <-test[,-1]
+test <-t(test/255)
+table(train.y)
+```
+
+## Trying Deep Neural Network (DNN)
+All right, let's try a classical DNN according to the tutorial. This is merely a multi-layer perceptron with back propagation.
+
+```{r}
+library(mxnet)
+
+# Deep NN
+data <- mx.symbol.Variable("data")
+fc1 <- mx.symbol.FullyConnected(data, name="fc1", num_hidden=128)
+act1 <- mx.symbol.Activation(fc1, name="relu1", act_type="relu")
+
+fc2 <- mx.symbol.FullyConnected(act1, name="fc2", num_hidden=64)
+act2 <- mx.symbol.Activation(fc2, name="relu2", act_type="relu")
+
+fc3 <- mx.symbol.FullyConnected(act2, name="fc3", num_hidden=10)
+
+softmax <- mx.symbol.SoftmaxOutput(fc3, name="sm")
+
+devices <- mx.cpu()
+mx.set.seed(0)
+model <- mx.model.FeedForward.create(softmax, X=train.x, y=train.y,
+                                     ctx=devices, num.round=10, array.batch.size=100,
+                                     learning.rate=0.07, momentum=0.9,  eval.metric=mx.metric.accuracy,
+                                     initializer=mx.init.uniform(0.07),
+                                     epoch.end.callback=mx.callback.log.train.metric(100))
+```
+
+```{r}
+preds <- predict(model, test)
+dim(preds)
+```
+
+```{r}
+ pred.label <- max.col(t(preds)) - 1
+ table(pred.label)
+```
+
+
+```{r}
+head(pred.label)
+table(test_org[,1],pred.label)
+```
+
+```{r}
+ sum(diag(table(test_org[,1],pred.label)))/1000
+# 0.938
+```
+
+Finally we got a result as accuracy 0.952. As mentioned later, this is not good but also not bad.
+
+
+## Trying Convolutional Neural Network (CNN)
+
+OK, now it's time to try CNN, the main dish of this post. According to the code in the tutorial, the CNN should be set as below.
+
+
+```{r, out.width = "800px", echo=F}
+knitr::include_graphics("./images/20160330153822.png")
+```
+
+The R script below clearly shows {mxnet} can describe a configuration of convolution, pooling and fully connected layers very intuitively, similarly to Torch or Chainer.
+
+```{r}
+# Convolutional NN
+data <- mx.symbol.Variable('data')
+# first conv
+conv1 <- mx.symbol.Convolution(data=data, kernel=c(5,5), num_filter=20)
+tanh1 <- mx.symbol.Activation(data=conv1, act_type="tanh")
+pool1 <- mx.symbol.Pooling(data=tanh1, pool_type="max",
+                           kernel=c(2,2), stride=c(2,2))
+# second conv
+conv2 <- mx.symbol.Convolution(data=pool1, kernel=c(5,5), num_filter=50)
+tanh2 <- mx.symbol.Activation(data=conv2, act_type="tanh")
+pool2 <- mx.symbol.Pooling(data=tanh2, pool_type="max",
+                           kernel=c(2,2), stride=c(2,2))
+# first fullc
+flatten <- mx.symbol.Flatten(data=pool2)
+fc1 <- mx.symbol.FullyConnected(data=flatten, num_hidden=500)
+tanh3 <- mx.symbol.Activation(data=fc1, act_type="tanh")
+# second fullc
+fc2 <- mx.symbol.FullyConnected(data=tanh3, num_hidden=10)
+# loss
+lenet <- mx.symbol.SoftmaxOutput(data=fc2)
+train.array <- train.x
+dim(train.array) <- c(28, 28, 1, ncol(train.x))
+test.array <- test
+dim(test.array) <- c(28, 28, 1, ncol(test))
+mx.set.seed(0)
+tic <- proc.time()
+
+# model <- mx.model.FeedForward.create(lenet, X=train.array, y=train.y,
+#                                      ctx = device.cpu, num.round=20, array.batch.size=100,
+#                                      learning.rate=0.05, momentum=0.9, wd=0.00001,
+#                                      eval.metric=mx.metric.accuracy,
+#                                      epoch.end.callback=mx.callback.log.train.metric(100))
+
+model <- mx.model.FeedForward.create(lenet, X=train.array, y=train.y,
+                                     num.round=20, array.batch.size=100,
+                                     learning.rate=0.05, momentum=0.9, wd=0.00001,
+                                     eval.metric=mx.metric.accuracy,
+                                     epoch.end.callback=mx.callback.log.train.metric(100))
+```
+
+```{r}
+print(proc.time() - tic)
+```
+
+
+```{r}
+preds <- predict(model, test.array)
+pred.label <- max.col(t(preds)) - 1
+table(test_org[,1],pred.label)
+```
+
+
+```{r}
+sum(diag(table(test_org[,1],pred.label)))/1000
+# 0.982
+```
+
+Accuracy 0.976 was the performance of our simple CNN. In the tutorial, num.round is set to 1 but I changed it to 20*4. Computation time was 270 sec, further shorter than the case with {h2o}. It's great! :O)
+
+As just a trial, 4 samples of '9' digit in the test dataset that were incorrectly predicted as 4, 5 or 8 are visualized below.
+
+
+```{r, out.width = "800px", echo=F}
+knitr::include_graphics("./images/20160329142242.png")
+```
+
+
+Hey, who can identify them :P))) They are too ambiguous to be recognized correctly even by our brief CNN based on the tutorial of {mxnet}. Of course I know it's a fun for Kagglers to recognize such weird digit samples in MNIST.
+
+## Comparison to other methods
+
+Accuracy 0.976 on the short version of MNIST means the best benchmark ever in my blog. Let's review other benchmarks given by other classifiers.
+
+
+### Random Forest
+
+```{r}
+# takes less than a minute
+# read data
+train<-read.csv('https://github.com/ozt-ca/tjo.hatenablog.samples/raw/master/r_samples/public_lib/jp/mnist_reproduced/short_prac_train.csv')
+test<-read.csv('https://github.com/ozt-ca/tjo.hatenablog.samples/raw/master/r_samples/public_lib/jp/mnist_reproduced/short_prac_test.csv')
+```
+
+
+```{r}
+# split in train and test sets
+train$label<-as.factor(train$label)
+test$label<-as.factor(test$label)
+```
+
+
+```{r}
+library(randomForest)
+
+train.rf<-randomForest(label~.,train)
+table(test$label,predict(train.rf,newdata=test[,-1]))
+```
+
+
+
+```{r}
+sum(diag(table(test$label,predict(train.rf,newdata=test[,-1]))))/nrow(test)
+# 0.955
+```
+
+Accuracy was 0.951, but it's without parameter tuning by tuneRF (omitted for computation resource). It can be improved I think.
+
+
+### Xgboost
+
+```{r}
+# read data
+train<-read.csv('https://github.com/ozt-ca/tjo.hatenablog.samples/raw/master/r_samples/public_lib/jp/mnist_reproduced/short_prac_train.csv')
+test <-read.csv('https://github.com/ozt-ca/tjo.hatenablog.samples/raw/master/r_samples/public_lib/jp/mnist_reproduced/short_prac_test.csv')
+
+```
+
+
+```{r}
+library(xgboost)
+library(Matrix)
+
+train.mx<-sparse.model.matrix(label~., train)
+test.mx<-sparse.model.matrix(label~., test)
+dtrain<-xgb.DMatrix(train.mx, label=train$label)
+dtest<-xgb.DMatrix(test.mx, label=test$label)
+train.gdbt<-xgb.train(params=list(objective="multi:softmax", num_class=10, 
+                                  eval_metric="mlogloss", eta=0.3, max_depth=5, subsample=1, 
+                                  colsample_bytree=0.5), data=dtrain, nrounds=70, 
+                      watchlist=list(train=dtrain,test=dtest))
+```
+
+
+```{r}
+table(test$label,predict(train.gdbt,newdata=dtest))
+```
+
+
+```{r}
+sum(diag(table(test$label,predict(train.gdbt,newdata=dtest))))/nrow(test)
+```
+
+## My comments
+
+The first point is its usability. Changing CPU to GPU or vice versa is very easy, and its coding is intuitive to compose almost any kind of Deep Net with just specifying parameters. The second point is its speed. {mxnet} is very fast as well as {xgboost} from the same DMLC. It's even further faster than DNN by {h2o}, based Java VMs.
+
+
+The more important point is that we can run CNN both in R and Python in almost the same manner. This is a huge advantage for R / Python users, in particular people doing ad-hoc analysis; in several business missions, we often have to build a prototype on a local machine like "a Kaggle competition only by me" and if it's successful we would implement it onto products. In such cases, data scientists like me often use R first, and Python second.
+
+
+In my personal opinion, R is better than Python for building prototypes because manipulating variables is much easier in R than other languages, but R is not good for implementation on products. On the other hand, Python is vice versa... so a lot of data scientists like me love both R and Python. Actually in my previous job, once I built a prototype of a machine learning system in R and then I implemented it in Python for a product with Xgboost. MXnet enables us to run almost the same procedure for CNN. This is very much helpful for all R users, I believe.
+
+
+Of course some problems still remain; in particular, parameter tuning of CNN is an incredibly annoying job and even an issue in machine learning researches. As far as I've heard, there are some academic studies in which parameters are optimized through Bayesian sampling and/or Monte Carlo search... I can't imagine how long it will take on local machines. Even with MXnet, we have to keep on struggling with such a kind of remaining problems.
+
+
+At any rate, I think MXnet can be a strong candidate of Deep Learning library that can compete Chainer / TensorFlow. I hope there will be further interesting and useful libraries / packages of Deep Learning in the future.
+
+
+In a coming post, I'm planning the other framework in MXnet such as LSTM-RNN, but it requires my own further understanding of its theoretical background. I won't tell when the post will be published :P)
+
+
+## Appendix 1
+
+When activation function is replaced with ReLU, its performance got improved.
+
+```{r}
+# Data preparation
+train <-read.csv('https://github.com/ozt-ca/tjo.hatenablog.samples/raw/master/r_samples/public_lib/jp/mnist_reproduced/short_prac_train.csv')
+test <-read.csv('https://github.com/ozt-ca/tjo.hatenablog.samples/raw/master/r_samples/public_lib/jp/mnist_reproduced/short_prac_test.csv')
+
+train <-data.matrix(train)
+test <-data.matrix(test)
+train.x <-train[,-1]
+train.y <-train[,1]
+train.x <-t(train.x/255)
+test_org <-test
+test <-test[,-1]
+test <-t(test/255)
+table(train.y)
+```
+
+```{r}
+library(mxnet)
+library(tictoc)
+
+tic()
+data <- mx.symbol.Variable("data")
+devices <- mx.cpu()
+
+# first conv
+conv1 <- mx.symbol.Convolution(data=data, kernel=c(5,5), num_filter=20)
+tanh1 <- mx.symbol.Activation(data=conv1, act_type="relu")
+pool1 <- mx.symbol.Pooling(data=tanh1, pool_type="max",
+                           kernel=c(2,2), stride=c(2,2))
+drop1 <- mx.symbol.Dropout(data=pool1,p=0.5)
+# second conv
+conv2 <- mx.symbol.Convolution(data=drop1, kernel=c(5,5), num_filter=50)
+tanh2 <- mx.symbol.Activation(data=conv2, act_type="relu")
+pool2 <- mx.symbol.Pooling(data=tanh2, pool_type="max",
+                           kernel=c(2,2), stride=c(2,2))
+drop2 <- mx.symbol.Dropout(data=pool2,p=0.5)
+
+# first fullc
+flatten <- mx.symbol.Flatten(data=drop2)
+fc1 <- mx.symbol.FullyConnected(data=flatten, num_hidden=500)
+tanh4 <- mx.symbol.Activation(data=fc1, act_type="relu")
+drop4 <- mx.symbol.Dropout(data=tanh4,p=0.5)
+
+# second fullc
+fc2 <- mx.symbol.FullyConnected(data=drop4, num_hidden=10)
+
+# loss
+lenet <- mx.symbol.SoftmaxOutput(data=fc2)
+train.array <- train.x
+dim(train.array) <- c(28, 28, 1, ncol(train.x))
+test.array <- test
+dim(test.array) <- c(28, 28, 1, ncol(test))
+mx.set.seed(0)
+tic <- proc.time()
+
+model <- mx.model.FeedForward.create(lenet, X=train.array, y=train.y,
+                                     ctx=devices, num.round=60, array.batch.size=100,
+                                     learning.rate=0.05, momentum=0.9, wd=0.00001,
+                                     eval.metric=mx.metric.accuracy,
+                                     epoch.end.callback=mx.callback.log.train.metric(100))
+toc()
+```
+
+
+```{r}
+print(proc.time() - tic)
+```
+
+
+```{r}
+preds <- predict(model, test.array)
+pred.label <- max.col(t(preds)) - 1
+table(test_org[,1],pred.label)
+```
+
+```{r}
+sum(diag(table(test_org[,1],pred.label)))/1000
+# 0.985
+```
+
+Finally we got accuracy 0.987, overtaking our estimated maximum 0.98.
+
+
+
