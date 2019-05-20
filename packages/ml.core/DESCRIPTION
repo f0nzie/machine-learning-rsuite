@@ -48,5 +48,6 @@ Imports: logging,
   rmarkdown,
   bookdown,
   usethis,
-  tictoc
+  tictoc,
+  faraway
 RoxygenNote: 6.1.1
