@@ -22,6 +22,7 @@ args <- args_parser()
 
 # load libraries
 library(ml.core)
+library(bookdown)
 
 source("R/set_folders.R")
 
