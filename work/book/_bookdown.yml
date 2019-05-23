@@ -2,23 +2,19 @@ new_session: yes
 rmd_files: [
   "index.Rmd",
 
-# regression 101
-  "regression_114-nested_temperature.Rmd",
-  "regression_136-happiness.Rmd",
-  "regression_138-advertising.Rmd",
-  "regression_141.1-3a.Rmd",
-  "regression_141.2-3b.Rmd",
-
-# regression 202
-  "regression_246-Generalised_Additive_Models-mauna_loa.Rmd",
-  "regression_247-gam_motorcycle.Rmd",
-  "regression_248-linear_regression_with_stan.Rmd",
+# classification 101
+  "classification_109a-gentle_intro_to_SVM.Rmd",
+  "classification_112-social_networks-SVM.Rmd",
+  "classification_113-broad_view-SVM.Rmd",
+  "classification_115-standalone_model-rf.Rmd",
+  "classification_116-glass-svm.Rmd",
+  "classification_117-ozone_nlr-svm.Rmd",
+  "classification_118-gentle_intro_to_SVM.Rmd",
 
 # other
   "06-references.Rmd"
-
 ]
-book_filename: "Applications of Machine Learning - Regression"
+book_filename: "Applications of Machine Learning - Classification 101"
 delete_merged_file: true
 language:
   ui:
