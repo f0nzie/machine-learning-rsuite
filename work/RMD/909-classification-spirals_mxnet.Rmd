@@ -358,11 +358,14 @@ tab <- res %>%
     ggtitle("Multilayer Perceptron decision boundary")
   
    
-  
-  # animation::ani.options(interval=2)
-  # gganimate(p, filename = "{{ site.url }}/img/mlp_evolution.gif", title_frame = FALSE)
-  # gganimate(p, filename = "img/mlp_evolution.gif", title_frame = FALSE)
 ```
+
+```{r}
+animation::ani.options(interval=2)
+gganimate(p, filename = "{{ site.url }}/img/mlp_evolution.gif", title_frame = FALSE)
+gganimate(p, filename = "img/mlp_evolution.gif", title_frame = FALSE)
+```
+
 
 ```{r}
 library(animation)
