@@ -1,0 +1,141 @@
+# Practical guide to PCA
+
+
+Source: https://www.analyticsvidhya.com/blog/2016/03/practical-guide-principal-component-analysis-python/
+
+Datasets: https://www.kaggle.com/devashish0507/big-mart-sales-prediction
+
+## What is Principal Component Analysis ?
+In simple words, principal component analysis is a method of extracting important variables (in form of components) from a large set of variables available in a data set. It extracts low dimensional set of features from a high dimensional data set with a motive to capture as much information as possible. With fewer variables, visualization also becomes much more meaningful. PCA is more useful when dealing with 3 or higher dimensional data.
+
+It is always performed on a symmetric correlation or covariance matrix. This means the matrix should be numeric and have standardized data.
+
+Let’s understand it using an example:
+
+Let’s say we have a data set of dimension 300 (n) × 50 (p). n represents the number of observations and p represents number of predictors. Since we have a large p = 50, there can be p(p-1)/2 scatter plots i.e more than 1000 plots possible to analyze the variable relationship. Wouldn’t is be a tedious job to perform exploratory analysis on this data ?
+
+In this case, it would be a lucid approach to select a subset of p (p << 50) predictor which captures as much information. Followed by plotting the observation in the resultant low dimensional space.
+
+The image below shows the transformation of a high dimensional data (3 dimension) to low dimensional data (2 dimension) using PCA. Not to forget, each resultant dimension is a linear combination of p features
+
+```{r echo=FALSE}
+load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
+.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
+```
+
+```{r}
+#load train and test file
+train <- read.csv(file.path(data_raw_dir, "train_big_mart_sales.csv"))
+test <- read.csv(file.path(data_raw_dir, "test_big_mart_sales.csv"))
+
+#add a column
+test$Item_Outlet_Sales <- 1
+
+#combine the data set
+combi <- rbind(train, test)
+
+#impute missing values with median
+combi$Item_Weight[is.na(combi$Item_Weight)] <- median(combi$Item_Weight, na.rm = TRUE)
+
+#impute 0 with median
+combi$Item_Visibility <- ifelse(combi$Item_Visibility == 0, median(combi$Item_Visibility),                                   combi$Item_Visibility)
+
+#find mode and impute
+table(combi$Outlet_Size, combi$Outlet_Type)
+levels(combi$Outlet_Size)[1] <- "Other"
+```
+
+Till here, we’ve imputed missing values. Now we are left with removing the dependent (response) variable and other identifier variables( if any). As we said above, we are practicing an unsupervised learning technique, hence response variable must be removed.
+
+```{r}
+#remove the dependent and identifier variables
+my_data <- subset(combi, select = -c(Item_Outlet_Sales, Item_Identifier,                                       Outlet_Identifier))
+
+```
+
+Let’s check the available variables ( a.k.a predictors) in the data set.
+
+```{r}
+#check available variables
+colnames(my_data)
+```
+
+Since PCA works on numeric variables, let’s see if we have any variable other than numeric.
+
+```{r}
+#check variable class
+str(my_data)
+```
+
+Sadly, 6 out of 9 variables are categorical in nature. We have some additional work to do now. We’ll convert these categorical variables into numeric using one hot encoding.
+
+```{r}
+#load library
+library(dummies)
+
+#create a dummy data frame
+new_my_data <- dummy.data.frame(my_data, names = c("Item_Fat_Content","Item_Type",
+                                "Outlet_Establishment_Year","Outlet_Size",
+                                "Outlet_Location_Type","Outlet_Type"))
+```
+
+To check, if we now have a data set of integer values, simple write:
+
+
+
+```{r}
+#check the data set
+str(new_my_data)
+```
+
+```{r}
+#divide the new data
+pca.train <- new_my_data[1:nrow(train),]
+pca.test <- new_my_data[-(1:nrow(train)),]
+```
+
+```{r}
+#principal component analysis
+prin_comp <- prcomp(pca.train, scale. = T)
+names(prin_comp)
+```
+
+The prcomp() function results in 5 useful measures:
+
+1. center and scale refers to respective mean and standard deviation of the variables that are used for normalization prior to implementing PCA
+
+
+```{r}
+#outputs the mean of variables
+prin_comp$center
+
+#outputs the standard deviation of variables
+prin_comp$scale
+```
+
+
+2. The rotation measure provides the principal component loading. Each column of rotation matrix contains the principal component loading vector. This is the most important measure we should be interested in.
+
+```{r}
+prin_comp$rotation
+```
+
+This returns 44 principal components loadings. Is that correct ? Absolutely. In a data set, the maximum number of principal component loadings is a minimum of (n-1, p). Let’s look at first 4 principal components and first 5 rows.
+
+```{r}
+prin_comp$rotation[1:5,1:4]
+```
+
+3. In order to compute the principal component score vector, we don’t need to multiply the loading with data. Rather, the matrix x has the principal component score vectors in a 8523 × 44 dimension.
+
+
+```{r}
+dim(prin_comp$x)
+```
+
+Let’s plot the resultant principal components.
+
+```{r fig.width=9, fig.height=9}
+biplot(prin_comp, scale = 0)
+```
+

@@ -1,0 +1,57 @@
+# h2o encode starter
+
+
+Source: https://www.r-bloggers.com/h2o-encoders-starter/
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(GGally)
+library(h2o)
+
+h2o.init(ip = 'localhost', port = 54321, nthreads= -1, max_mem_size = '4g')
+h2o.clusterInfo()
+```
+
+```{r}
+h2o_df <- as.h2o(iris)
+
+mod_nn <- h2o.deeplearning(
+  x = c('Sepal.Length', 'Sepal.Width', 'Petal.Length', 'Petal.Width'),
+  training_frame = h2o_df,
+  hidden = c(2),
+  epochs = 100,
+  activation = 'Tanh',
+  autoencoder = TRUE
+)
+
+features <- h2o.deepfeatures(mod_nn, h2o_df, layer=1)
+pltr_nn <- features %>% 
+  as.data.frame %>% 
+  mutate(species = iris$Species)
+
+colnames(pltr_nn) <- c("x1", "x2", "species")
+
+ggplot() + 
+  geom_point(data=pltr_nn, aes(x1, x2, colour = species))
+
+```
+
+```{r}
+mod_pca <- h2o.prcomp(
+  x = c('Sepal.Length', 'Sepal.Width', 'Petal.Length', 'Petal.Width'),
+  training_frame = h2o_df, k = 2, 
+  transform = 'STANDARDIZE'
+)
+
+pltr_pca <- h2o.predict(mod_pca, h2o_df, num_pc=2) %>% 
+  as.data.frame %>% 
+  mutate(species = iris$Species)
+
+colnames(pltr_pca) <- c("x1", "x2", "species")
+
+ggplot() + 
+  geom_point(data=pltr_pca, aes(x1, x2, colour = species))
+```
+
