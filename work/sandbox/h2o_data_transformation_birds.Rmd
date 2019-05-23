@@ -1,0 +1,265 @@
+# Data Transformation with PCA in h2o
+
+```{r echo=FALSE}
+load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
+.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
+```
+
+Source: http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/algo-params/transform.html
+
+```{r}
+library(h2o)
+h2o.init()
+```
+
+```{r}
+url <- "https://s3.amazonaws.com/h2o-public-test-data/smalldata/pca_test/birds.csv"
+birds <- read.csv(url)
+
+# write as file for h2o import
+write.csv(birds, file.path(data_raw_dir,"birds.csv"))
+```
+
+```{r}
+# Load the Birds dataset
+birds.hex <- h2o.importFile(file.path(data_raw_dir, "birds.csv"))
+
+# Train using Standardized transform
+birds.pca <- h2o.prcomp(training_frame = birds.hex, transform = "STANDARDIZE",
+                        k = 3, pca_method="Power", use_all_factor_levels=TRUE,
+                        impute_missing=TRUE)
+
+# View the importance of components
+birds.pca@model$importance
+```
+
+```{r}
+# View the eigenvectors
+birds.pca@model$eigenvectors
+```
+
+```{r}
+# Train again using Normalize transform
+birds2.pca <- h2o.prcomp(training_frame = birds.hex, 
+                         transform = "NORMALIZE",
+                         k = 3, 
+                         pca_method = "Power", 
+                         use_all_factor_levels = TRUE,
+                         impute_missing = TRUE,
+                         max_iterations = 2000)
+
+
+# View the importance of components
+birds2.pca@model$importance
+```
+
+```{r}
+# View the eigenvectors
+birds2.pca@model$eigenvectors
+```
+
+## arrhythmia
+
+```{r message=FALSE, warning=FALSE}
+library(ggplot2)
+library(pcaGoPromoter)
+library(gridExtra)
+library(grid)
+library(ggrepel)
+
+my_theme <- function(base_size = 12, base_family = "sans"){
+  theme_minimal(base_size = base_size, base_family = base_family) +
+  theme(
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 14),
+    panel.grid.major = element_line(color = "grey"),
+    panel.grid.minor = element_blank(),
+    panel.background = element_rect(fill = "aliceblue"),
+    strip.background = element_rect(fill = "darkgrey", color = "grey", size = 1),
+    strip.text = element_text(face = "bold", size = 12, color = "white"),
+    legend.position = "right",
+    legend.justification = "top", 
+    panel.border = element_rect(color = "grey", fill = NA, size = 0.5)
+  )
+}
+
+pca_func <- function(pcaOutput2, group_name){
+    centroids <- aggregate(cbind(PC1, PC2) ~ groups, pcaOutput2, mean)
+    conf.rgn  <- do.call(rbind, lapply(unique(pcaOutput2$groups), function(t)
+          data.frame(groups = as.character(t),
+                     ellipse(cov(pcaOutput2[pcaOutput2$groups == t, 1:2]),
+                           centre = as.matrix(centroids[centroids$groups == t, 2:3]),
+                           level = 0.95),
+                     stringsAsFactors = FALSE)))
+        
+    plot <- ggplot(data = pcaOutput2, aes(x = PC1, y = PC2, group = groups, 
+                                          color = groups)) + 
+      geom_polygon(data = conf.rgn, aes(fill = groups), alpha = 0.2) +
+      geom_point(size = 2, alpha = 0.5) + 
+      labs(color = paste(group_name),
+           fill = paste(group_name),
+           x = paste0("PC1: ", round(pcaOutput$pov[1], digits = 2) * 100, "% variance"),
+           y = paste0("PC2: ", round(pcaOutput$pov[2], digits = 2) * 100, "% variance")) +
+      my_theme()
+    
+    return(plot)
+}
+```
+
+
+```{r}
+arrhythmia <- read.table(file.path(data_raw_dir, "arrhythmia.data.txt"), sep = ",")
+arrhythmia[arrhythmia == "?"] <- NA
+
+# making sure, that all feature columns are numeric
+arrhythmia[-280] <- lapply(arrhythmia[-280], as.character)
+arrhythmia[-280] <- lapply(arrhythmia[-280], as.numeric)
+
+#  renaming output column and converting to factor
+colnames(arrhythmia)[280] <- "class"
+arrhythmia$class <- as.factor(arrhythmia$class)
+
+#  all arrhythmia cases into one class
+arrhythmia$diagnosis <- ifelse(arrhythmia$class == 1, "healthy", "arrhythmia")
+arrhythmia$diagnosis <- as.factor(arrhythmia$diagnosis)
+
+# Find what columns have NAs and the quantity
+for (col in names(arrhythmia)) {
+    n_nas <- length(which(is.na(arrhythmia[, col])))
+    if (n_nas > 0) cat(col, n_nas, "\n")
+}
+
+# Replace NAs with zeros
+arrhythmia[is.na(arrhythmia)] <- 0
+
+pcaOutput <- pca(t(arrhythmia[-c(280, 281)]), printDropped=FALSE, 
+                 scale=TRUE, 
+                 center = TRUE)
+
+pcaOutput2 <- as.data.frame(pcaOutput$scores)
+
+pcaOutput2$groups <- arrhythmia$class
+p1 <- pca_func(pcaOutput2, group_name = "class")
+
+pcaOutput2$groups <- arrhythmia$diagnosis
+p2 <- pca_func(pcaOutput2, group_name = "diagnosis")
+
+grid.arrange(p1, p2, ncol = 2)
+```
+
+```{r}
+weights <- ifelse(pcaOutput2$PC1 < -5 & abs(pcaOutput2$PC2) > 10, 2, 1)
+
+library(matrixStats)
+
+colvars <- data.frame(feature = colnames(arrhythmia[-c(280, 281)]),
+                      variance = colVars(as.matrix(arrhythmia[-c(280, 281)])))
+
+arrhythmia_subset <- cbind(weights, 
+                           arrhythmia[, c(281, 280, which(colvars$variance > 50))])
+```
+
+```{r}
+#as_h2o_frame(arrhythmia_subset)
+arrhythmia_hf <- as.h2o(arrhythmia_subset, key="arrhtythmia.hex")
+```
+
+```{r plot-h2o-describe, fig.width=15, fig.height=10}
+library(tidyr) # for gathering
+library(dplyr)
+
+h2o.describe(arrhythmia_hf[, -1]) %>% # excluding the weights column
+  gather(x, y, Zeros:Sigma) %>%
+  mutate(group = ifelse(
+    x %in% c("Min", "Max", "Mean"), "min, mean, max", 
+    ifelse(x %in% c("NegInf", "PosInf"), "Inf", "sigma, zeros"))) %>% 
+  # separating them into facets makes them easier to see
+  mutate(Label = factor(Label, levels = colnames(arrhythmia_hf[, -1]))) %>%
+  ggplot(aes(x = Label, y = as.numeric(y), color = x)) +
+    geom_point(size = 4, alpha = 0.6) +
+    scale_color_brewer(palette = "Set1") +
+    my_theme() +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+    facet_grid(group ~ ., scales = "free") +
+    labs(x = "Feature",
+         y = "Value",
+         color = "")
+```
+
+```{r plot-correlation, fig.width=15, fig.height=15}
+library(reshape2) # for melting
+
+# diagnosis is now a characer column and we need to convert it again
+arrhythmia_hf[, 2] <- h2o.asfactor(arrhythmia_hf[, 2]) 
+arrhythmia_hf[, 3] <- h2o.asfactor(arrhythmia_hf[, 3]) # same for class
+
+cor <- h2o.cor(arrhythmia_hf[, -c(1, 3)])
+rownames(cor) <- colnames(cor)
+
+melt(cor) %>%
+  mutate(Var2 = rep(rownames(cor), nrow(cor))) %>%
+  mutate(Var2 = factor(Var2, levels = colnames(cor))) %>%
+  mutate(variable = factor(variable, levels = colnames(cor))) %>%
+  ggplot(aes(x = variable, y = Var2, fill = value)) + 
+    geom_tile(width = 0.9, height = 0.9) +
+    scale_fill_gradient2(low = "white", high = "red", name = "Cor.") +
+    my_theme() +
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+    labs(x = "", 
+         y = "")
+```
+
+
+```{r}
+splits <- h2o.splitFrame(arrhythmia_hf, 
+                         ratios = c(0.7, 0.15), 
+                         seed = 1)
+
+train <- splits[[1]]
+valid <- splits[[2]]
+test <- splits[[3]]
+
+response <- "diagnosis"
+weights <- "weights"
+features <- setdiff(colnames(train), c(response, weights, "class"))
+```
+
+```{r}
+summary(train$diagnosis, exact_quantiles = TRUE)
+summary(valid$diagnosis, exact_quantiles = TRUE)
+summary(test$diagnosis, exact_quantiles = TRUE)
+```
+
+```{r}
+pca <- h2o.prcomp(training_frame = train,
+           x = features,
+           validation_frame = valid,
+           transform = "NORMALIZE",
+           k = 3,
+           seed = 42)
+pca
+```
+
+```{r plot-eigenvectors, fig.width=9, fig.height=9}
+eigenvec <- as.data.frame(pca@model$eigenvectors)
+eigenvec$label <- features
+
+ggplot(eigenvec, aes(x = pc1, y = pc2, label = label)) +
+  geom_point(color = "navy", alpha = 0.7) +
+  geom_text_repel() +
+  my_theme()
+```
+
+
+
+## Misc
+
+```{r}
+class(birds.hex)
+```
+
+
+```{r}
+birds_h2o <- as.data.frame(birds.hex)
+```
+
