@@ -1,0 +1,109 @@
+Package: AnnotationDbi
+Version: 1.46.0
+Depends: R (>= 2.7.0), methods, utils, stats4, BiocGenerics (>=
+        0.29.2), Biobase (>= 1.17.0), IRanges
+Imports: DBI, RSQLite, S4Vectors (>= 0.9.25)
+Suggests: hgu95av2.db, GO.db, org.Sc.sgd.db, org.At.tair.db, KEGG.db,
+        RUnit, TxDb.Hsapiens.UCSC.hg19.knownGene, hom.Hs.inp.db,
+        org.Hs.eg.db, reactome.db, AnnotationForge, graph,
+        EnsDb.Hsapiens.v75, BiocStyle, knitr
+License: Artistic-2.0
+MD5sum: 1e5c5f4ab2aa883a8dd96b92906744b7
+NeedsCompilation: no
+File: AnnotationDbi_1.46.0.tar.gz
+
+Package: Biobase
+Version: 2.44.0
+Depends: R (>= 2.10), BiocGenerics (>= 0.27.1), utils
+Imports: methods
+Suggests: tools, tkWidgets, ALL, RUnit, golubEsets
+License: Artistic-2.0
+MD5sum: 064dccf40f5801eb687e37a066c0b0e3
+NeedsCompilation: yes
+File: Biobase_2.44.0.tar.gz
+
+Package: BiocGenerics
+Version: 0.30.0
+Depends: R (>= 3.6.0), methods, utils, graphics, stats, parallel
+Imports: methods, utils, graphics, stats, parallel
+Suggests: Biobase, S4Vectors, IRanges, GenomicRanges, Rsamtools,
+        AnnotationDbi, oligoClasses, oligo, affyPLM, flowClust, affy,
+        DESeq2, MSnbase, annotate, RUnit
+License: Artistic-2.0
+MD5sum: fd133c4f61f2826c97e3195af5517957
+NeedsCompilation: no
+File: BiocGenerics_0.30.0.tar.gz
+
+Package: Biostrings
+Version: 2.52.0
+Depends: R (>= 3.5.0), methods, BiocGenerics, S4Vectors (>= 0.21.13),
+        IRanges, XVector (>= 0.23.2)
+Imports: graphics, methods, stats, utils
+LinkingTo: S4Vectors, IRanges, XVector
+Suggests: BSgenome (>= 1.13.14), BSgenome.Celegans.UCSC.ce2 (>=
+        1.3.11), BSgenome.Dmelanogaster.UCSC.dm3 (>= 1.3.11),
+        BSgenome.Hsapiens.UCSC.hg18, drosophila2probe, hgu95av2probe,
+        hgu133aprobe, GenomicFeatures (>= 1.3.14), hgu95av2cdf, affy
+        (>= 1.41.3), affydata (>= 1.11.5), RUnit
+Enhances: Rmpi
+License: Artistic-2.0
+MD5sum: 7f4f2a493fcba3a335eed4ea1563ba0c
+NeedsCompilation: yes
+File: Biostrings_2.52.0.tar.gz
+
+Package: IRanges
+Version: 2.18.0
+Depends: R (>= 3.1.0), methods, utils, stats, BiocGenerics (>= 0.25.3),
+        S4Vectors (>= 0.21.9)
+Imports: stats4
+LinkingTo: S4Vectors
+Suggests: XVector, GenomicRanges, Rsamtools, GenomicAlignments,
+        GenomicFeatures, BSgenome.Celegans.UCSC.ce2, pasillaBamSubset,
+        RUnit, BiocStyle
+License: Artistic-2.0
+MD5sum: 81669a1f7cd017f8a516c9bcd461b904
+NeedsCompilation: yes
+File: IRanges_2.18.0.tar.gz
+
+Package: pcaGoPromoter
+Version: 1.28.0
+Depends: R (>= 2.14.0), ellipse, Biostrings
+Imports: AnnotationDbi
+Suggests: Rgraphviz, GO.db, hgu133plus2.db, mouse4302.db, rat2302.db,
+        hugene10sttranscriptcluster.db, mogene10sttranscriptcluster.db,
+        pcaGoPromoter.Hs.hg19, pcaGoPromoter.Mm.mm9,
+        pcaGoPromoter.Rn.rn4, serumStimulation, parallel
+License: GPL (>= 2)
+MD5sum: 0ff12eaae0d4d2c49b5f30d744a1e412
+NeedsCompilation: no
+File: pcaGoPromoter_1.28.0.tar.gz
+
+Package: S4Vectors
+Version: 0.22.0
+Depends: R (>= 3.3.0), methods, utils, stats, stats4, BiocGenerics (>=
+        0.23.3)
+Suggests: IRanges, GenomicRanges, SummarizedExperiment, Matrix,
+        DelayedArray, ShortRead, graph, data.table, RUnit, BiocStyle
+License: Artistic-2.0
+MD5sum: bc5e8160661ff2fc3084bd34a4cf9463
+NeedsCompilation: yes
+File: S4Vectors_0.22.0.tar.gz
+
+Package: XVector
+Version: 0.24.0
+Depends: R (>= 2.8.0), methods, BiocGenerics (>= 0.19.2), S4Vectors (>=
+        0.21.13), IRanges (>= 2.15.12)
+Imports: methods, utils, zlibbioc, BiocGenerics, S4Vectors, IRanges
+LinkingTo: S4Vectors, IRanges
+Suggests: Biostrings, drosophila2probe, RUnit
+License: Artistic-2.0
+MD5sum: a35b8a10e97fce62de2f46904bbfe0d7
+NeedsCompilation: yes
+File: XVector_0.24.0.tar.gz
+
+Package: zlibbioc
+Version: 1.30.0
+License: Artistic-2.0 + file LICENSE
+MD5sum: 7b1c2b2aaf0188f6795a32b5ee5df71c
+NeedsCompilation: yes
+File: zlibbioc_1.30.0.tar.gz
