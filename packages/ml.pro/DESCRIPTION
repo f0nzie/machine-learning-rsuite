@@ -25,5 +25,7 @@ Imports: logging,
   janitor,
   ggrepel,
   corrgram, 
-  ggthemes
+  ggthemes,
+  DBI,
+  RSQLite
 RoxygenNote: 6.1.1
