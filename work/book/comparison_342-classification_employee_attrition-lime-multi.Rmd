@@ -6,6 +6,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       error = TRUE, 
                       warning = FALSE, 
                       message = FALSE, 
+                      cache = TRUE,
                       fig.align = 'center')
 ```
 
@@ -17,7 +18,8 @@ load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 Article: https://www.business-science.io/business/2017/09/18/hr_employee_attrition.html
 Data: https://www.ibm.com/communities/analytics/watson-analytics-blog/hr-employee-attrition/
 
-## EMPLOYEE ATTRITION: A MAJOR PROBLEM
+## Introduction
+### Employee attrition: a major problem
 Bill Gates was once quoted as saying,
 
 > “You take away our top 20 employees and we [Microsoft] become a mediocre company”.
@@ -32,20 +34,20 @@ With advances in machine learning and data science, its possible to not only pre
 
 2. Feature Importance with the `lime` package: The problem with advanced machine learning algorithms such as deep learning is that it’s near impossible to understand the algorithm because of its complexity. This has all changed with the lime package. The major advancement with lime is that, by recursively analyzing the models locally, it can extract feature importance that repeats globally. What this means to us is that lime has opened the door to understanding the ML models regardless of complexity. Now the best (and typically very complex) models can also be investigated and potentially understood as to what variables or features make the model tick.
 
-## EMPLOYEE ATTRITION: MACHINE LEARNING ANALYSIS
+### Employee attrition: machine learning analysis
 With these new automated ML tools combined with tools to uncover critical variables, we now have capabilities for both extreme predictive accuracy and understandability, which was previously impossible! We’ll investigate an HR Analytic example of employee attrition that was evaluated by IBM Watson.
 
-### IBM WATSON (WHERE WE GOT THE DATA)
+### Where we got the data
 The example comes from IBM Watson Analytics website. You can download the data and read the analysis here:
 
 Get data used in this post here.
 Read IBM Watson Analytics article here.
 To summarize, the article makes a usage case for IBM Watson as an automated ML platform. The article shows that using Watson, the analyst was able to detect features that led to increased probability of attrition.
 
-### AUTOMATED MACHINE LEARNING (WHAT WE DID WITH THE DATA)
+### Automated machine learning (what we did with the data)
 In this example we’ll show how we can use the combination of H2O for developing a complex model with high predictive accuracy on unseen data and then how we can use LIME to understand important features related to employee attrition.
 
-### PACKAGES
+### Load packages 
 Load the following packages.
 
 ```{r}
@@ -56,7 +58,7 @@ library(h2o)        # Professional grade ML pkg
 library(lime)       # Explain complex black-box ML models
 ```
 
-### DATA
+### Load data
 Download the data here. You can load the data using read_excel(), pointing the path to your local file.
 
 ```{r load_data}
@@ -88,13 +90,13 @@ glimpse(hr_data)
 
 ```
 
-## MODELING EMPLOYEE ATTRITION
+## Modeling Employee attrition
 We are going to use the `h2o.automl()` function from the H2O platform to model employee attrition.
 
-### H2O
+### Machine Learning with `h2o`
 First, we need to initialize the *Java Virtual Machine (JVM)* that H2O uses locally.
 
-```{r h2o_init}
+```{r h2o_init, warning=FALSE, message=FALSE}
 # Initialize H2O JVM
 h2o.init()
 ```
@@ -134,7 +136,7 @@ Now the fun begins. We run the h2o.automl() setting the arguments it needs to ru
 * `leaderboard_frame` = valid_h2o: Our validation set consisting of 15% of the data. H2O uses this to ensure the model does not overfit the data.
 * `max_runtime_secs = 30`: We supply this to speed up H2O’s modeling. The algorithm has a large number of complex models so we want to keep things moving at the expense of some accuracy.
 
-```{r h2o_automl}
+```{r h2o_automl, cache=TRUE}
 # Run the automated machine learning 
 automl_models_h2o <- h2o.automl(
     x = x, 
@@ -215,7 +217,7 @@ Most HR groups would probably prefer to incorrectly classify folks not looking t
 
 Recall for our model is 62%. In an HR context, this is 62% more employees that could potentially be targeted prior to quiting. From that standpoint, an organization that loses 100 people per year could possibly target 62 implementing measures to retain.
 
-## LIME
+## The `lime` package
 We have a very good model that is capable of making very accurate predictions on unseen data, but what can it tell us about what causes attrition? Let’s find out using LIME.
 
 ### Set up
@@ -285,7 +287,7 @@ explainer <- lime::lime(
 
 Now we run the `explain()` function, which returns our explanation. This can take a minute to run so we limit it to just the first ten rows of the test data set. We set n_labels = 1 because we care about explaining a single class. Setting n_features = 4 returns the top four features that are critical to each case. Finally, setting kernel_width = 0.5 allows us to increase the “model_r2” value by shrinking the localized evaluation. \
 
-```{r lime_explain}
+```{r lime_explain, cache=TRUE}
 # Run explain() on explainer
 explanation <- lime::explain(
     as.data.frame(test_h2o[1:10,-1]), 
@@ -304,7 +306,7 @@ plot_features(explanation) +
          subtitle = "Hold Out (Test) Set, First 10 Cases Shown")
 ```
 
-## WHAT FEATURES ARE LINKED TO EMPLOYEE ATTRITION?
+### What features are linked to employee attrition
 Now we turn to our three critical features from the LIME Feature Importance Plot:
 
 * Training Time
@@ -322,7 +324,7 @@ attrition_critical_features <- hr_data %>%
 attrition_critical_features
 ```
 
-## Training
+### Training
 From the violin plot, the employees that stay tend to have a large peaks at two and three trainings per year whereas the employees that leave tend to have a large peak at two trainings per year. This suggests that employees with more trainings may be less likely to leave. \
 
 ```{r}
@@ -344,7 +346,7 @@ attrition_critical_features %>%
     )
 ```
 
-## Overtime
+### Overtime
 The plot below shows a very interesting relationship: a very high proportion of employees that turnover are working over time. The opposite is true for employees that stay. \
 
 ```{r plot-overtime}
@@ -372,7 +374,7 @@ ggplot(attrition_critical_features, aes(x = Attrition,
 ```
 
 
-## Job Role
+### Job Role
 Several job roles are experiencing more turnover. Sales reps have the highest turnover at about 40% followed by Lab Technician, Human Resources, Sales Executive, and Research Scientist. It may be worthwhile to investigate what localized issues could be creating the high turnover among these groups within the organization.
 
 

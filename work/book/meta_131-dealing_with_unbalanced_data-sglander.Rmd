@@ -6,6 +6,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       error = TRUE, 
                       warning = FALSE, 
                       message = FALSE, 
+                      cache = TRUE,
                       fig.align = 'center')
 ```
 
@@ -13,6 +14,8 @@ knitr::opts_chunk$set(echo = TRUE,
 load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 .libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
 ```
+
+## Introduction
 
 Source: https://shiring.github.io/machine_learning/2017/04/02/unbalanced
 
@@ -87,7 +90,6 @@ With oversampling, we randomly duplicate samples from the class with fewer insta
 In reality though, we should not simply perform over- or under-sampling on our training data and then run the model. We need to account for cross-validation and perform over- or under-sampling on each fold independently to get an honest estimate of model performance!
 
 
-
 #### Modeling the original unbalanced data
 Here is the same model I used in my webinar example: I randomly divide the data into training and test sets (stratified by class) and perform Random Forest modeling with 10 x 10 repeated cross-validation. Final model performance is then measured on the test set.
 
@@ -130,7 +132,7 @@ cm_original <- confusionMatrix(final_predict, test_data_classes)
 cm_original$byClass['Sensitivity']
 ```
 
-#### Under-sampling
+## Under-sampling
 Luckily, `caret` makes it very easy to incorporate over- and under-sampling techniques with cross-validation resampling. We can simply add the sampling option to our `trainControl` and choose down for under- (also called `down`-) sampling. The rest stays the same as with our original model.
 
 ```{r model-rf-undersampling}
@@ -169,7 +171,7 @@ cm_under$byClass['Sensitivity']
 ```
 
 
-#### Oversampling
+## Oversampling
 For over- (also called up-) sampling we simply specify sampling = "up".
 
 ```{r model-rf-oversampling}
@@ -282,7 +284,7 @@ cm_smote <- confusionMatrix(as.factor(final_smote$predict),
 cm_smote$byClass['Sensitivity']
 ```
 
-#### Predictions
+## Predictions
 Now let’s compare the predictions of all these models:
 
 ```{r plot-resampling}
@@ -333,9 +335,9 @@ comparison %>%
 
 With this small dataset, we can already see how the different techniques can influence model performance. **Sensitivity** (or **recall**) describes the proportion of benign cases that have been predicted correctly, while **specificity** describes the proportion of malignant cases that have been predicted correctly. **Precision describes** the true positives, i.e. the proportion of benign predictions that were actual from benign samples. **F1** is the weighted average of precision and sensitivity/ recall.
 
+## Final notes
+
 Here, all four methods improved specificity and precision compared to the original model. Under-sampling, over-sampling and ROSE additionally improved precision and the F1 score.
-
-
 
 This post shows a simple example of how to correct for unbalance in datasets for machine learning. For more advanced instructions and potential caveats with these techniques, check out the excellent `caret` documentation.
 

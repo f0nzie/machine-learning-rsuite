@@ -16,6 +16,7 @@ load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 ```
 
 ## Introduction
+
 Among the many nice R packages containing data collections is the [outbreaks](https://mran.microsoft.com/web/packages/outbreaks/outbreaks.pdf
 ) package. It contains datsets on epidemics and among them is data from the 2013 outbreak of [influenza A H7N9](http://www.who.int/influenza/human_animal_interface/faq_H7N9/en/) in [China](http://www.who.int/influenza/human_animal_interface/influenza_h7n9/ChinaH7N9JointMissionReport2013u.pdf?ua=1) as analysed by Kucharski et al. (2014): 
 
