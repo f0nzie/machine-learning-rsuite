@@ -203,16 +203,15 @@ arrhythmia_subset <- cbind(weights,
 ```
 
 
-# Working with `rsparkling` and `h2o`
-Now that I have my final data frame for modeling, I copy it to the Spark instance. For working with h2o functions, the data needs to be converted from a **Spark DataFrame** to an **H2O Frame**. This is done with the `as_h2o_frame()` function.
-
+## Converting the dataframe to a `h2o` object
+Now that I have my final data frame for modeling, for working with h2o functions, the data needs to be converted from a **DataFrame** to an **H2O Frame**. This is done with the `as_h2o_frame()` function.
 
 ```{r}
 #as_h2o_frame(arrhythmia_subset)
 arrhythmia_hf <- as.h2o(arrhythmia_subset, key="arrhtythmia.hex")
 ```
 
-We can now access all functions from the h2o package that are built to work on H2O Frames. A useful such function is `h2o.describe()`. It is similar to base R’s `summary()` function but outputs many more descriptive measures for our data. To get a good overview about these measures, I am going to plot them.
+We can now access all functions from the h2o package that are built to work on `h2o` Frames. A useful such function is `h2o.describe()`. It is similar to base R’s `summary()` function but outputs many more descriptive measures for our data. To get a good overview about these measures, I am going to plot them.
 
 ```{r plot-h2o-describe, fig.width=15, fig.height=10}
 library(tidyr) # for gathering
