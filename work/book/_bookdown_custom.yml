@@ -2,21 +2,17 @@ new_session: yes
 rmd_files: [
   "index.Rmd",
 
-# regression 101
-#  "comparison_312-compare_classification_algorithms-multi.Rmd",
-#  "comparison_320-ml_project_iris-multi.Rmd",
-#  "comparison_321-ml_project-boston-regression-multi.Rmd",
-#  "comparison_322-BreastCancer-mlbench-classification-multi.Rmd",
-#  "comparison_330.1-flu_outcome_ML-classification-multi.Rmd",
-#  "comparison_332-orange_juice-classification-multi.Rmd",
-#  "comparison_342-employee_attrition-lime-classification-multi.Rmd",
-#  "comparison_321-ml_project-boston-regression-multi.Rmd",
-#  "comparison_322-BreastCancer-mlbench-classification-multi.Rmd",
-  "comparison_332-orange_juice-classification-multi.Rmd"
-# other
-# "06-references.Rmd"
+"comparison_342-classification_employee_attrition-lime-multi.Rmd",
+"classification_227-bike_sharing_demand-rf.Rmd",
+
+"classification_229-breast_cancer_ga-sglander.Rmd",
+"meta_131-dealing_with_unbalanced_data-sglander.Rmd",
+"comparison_330-classification_flu_outcome-multi-sglander.Rmd",
+"meta_230-missing_flu_prediction_micex5-sglander.Rmd",
+"classification_239b-deeplearning_h2o_arrhythmia-sglander.Rmd",
+
 ]
-book_filename: "Applications of Machine Learning - BreastCancer, Classification, Comparison"
+book_filename: "Applications of Machine Learning - Selection"
 delete_merged_file: true
 language:
   ui:

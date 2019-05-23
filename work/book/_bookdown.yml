@@ -2,19 +2,18 @@ new_session: yes
 rmd_files: [
   "index.Rmd",
 
-# classification 101
-  "classification_109a-gentle_intro_to_SVM.Rmd",
-  "classification_112-social_networks-SVM.Rmd",
-  "classification_113-broad_view-SVM.Rmd",
-  "classification_115-standalone_model-rf.Rmd",
-  "classification_116-glass-svm.Rmd",
-  "classification_117-ozone_nlr-svm.Rmd",
-  "classification_118-gentle_intro_to_SVM.Rmd",
+"comparison_342-classification_employee_attrition-lime-multi.Rmd",
+"classification_227-bike_sharing_demand-rf.Rmd",
 
-# other
-  "06-references.Rmd"
+# "comparison_322-classification_BreastCancer-mlbench-multi.Rmd",
+# "classification_229-breast_cancer-ga.Rmd",
+# "meta_131-dealing_with_unbalanced_data.Rmd",
+# "comparison_330-classification_flu_outcome-multi.Rmd",
+# "30-flu_prediction_mice5-sglander.Rmd",
+# "39b-h2o-deeplearning_arrhythmia-sglander.Rmd",
+
 ]
-book_filename: "Applications of Machine Learning - Classification 101"
+book_filename: "Applications of Machine Learning - Selection"
 delete_merged_file: true
 language:
   ui:
