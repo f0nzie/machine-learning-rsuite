@@ -83,15 +83,15 @@ The essence of the kernel trick lies in mapping the classification problem to a 
 
 It turns out that a particular function – called the radial basis function kernel  (RBF kernel) – is very effective in many cases.  The RBF kernel is essentially a Gaussian (or Normal) function with the Euclidean distance between pairs of points as the variable (see equation 1 below).   The basic rationale behind the RBF kernel is that it creates separation boundaries that it tends to classify points close together (in the Euclidean sense) in the original space in the same way. This is reflected in the fact that the kernel decays (i.e. drops off to zero) as the Euclidean distance between points increases.
 
-#
-The rate at which a kernel decays is governed by the parameter \gamma – the higher the value of \gamma, the more rapid the decay.  This serves to illustrate that the RBF kernel is extremely flexible….but the flexibility comes at a price – the danger of overfitting for large values of \gamma .  One should choose appropriate values of C and \gamma so as to ensure that the resulting kernel represents the best possible balance between flexibility and accuracy. We’ll discuss how this is done in practice later in this article.
+
+The rate at which a kernel decays is governed by the parameter $\gamma$ – the higher the value of $\gamma$, the more rapid the decay.  This serves to illustrate that the RBF kernel is extremely flexible….but the flexibility comes at a price – the danger of overfitting for large values of $\gamma$ .  One should choose appropriate values of C and $\gamma$ so as to ensure that the resulting kernel represents the best possible balance between flexibility and accuracy. We’ll discuss how this is done in practice later in this article.
 
 Finally, though it is probably obvious, it is worth mentioning that the separation boundaries for arbitrary kernels are also defined through support vectors as in Figure 3.  To reiterate a point made earlier, this means that a solution that has fewer support vectors is likely to be more robust than one with many. Why? Because the data points defining support vectors are ones that are most sensitive to noise- therefore the fewer, the better.
 
 There are many other types of kernels, each with their own pros and cons. However, I’ll leave these for adventurous readers to explore by themselves.  Finally, for a much more detailed….and dare I say, better… explanation of the kernel trick, I highly recommend this article by Eric Kim.
 
 
-# Support vector machines in R
+## Support vector machines in R
 In this demo we’ll use the svm interface that is implemented in the `e1071` R package. This interface provides R programmers access to the comprehensive `libsvm` library written by Chang and Lin. I’ll use two toy datasets: the famous iris dataset available with the base R package and the sonar dataset from the mlbench package. I won’t describe details of the datasets as they are discussed at length in the documentation that I have linked to. However, it is worth mentioning the reasons why I chose these datasets:
 
 As mentioned earlier, no real life dataset is linearly separable, but the iris dataset is almost so. Consequently, it is a good illustration of using linear SVMs. Although one almost never uses these in practice, I have illustrated their use primarily for pedagogical reasons.
