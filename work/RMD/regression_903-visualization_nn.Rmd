@@ -125,7 +125,7 @@ If we pretend that the above figure wasn’t created in R, we would input the mo
 ```{r}
 mod.in<-c(13.12,1.49,0.16,-0.11,-0.19,-0.16,0.56,-0.52,0.81)
 struct<-c(2,2,1) #two inputs, two hidden, one output 
-plot.nnet(mod.in,struct=struct)
+plot.nnet(mod.in, struct=struct)
 ```
 
 Note the comparability with the figure created using the neuralnet package. That is, larger weights have thicker lines and color indicates sign (+ black, – grey).
@@ -136,11 +136,15 @@ One of these days I’ll actually put these functions in a package. In the meant
 ## caret and plot NN
 I’ve changed the function to work with neural networks created using the train function from the caret package. The link above is updated but you can also grab it here.
 
-```{r run-nnet-training}
+```{r run-nnet-training, results='hide'}
 library(caret)
 mod4 <- train(Y1 ~., method='nnet', data=dat.in, linout=T)
+```
+
+```{r}
 plot.nnet(mod4,nid=T)
 ```
+
 
 ```{r}
 fact<-factor(sample(c('a','b','c'),size=num.obs,replace=T))

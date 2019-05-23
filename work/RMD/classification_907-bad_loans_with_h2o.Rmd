@@ -17,7 +17,7 @@ load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
 
 https://github.com/h2oai/h2o-tutorials/blob/master/h2o-open-tour-2016/chicago/intro-to-h2o.R
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 # Introductory H2O Machine Learning Tutorial
 # Prepared for H2O Open Chicago 2016: http://open.h2o.ai/chicago.html
 
