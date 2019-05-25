@@ -8,9 +8,8 @@ rmd_files: [
   "misc_111c-comparing_distributions_with_qq_plot.Rmd",
   "misc_111d-qq_plots_pp_plots.Rmd",
   "misc_140-data_visualization-modeling.Rmd",
+  "misc-neural_networks_from_scratch.Rmd",
 
-# other
-  "06-references.Rmd"
 ]
 book_filename: "Applications of Machine Learning - Miscellaneous"
 delete_merged_file: true

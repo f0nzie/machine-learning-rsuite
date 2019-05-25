@@ -7,12 +7,11 @@ rmd_files: [
   "comparison_320-classification_iris-multi.Rmd",
   "comparison_321-regression_boston-multi.Rmd",
   "comparison_322-classification_BreastCancer-mlbench-multi.Rmd",
-  "comparison_330-classification_flu_outcome-multi.Rmd",
+  "comparison_330-classification_flu_outcome-multi-sglander.Rmd",
   "comparison_332-classification_orange_juice-multi.Rmd",
   "comparison_342-classification_employee_attrition-lime-multi.Rmd",
+  "comparison-classification_regression_with_h2o_deep_learning.Rmd",
 
-# other
-  "06-references.Rmd"
 ]
 book_filename: "Applications of Machine Learning - Comparison"
 delete_merged_file: true

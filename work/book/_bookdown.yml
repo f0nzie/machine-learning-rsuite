@@ -2,15 +2,14 @@ new_session: yes
 rmd_files: [
   "index.Rmd",
 
-"comparison_342-classification_employee_attrition-lime-multi.Rmd",
-"classification_227-bike_sharing_demand-rf.Rmd",
-
-# "comparison_322-classification_BreastCancer-mlbench-multi.Rmd",
-# "classification_229-breast_cancer-ga.Rmd",
-# "meta_131-dealing_with_unbalanced_data.Rmd",
-# "comparison_330-classification_flu_outcome-multi.Rmd",
-# "30-flu_prediction_mice5-sglander.Rmd",
-# "39b-h2o-deeplearning_arrhythmia-sglander.Rmd",
+# "comparison_342-classification_employee_attrition-lime-multi.Rmd",
+# "classification_227-bike_sharing_demand-rf.Rmd",
+# "classification_229-breast_cancer_ga-sglander.Rmd",
+# "meta_131-dealing_with_unbalanced_data-sglander.Rmd",
+# "comparison_330-classification_flu_outcome-multi-sglander.Rmd",
+# "meta_230-missing_flu_prediction_micex5-sglander.Rmd",
+# "classification_239b-deeplearning_h2o_arrhythmia-sglander.Rmd",
+"misc-neural_networks_from_scratch.Rmd"
 
 ]
 book_filename: "Applications of Machine Learning - Selection"
