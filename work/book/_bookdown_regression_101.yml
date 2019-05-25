@@ -3,16 +3,20 @@ rmd_files: [
   "index.Rmd",
 
 # regression 101
-  "regression_114-nested_temperature.Rmd",
   "regression_136-happiness.Rmd",
   "regression_138-advertising.Rmd",
   "regression_141.1-3a.Rmd",
   "regression_141.2-3b.Rmd",
   "regression_142-neural_network_yacht.Rmd",
   "regression_144-nn_cereals_neuralnet.Rmd",
+  "regression_902-fitting_neural_network.Rmd",
+  "regression_903-visualization_nn.Rmd",
+  "regression_921-nn_lm_vs_nn.Rmd",
+  "regression-diamonds_nn.Rmd",
+  "misc-neural_networks_from_scratch.Rmd",
+  "regression_114-nested_temperature.Rmd",
+  "misc_140-data_visualization-modeling.Rmd",
 
-# Other
-  "06-references.Rmd"
 ]
 book_filename: "Applications of Machine Learning - Regression 101"
 delete_merged_file: true

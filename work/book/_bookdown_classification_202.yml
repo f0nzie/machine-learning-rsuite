@@ -7,11 +7,10 @@ rmd_files: [
   "classification_226-vehicle-mlbench-tree.Rmd",
   "classification_227-bike_sharing_demand-rf.Rmd",
   "classification_229-breast_cancer-ga.Rmd",
+  "classification_239b-deeplearning_h2o_arrhythmia-sglander.Rmd",
   "classification_252a-titanic-naives_bayes.Rmd",
   "classification_252b-iris-naive_bayes.Rmd",
-
-# other
-  "06-references.Rmd"
+  "classification-h2o_hyper_params_mxnet_adult.Rmd"
 ]
 book_filename: "Applications of Machine Learning - Classification 202"
 delete_merged_file: true
