@@ -42,5 +42,9 @@ Imports: logging,
   GGally,
   rworldmap,
   rbenchmark,
-  microbenchmark
+  microbenchmark,
+  tibbletime,
+  rsample,
+  yardstick,
+  tfruns
 RoxygenNote: 6.1.1
