@@ -1,0 +1,39 @@
+# Predicting Sunspot Frequency with Keras
+
+Source: https://blogs.rstudio.com/tensorflow/posts/2018-06-25-sunspots-lstm/
+
+In this post we will examine making time series predictions using the sunspots dataset that ships with base R. Sunspots are dark spots on the sun, associated with lower temperature. Our post will focus on both how to apply deep learning to time series forecasting, and how to properly apply cross validation in this domain.
+
+
+
+
+We’re using the monthly version of the dataset, sunspots.month (there is a yearly version, too). It contains 265 years worth of data (from 1749 through 2013) on the number of sunspots per month.
+
+
+```{r}
+# Core Tidyverse
+library(tidyverse)
+library(glue)
+library(forcats)
+
+# Time Series
+library(timetk)
+library(tidyquant)
+#library(tibbletime)
+
+# Visualization
+library(cowplot)
+
+# Preprocessing
+library(recipes)
+
+# Sampling / Accuracy
+#library(rsample)
+#library(yardstick) 
+
+# Modeling
+#library(keras)
+library(tfruns)
+```
+
+

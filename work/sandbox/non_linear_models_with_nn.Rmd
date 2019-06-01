@@ -1,0 +1,48 @@
+# Multivariate Regression with Neural Networks: Unique, Exact and Generic Models
+
+Source: https://www.datasciencecentral.com/profiles/blogs/6448529:BlogPost:735264?xg_source=activity
+
+##  Nonlinear Models
+
+The requirement that the outputs be a linear function of the inputs for obtaining exact models is limiting. But we can accommodate the cases when the outputs can reasonably be approximated as polynomials in terms of the inputs.
+
+### Single input and response
+A simple example is a single output y being a polynomial of order r in a single input x.
+
+$$
+                 \begin{equation*} y = w_0 + w_1 x + w_2 x^2 + \cdots + w_r x^r \end{equation*}                 (6)
+$$
+
+Given n measurements of x and \hat{y} we have
+$$\begin{aligned}
+\begin{bmatrix} \hat{y}_1 \\ 
+    \hat{y}_2 \\ 
+    \vdots \\ 
+    \hat{y}_n 
+\end{bmatrix} & =
+\begin{bmatrix} 1 & x_1 & x_1^2 & x_1^3 & \cdots & x_1^r  \\
+    1 & x_2 & x_2^2 & x_2^3 & \cdots & x_1^r  \\
+    \vdots \\
+    1 & x_n & x_n^2 & x_n^3 & \cdots & x_n^r  \\
+\end{bmatrix} \cdot
+\begin{bmatrix} {w}_0 \\ 
+    {w}_1 \\ 
+    \vdots \\ 
+    {w}_r 
+\end{bmatrix}
+\end{aligned}$$
+
+           
+
+A least squares estimate $\underline{\hat{w}}$, that minimizes $\left(\underline{y} \cdot  \underline{\hat{y}}\right)^T \cdot \left(\underline{y}  - \underline{\hat{y}}\right)$, based on these measurements is known.
+
+$$
+\begin{equation*} \underline{\hat{w}} = \left( {\underline{\underline{X}}}^T {\underline{\underline{X}}} \right)^{-1} {\underline{\underline{X}}}^T \underline{\widehat{y}} \end{equation*}$$
+
+
+### Multiple inputs and responses
+Extending the above to multiple inputs and outputs (the multivariate case) is straightforward. Say we have $m$ outputs/responses, and $q$ actual inputs/predictors. Each measurement for a response has a form like Equation 6 but extended to include all the $q$ predictors. It is a polynomial of degree $r$ in each predictor so we will have $qr + 1$ coefficients in the equation. In compact matrix notation:
+
+$$\begin{equation*} \underbrace{\underline{\underline{Y}}}_{n \times m} = \underbrace{\underline{\underline{X}}}_{n \times (qr+1)} \cdot \underbrace{\underline{\underline{W}}}_{ (qr+1) \times m } \end{equation*}$$
+
+

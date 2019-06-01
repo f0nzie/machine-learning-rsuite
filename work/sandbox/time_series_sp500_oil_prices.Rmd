@@ -1,0 +1,17 @@
+# Modelling time series relationships between the S&P 500 and oil prices
+
+Source: https://www.michael-grogan.com/time-series-relationships-economics/
+
+In this example, an OLS regression model is constructed in an attempt to forecast future S&P 500 levels based on the price of Brent crude oil.
+
+However, since this OLS regression is incorporating time series data, potential violations such as serial correlation must be legislated for in this instance.
+
+In particular, this analysis will take into account the following considerations when constructing the OLS regression model:
+
+Use of the Durbin-Watson test to screen for serial correlation
+Remedial measures to remove serial correlation (if present) with the Cochrane-Orcutt remedy
+Stationarity and Cointegration tests
+Cross-Correlation analysis between oil price trends and the S&P 500
+Accuracy of predictions against the test data
+
+
