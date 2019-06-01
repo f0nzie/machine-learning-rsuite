@@ -1,5 +1,5 @@
 --- 
-title: 'Regression 101, ML'
+title: 'Customized list of ML Applications'
 author: "Alfonso R. Reyes"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
