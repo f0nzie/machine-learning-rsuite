@@ -1,7 +1,7 @@
 ---
 title: "Multivariate Regression with Neural Networks: Unique, Exact and Generic Models"
 output:
-  bookdown::html_document2:
+  bookdown::pdf_document2:
     df_print: paged
 ---
 
@@ -26,34 +26,32 @@ First the case of multiple exact models all of which are generally valid. That i
 knitr::include_graphics(file.path(assets_dir, "nn_1h_layer.png"))
 ```
 
-
-
 The input to a neuron in any non-input layer is taken to be a linearly weighted function of the outputs (i.e. activations) of the neurons in the previous layer. We use identity as the activation function here, so the output of a neuron is the same as the input it gets. With the notation $b$ as the bias, $w$ the weights, $z$ the input, and $a$ the activation – the equations shown in Figure \@ref(fig:fig1) follow directly. Requiring that the output activation $a_3$ be equal to $y$, i.e. $x_1 + x_2$, we get:
 
-$$
+
 \begin{equation}
   x_1 + x_2 = w_3 w_1 x_1 + w_3 w_2 x_2 + (w_3b_2 + b_3)
   (\#eq:eq1)
 \end{equation}
-$$
+
 
 For Equation \@ref(eq:eq1) to be true for all inputs, $x_1$ and $x_2$, we would need:
 
-$$
+
 \begin{equation}
   w_1 w_3 = w_2 w_3 \equiv 1, \qquad w_3 b_2 + b_3 \equiv 0
   (\#eq:eq2)
 \end{equation}
-$$
+
+
 
 With five unknowns and three equations we have two degrees of freedom. Clearly, we are going to get multiple solutions. Choosing $b_1$ and $b_2$, (both $\neq 0$), as the independent variables, we get:
 
-$$
-\begin{equation*} 
+\begin{equation} 
 w_1 = w_2 = -\frac{b_2}{b_3} \qquad \qquad w_3 = -\frac{b_3}{b_2} 
 (\#eq:eq3)
-\end{equation*}
-$$
+\end{equation}
+
 
 Table 1 shows results from the neural network (Figure \@ref(fig:fig1)) that has been trained with identical data, but with different initial values for $w$ and $b$. Each run drives the  cost (sum of the squared errors) to near zero, but yields a different final model. We see that the converged model in each case closely obeys Equation \@ref(eq:eq3), so that the model has generic validity for any and all inputs – not just the training data range.
 
@@ -69,20 +67,21 @@ knitr::include_graphics(file.path(assets_dir, "nn_no_hidden_layer.png"))
 
 Requiring again that the output activation $a_3$ be equal to $x_1 + x_2$, we get:
 
-$$
-\begin{equation*} 
+\begin{equation} 
     y = x_1 + x_2 = w_1 x_1 + w_2 x_2 + b_3
     (\#eq:eq4)
-\end{equation*}
-$$
+\end{equation}
+
+
 The only possible solution to Equation  \@ref(eq:eq4) that works for all $x_1$ and $x_2$ is:
 
-$$
-\begin{equation*} 
+
+\begin{equation} 
     w_1 = w_2 \equiv 1 \qquad \text{ and, } \qquad b_3 \equiv 0 
     (\#eq:eq5)
-\end{equation*}
-$$
+\end{equation}
+
+
 This is unlike the situation when we used the hidden layer. Given that there is only one solution, the neural net has to obtain it if it is going to converge. Table 2 below bears out this result from simulating the above neural network with different initial guesses for $b$ and $w$. We do in fact obtain the only possible solution in all cases trying to minimize the cost function.
 
 
@@ -92,18 +91,18 @@ The requirement that the outputs be a linear function of the inputs for obtainin
 ### Single input and response {-}
 A simple example is a single output y being a polynomial of order r in a single input x.
 
-$$
 \begin{equation}
   y = w_0 + w_1 x + w_2 x^2 + \cdots + w_r x^r 
   (\#eq:eq6)
 \end{equation}
-$$
+
 
 Given $n$ measurements of $x$ and $\hat{y}$ we have:
 
-$$\begin{equation}
+\begin{equation}
 \begin{aligned}
-\begin{bmatrix} \hat{y}_1 \\ 
+\begin{bmatrix} 
+    \hat{y}_1 \\ 
     \hat{y}_2 \\ 
     \vdots \\ 
     \hat{y}_n 
@@ -121,25 +120,26 @@ $$\begin{equation}
 \end{aligned}
 (\#eq:eq7)
 \end{equation}
-$$
+
 
 A least squares estimate $\underline{\hat{w}}$, that minimizes $\left(\underline{y} \cdot  \underline{\hat{y}}\right)^T \cdot \left(\underline{y}  - \underline{\hat{y}}\right)$, based on these measurements is known.
 
-$$
-\begin{equation*} \underline{\hat{w}} = \left( {\underline{\underline{X}}}^T {\underline{\underline{X}}} \right)^{-1} {\underline{\underline{X}}}^T \underline{\widehat{y}}
+
+\begin{equation} \underline{\hat{w}} = \left( {\underline{\underline{X}}}^T {\underline{\underline{X}}} \right)^{-1} {\underline{\underline{X}}}^T \underline{\widehat{y}}
 (\#eq:eq8)
-\end{equation*}
-$$
+\end{equation}
+
 
 
 ### Multiple inputs and responses {-}
 Extending the above to multiple inputs and outputs (the multivariate case) is straightforward. Say we have $m$ outputs/responses, and $q$ actual inputs/predictors. Each measurement for a response has a form like Equation 6 but extended to include all the $q$ predictors. It is a polynomial of degree $r$ in each predictor so we will have $qr + 1$ coefficients in the equation. In compact matrix notation:
 
-$$\begin{equation*}
+\begin{equation}
 \underbrace{\underline{\underline{Y}}}_{n \times m} = \underbrace{\underline{\underline{X}}}_{n \times (qr+1)} \cdot \underbrace{\underline{\underline{W}}}_{ (qr+1) \times m } 
 (\#eq:eq9)
-\end{equation*}
-$$
+\end{equation}
+
+
 Appealing to the single response/input case in Equations \@ref(eq:eq6) and \@ref(eq:eq7) it is easy to understand the following about Equation \@ref(eq:eq9).
 
 * $\underline{\underline{Y}}$ above is simply the $m$ response vectors (of length $n$, the number of measurements in Equation \@ref(eq:eq9) stacked side-by-side.
@@ -153,11 +153,11 @@ Appealing to the single response/input case in Equations \@ref(eq:eq6) and \@ref
 
 Given the actual measurements $\underline{\underline{\widehat{Y}}}$, the least squares estimate $\underline{\underline{\widehat{W}}}$ is similar to  Equation \@ref(eq:eq8).
 
-$$
-\begin{equation*} \underline{\underline{\widehat{W}}} = \left( {\underline{\underline{X}}}^T {\underline{\underline{X}}} \right)^{-1} {\underline{\underline{X}}}^T \underline{\underline{\widehat{Y}}}
+
+\begin{equation} \underline{\underline{\widehat{W}}} = \left( {\underline{\underline{X}}}^T {\underline{\underline{X}}} \right)^{-1} {\underline{\underline{X}}}^T \underline{\underline{\widehat{Y}}}
 (\#eq:eq10)
-\end{equation*}
-$$
+\end{equation}
+
 
 ### The neural net {-}
 Now we are ready to build a neural net that will obtain the unique exact model representing a polynomial relationship between inputs and outputs. We have to use $r-1$ extra inputs $\left\{ x_1^2, \cdots , x_1^r\right\}$ for each actual input measurement $x_1$, as we are targeting an $r^{th}$ degree polynomial for the outputs in each predictor variable. This is the price we have to pay in order to make the outputs a linear function of the inputs so we can use our hidden layer free neural network to obtain the unique exact model.
@@ -172,19 +172,24 @@ Having gotten all this down we will henceforth  simply use the symbol $p$ for th
 
 Using the sum of squares of differences at the output layer as the cost function we have:
 
-$$
-\begin{align*} 
-  C = & \frac{1}{2} \sum_{i=1}^{m} \left( y_i - \hat{y}_i \right)^2 =\frac{1}{2} \sum_{i=1}^{m} \left( \sum_{k=0}^{p} W_{ik} x_k - \hat{y}_i \right)^2 \\ 
+
+\begin{equation}
+\begin{aligned}
+C = & \frac{1}{2} \sum_{i=1}^{m} \left( y_i - \hat{y}_i \right)^2 =\frac{1}{2} \sum_{i=1}^{m} \left( \sum_{k=0}^{p} W_{ik} x_k - \hat{y}_i \right)^2 \\ 
   \frac{dC}{dW_{ij}} = & x_j \left( y_i - \hat{y}_i \right) = x_j \left( \sum_{k=0}^{p} W_{ik} x_k - \hat{y}_i \right) \\ 
   \frac{d^2C}{dW_{ij}^{2}} = & x_j^2 > 0 \qquad \forall x_j \neq 0 
   (\#eq:eq11)
-\end{align*}
-$$
+\end{aligned}
+\end{equation}
+
 
 It follows from the second derivative above that the cost function is convex in $\left\{W_{ij}\right\}$ for all input data $\underline{x}$.  So we are going to march towards a model achieving the global minimum no matter what training data we use.
 
 
 ## Conclusions {-}
 We have gone over some of the basics of the problem set up with neural networks to obtain unique, exact, and generalized target models. Building and training the network, code snippets, simulations, convergence, stability, etc., will make this post too long so will be covered in an upcoming blog.
+
+
+
 
 
