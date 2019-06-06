@@ -49,5 +49,7 @@ Imports: logging,
   usethis,
   tictoc,
   faraway,
-  bookdown
+  bookdown,
+  servr,
+  svglite
 RoxygenNote: 6.1.1
