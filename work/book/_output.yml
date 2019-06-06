@@ -5,7 +5,7 @@ bookdown::gitbook:
   config:
     toc:
       toc_depth: 2
-      collapse: none
+      collapse: section
       before: |
         <li><strong><a href="./">Machine Learning Collection</a></strong></li>
     sharing:
