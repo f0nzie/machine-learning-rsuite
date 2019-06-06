@@ -24,9 +24,10 @@ args <- args_parser()
 library(ml.core)
 library(bookdown)
 
-source("R/set_folders.R")
+# source("R/set_folders.R")
 
-# book_src_dir <- file.path(project_root, "work", "book1")
+# for testing only
+book_src_dir <- file.path(project_root, "work", "book")
 
 loginfo("--> Pandoc version: %s", rmarkdown::pandoc_version())
 # change to directory where RMD files are
