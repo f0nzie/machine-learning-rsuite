@@ -1,0 +1,10 @@
+new_session: yes
+book_filename: "Applications of Machine Learning - Selection"
+delete_merged_file: true
+
+#rmd_files: [
+#  "misc_140-data_visualization-modeling.Rmd"
+#]
+
+before_chapter_script: "_common.R"
+output_dir: ../../export/book_out
