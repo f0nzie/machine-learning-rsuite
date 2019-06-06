@@ -72,3 +72,23 @@ load_config <- function() {
 
   return(config_lst)
 }
+
+# customized folders
+
+folder_exists <- function(folder) {
+  if (!dir.exists(folder)) {
+    dir.create(folder, recursive = T)
+  }
+  return(folder)
+}
+
+project_root <- rprojroot::find_rstudio_root_file()
+book_src_dir <- file.path(project_root, "work", "book")
+book_out_dir <- file.path(project_root, "export", "book_out")
+model_out_dir <- folder_exists(file.path(project_root, "export", "model_out"))
+data_raw_dir <- file.path(project_root, "import")
+data_out_dir <- folder_exists(file.path(project_root, "export"))
+assets_dir   <- file.path(project_root, "import", "assets")
+r_code_dir   <- file.path(project_root, "R")
+
+save.image(file.path(project_root, "workspace.RData"))
