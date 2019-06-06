@@ -1,13 +1,15 @@
 --- 
+# knit: "bookdown::render_book"
 knit: "bookdown::preview_chapter"
 title: 'Customized list of ML Applications'
 author: "Alfonso R. Reyes"
 date: "`r Sys.Date()`"
 description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
 link-citations: yes
+colorlinks: yes
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
-site: bookdown::bookdown_site
+site: "bookdown::bookdown_site"
 documentclass: book
 ---
 

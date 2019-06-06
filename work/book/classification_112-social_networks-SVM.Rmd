@@ -1,19 +1,5 @@
 # Classification with SVM. Social Network dataset
 
-```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE} 
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment = "#>", 
-                      error = TRUE, 
-                      warning = FALSE, 
-                      message = FALSE,
-                      fig.align = 'center')
-```
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
-
 ## Introduction
 **Source**: https://www.geeksforgeeks.org/classifying-data-using-support-vector-machinessvms-in-r/
 

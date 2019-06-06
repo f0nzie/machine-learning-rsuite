@@ -1,19 +1,5 @@
 # Principal Components Methods
 
-```{r setup, include=F, error=T, message=F, warning=F}
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment =":>", 
-                      error = TRUE, 
-                      message = FALSE, 
-                      warning = FALSE,
-                      fig.align = 'center')
-```
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
-
 http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/112-pca-principal-component-analysis-essentials/
 
 Principal component analysis (PCA) allows us to summarize and to visualize the information in a data set containing individuals/observations described by multiple inter-correlated quantitative variables. Each variable could be considered as a different dimension. If you have more than 3 variables in your data sets, it could be very difficult to visualize a multi-dimensional hyperspace.

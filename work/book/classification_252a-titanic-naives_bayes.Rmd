@@ -1,18 +1,5 @@
 # Titanic with Naive-Bayes Classifier
 
-```{r setup, include=F, error=T, message=F, warning=F}
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment =":>", 
-                      error = TRUE, 
-                      message = FALSE, 
-                      warning = FALSE,
-                      fig.align = 'center')
-```
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
 
 The Titanic dataset in R is a table for about 2200 passengers summarised according to four factors – economic status ranging from 1st class, 2nd class, 3rd class and crew; gender which is either male or female; Age category which is either Child or Adult and whether the type of passenger survived. For each combination of Age, Gender, Class and Survived status, the table gives the number of passengers who fall into the combination. We will use the Naive Bayes Technique to classify such passengers and check how well it performs. 
 

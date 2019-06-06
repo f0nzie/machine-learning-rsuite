@@ -1,20 +1,5 @@
 # Fitting GAMs with brms: part 1
 
-```{r setup, include=FALSE, error=TRUE, message=FALSE, warning=FALSE} 
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment = "#>", 
-                      error = TRUE, 
-                      warning = FALSE, 
-                      message = FALSE, 
-                      fig.align = 'center'
-                      )
-```
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
-
 ## Introduction
 Source: https://www.fromthebottomoftheheap.net/2018/04/21/fitting-gams-with-brms/
 

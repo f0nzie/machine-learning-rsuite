@@ -1,19 +1,5 @@
 # *Employee attrition* dataset
 
-```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE}
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment = NA, 
-                      error = TRUE, 
-                      warning = FALSE, 
-                      message = FALSE, 
-                      cache = TRUE,
-                      fig.align = 'center')
-```
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
 
 Article: https://www.business-science.io/business/2017/09/18/hr_employee_attrition.html
 Data: https://www.ibm.com/communities/analytics/watson-analytics-blog/hr-employee-attrition/

@@ -1,0 +1,312 @@
+# Logistic Regression
+
+
+https://github.com/ilkarman/DemoNeuralNet/blob/master/02_LogisticRegression.ipynb
+
+```{r}
+knitr::include_graphics(file.path(assets_dir, "logistic_regression.jpg"))
+```
+
+
+```{r}
+# Reproduce results
+set.seed(1234567)
+
+# Two possible outcomes -> binomial
+data_df <- as.data.frame(iris)
+idx <- data_df$Species %in% c("virginica", "versicolor")
+data_df <- data_df[idx,]
+y <- ifelse(data_df$Species=="virginica", 1, 0)
+
+# For faster convergence let's rescale X
+# So that we can plot this consider only 2 variables
+X <- data_df[c(1,3)]
+X <- as.matrix(X/max(X))
+
+# Resulting data-set
+head(X)
+head(y)
+
+```
+
+### 1. Fit a binomial logit in R
+A logistic regression is a linear regression that outputs a number bounded between 0 and 1. This means it is useful for classification problems, where we want to predict the probability of something happening. A binomial logistic regression is used when there are just two-classes, to extend beyound two-classes we would typically use a multi-nomial logistic regression (softmax).
+
+Consider the iris-dataset where we try to predict whether a flower is "virginica" or "versicolor" by only looking at petal-length and sepal-length. We fit a linear line to 'best' split the categories:
+
+
+```{r}
+# Fit model
+model <- glm(y ~ X, family=binomial(link='logit'))
+
+# Params
+print(coef(model))
+# Coefficients:
+# (Intercept) XSepal.Length XPetal.Length 
+# -39.83851     -31.73243     105.16992 
+#summary(model)
+
+# Visualise the decision boundary
+intcp <- coef(model)[1]/-(coef(model)[3])
+slope <- coef(model)[2]/-(coef(model)[3])
+
+# Our points
+plot(x=X[,1], y=X[,2], cex = 1, col=data_df$Species,
+     main = "Iris type by length and width", 
+     xlab = "Sepal Length", ylab = "Petal Length")
+legend(x='topright', legend=unique(data_df$Species),col=unique(data_df$Species), pch=1)
+# Decision boundary
+abline(intcp , slope, col='blue')
+```
+
+The above line has an intercept of -39.84, and coefficient of -31.73 for sepal-length and 105.17 for petal-length. These estimates are obtained by maximising the likelihood.
+
+Because the log function is monotone, maximizing the likelihood is the same as maximizing the log-likelihood (or minimising the negative of the log-likelihood)
+
+$$\begin{aligned} 
+   l_x(\theta) = \log L_x(\theta)
+\end{aligned}$$
+
+For many reasons it is more convenient to use log likelihood rather than likelihood:
+
+$$\begin{aligned}
+   \log L_x
+   =
+   \sum_{i=1}^{N} y_i\beta^Tx_i - \log(1+e^{\beta^Tx_i})  
+\end{aligned}$$
+
+    log_likelihood <- function(X_mat, y, beta_hat)
+    {
+      scores <- X_mat %*% beta_hat
+      ll <- (y * scores) - log(1+exp(scores))
+      sum(ll)
+    }
+    
+The log-likelihood in this example is -11.92.
+
+```{r}
+logLik(model)  # Log-likelihood
+
+# Calculate log-likelihood ourself
+log_likelihood <- function(X_mat, y, beta_hat)
+{
+  scores <- X_mat %*% beta_hat
+  # Need to broadcast (y %*% scores)
+  ll <- (y * scores) - log(1+exp(scores))
+  sum(ll)
+}
+
+log_likelihood(cbind(1, X), y, coef(model))  # Match at -11.925
+```
+
+### 2. Fit a binomial logit ourselves (GD)
+Typically BFGS or other numerical optimisation procedures are used to minimise the cost/max log-likelihood instead of GD, because the parameter space is pretty smaller (compared to neural-networks).
+
+The logistic loss is sometimes called the cross-entropy loss. Let us first examine what would happen if we simply tried to calculate the least-squares loss, like before (for a regression rather than a classification):
+
+$$\begin{aligned} 
+   C = \frac{1}{2n}\sum_x\|(y(x) - a(x)\|^2
+\end{aligned}$$
+
+This loss will not be convex (in parameters) because $a(x)$ (the activation/link function) that transforms our score into a probability is defined as: $\sigma(z)=\frac{1}{1+e^-z}$ and thus $a(x)=\frac{1}{1+e^-\beta^Tx_i}$
+
+We can construct a convex-loss function. This is binary classification and so we can define the loss for both of the classes. When $y=1$ we want the loss to be large when $\sigma(z)$ is close to zero and for it to be small when it is close to 1. Similarly, when $y=0$ we want the loss to be large when $\sigma(z)$ is close to one and for it be small when it is close to 0. The following loss function satisifies those conditions:
+
+$$\begin{aligned} 
+   C = -\frac{1}{n}\sum_xy(x)\ln(a(x)) + (1 - y(x))\ln(1-a(x))
+\end{aligned}$$
+
+For example, when $y(x)=1$ our loss-function becomes $C = -\frac{1}{n}\sum_x\ln(a(x))$, which is equal to 0 when $a(x)=1$, otherwise it becomes very high.
+
+Taking the derivative of this loss-function w.r.t to the parameters, it can be shown:
+
+$$\begin{aligned} 
+    \frac{dC}{d\beta_i} = \frac{1}{n}\sum_xx_i(a(x) - y)
+\end{aligned}$$
+
+Note that the cross-entropy loss is more generally defined as:
+
+$$\begin{aligned} 
+   C = -\frac{1}{n}\sum_x\sum_j y_j\ln(a_j)
+\end{aligned}$$
+
+For binary classifications where $j=2$, under the condition that the categories are mutually-exclusive $\sum_ja_j=1$ and that y is one-hot so that $y1+y2=1$, we can re-write it as:
+
+$$\begin{aligned} 
+   C = -\frac{1}{n}\sum_xy_1\ln(a_1) + (1 - y_1)\ln(1-a_1)
+\end{aligned}$$
+
+Which is the same equation we first started with.
+
+The process for using GD for a logistic regression is similar to that of a simple linear-regression. Since our loss is convex we can use either gradient-descent or stochastic-gradient descent; for now we will stick with the former.
+
+```{r}
+# Calculate activation function (sigmoid for logit)
+sigmoid <- function(z){1.0/(1.0+exp(-z))}
+
+logistic_reg <- function(X, y, epochs, lr)
+{
+  X_mat <- cbind(1, X)
+  beta_hat <- matrix(1, nrow=ncol(X_mat))
+  for (j in 1:epochs)
+  {
+    residual <- sigmoid(X_mat %*% beta_hat) - y
+    # Update weights with gradient descent
+    delta <- t(X_mat) %*% as.matrix(residual, ncol=nrow(X_mat)) *  (1/nrow(X_mat))
+    beta_hat <- beta_hat - (lr*delta)
+  }
+  # Print log-likliehood
+  print(log_likelihood(X_mat, y, beta_hat))
+  # Return
+  beta_hat
+}
+```
+
+The only major difference is that we apply a sigmoid function to our prediction - to turn it into a probability. Below we can see why: the output is bounded between 0 and 1.
+
+The shape of the sigmoid curve also means that we can increase the speed of convergence by scaling the variables to be closer to 0 - where the gradient is high. Imagine our inputs have a value of 100 - this can create a very high error, however the gradient is nearly flat and thus the update to the coefficients will be tiny.
+
+We run the below to optimise our logistic regression using GD:
+
+    beta_hat <- logistic_reg(X, y, 300000, 5)
+
+We match the original results with the coefficients: -38.84, -31.73, 105.17
+
+```{r}
+# Why did scaling before help with convergence?
+# Vanishing gradient
+curve(sigmoid, -10, 10)
+```
+
+```{r logistic_gradient_descent}
+# Takes a while to converge with GD!
+beta_hat <- logistic_reg(X, y, 300000, 5)
+print(beta_hat)
+
+# Intercept    -39.83848
+# Sepal.Length -31.73240
+# Petal.Length 105.16983
+
+# Visualise the decision boundary
+plot(x=X[,1], y=X[,2], cex = 1, col=data_df$Species,
+     main = "Iris type by length and width", 
+     xlab = "Sepal Length", ylab = "Petal Length")
+legend(x='topright', legend=unique(data_df$Species),col=unique(data_df$Species), pch=1)
+
+# Visualise the decision boundary
+intcp <- beta_hat[1]/-(beta_hat[3])
+slope <- beta_hat[2]/-(beta_hat[3])
+
+abline(intcp , slope, col='purple')
+```
+
+
+### What is logistic regression?
+A logistic regression is a linear regression for binary classification problems. The two main differences to a standard linear regression are:
+
+We use an 'activation'/link function called the logistic-sigmoid to squash the output to a probability bounded by 0 and 1
+Instead of minimising the quadratic loss we minimise the negative log-likelihood of the Bernoulli distribution
+Everything else remains the same.
+
+We can calcuate our activation function like so:
+
+```{r}
+sigmoid <- function(z){1.0/(1.0+exp(-z))}
+
+```
+
+We can create our log-likelihood function in R:
+
+```{r}
+log_likelihood <- function(X_mat, y, beta_hat)
+{
+  scores <- X_mat %*% beta_hat
+  ll <- (y * scores) - log(1+exp(scores))
+  sum(ll)
+}
+```
+
+
+This loss function (the logistic loss or the log-loss) is also called the cross-entropy loss. The cross-entropy loss is basically a measure of 'surprise' and will be the foundation for all the following models, so it is worth examining a bit more.
+
+If we simply constructed the least-squares loss like before, because we now have a non-linear activation function (the sigmoid), the loss will no longer be convex which will make optimisation hard.
+
+$$\begin{aligned} 
+   C = \frac{1}{2n}\sum_x ((y(x) - a(x))^2
+\end{aligned}$$
+
+We could construct our own loss function for the two classes. When $y=1$, we want our loss function to be very high if our prediction is close to 0, and very low when it is close to 1. When $y=0$, we want our loss function to be very high if our prediction is close to 1, and very low when it is close to 0. This leads us to the following loss function:
+
+$$\begin{aligned} 
+   C = -\frac{1}{n}\sum_xy(x)\ln(a(x)) + (1 - y(x))\ln(1-a(x))
+\end{aligned}$$
+
+The delta for this loss function is pretty much the same as the one we had earlier for a linear-regression. The only difference is that we apply our sigmoid function to the prediction. This means that the GD function for a logistic regression will also look very similar:
+
+```{r}
+logistic_reg <- function(X, y, epochs, lr)
+{
+  X_mat <- cbind(1, X)
+  beta_hat <- matrix(1, nrow=ncol(X_mat))
+  for (j in 1:epochs)
+  {
+    # For a linear regression this was:
+    # 1*(X_mat %*% beta_hat) - y
+    residual <- sigmoid(X_mat %*% beta_hat) - y
+    # Update weights with gradient descent
+    delta <- t(X_mat) %*% as.matrix(residual, ncol=nrow(X_mat))*(1/nrow(X_mat))
+    beta_hat <- beta_hat - (lr*delta)
+  }
+  # Print log-likliehood
+  print(log_likelihood(X_mat, y, beta_hat))
+  # Return
+  beta_hat
+}
+```
+
+
+## Softmax Regression
+
+```{r}
+knitr::include_graphics(file.path(assets_dir, "softmax_regression.jpg"))
+```
+
+A generalisation of the logistic regression is the multinomial logistic regression (also called 'softmax'), which is used when there are more than two classes to predict. I haven't created this example in R, because the neural-network in the next step can reduce to something similar, however for completeness I wanted to highlight the main differences if you wanted to create it.
+
+First, instead of using the sigmoid function to squash our (one) value between $\theta$ and 1:
+
+$$\sigma(z) = \frac {1}{1+e^{-z}}$$
+
+We use the softmax function to squash the sum of our $n$ values (for $n$ classes) to 1:
+
+$$\phi(z) = \frac {e^z_j}{\sum_k e^z_k}$$
+
+This means the value supplied for each class can be interpreted as the probability of that class, given the evidence. This also means that when we see the target class and increase the weights to increase the probability of observing it, the probability of the other classes will fall. The implicit assumption is that our classes are mutually exclusive.
+
+Second, we use a more general version of the cross-entropy loss function:
+
+$$\begin{aligned} 
+   C = -\frac{1}{n}\sum_x\sum_j y_j\ln(a_j)
+\end{aligned}$$
+
+To see why, remember that for binary classifications (previous example) we had two classes: 
+$j=2$, under the condition that the categories are mutually-exclusive $\sum_ja_j = 1$ and that $y$ is one-hot so that $y_1+y_2=1$, we can re-write the general formula as:
+
+$$\begin{aligned} 
+   C = -\frac{1}{n}\sum_xy_1\ln(a_1) + (1 - y_1)\ln(1-a_1)
+\end{aligned}$$
+
+Which is the same equation we first started with. However, now we relax the constraint that 
+$j=2$. It can be shown that the cross-entropy loss here has the same gradient as for the case of the binary/two-class cross-entropy on logistic outputs.
+
+$$\begin{aligned} 
+   \frac {\partial C} {\partial \beta_i} = \frac {1}{n} \sum x_i(a(x) -y)
+\end{aligned}$$
+
+
+However, although the gradient has the same formula it will be different because the activation here takes on a different value (softmax instead of logistic-sigmoid).
+
+In most deep-learning frameworks you have the choice of 'binary-crossentropy' or 'categorical-crossentropy' loss. Depending on whether your last layer contains sigmoid or softmax activation you would want to choose binary or categorical cross-entropy (respectively). The training of the network should not be affected, since the gradient is the same, however the reported loss (for evaluation) would be wrong if these are mixed up.
+
+The motivation to go through softmax is that most neural-networks will use a softmax layer as the final/'read-out' layer, with a multinomial/categorical cross-entropy loss instead of using sigmoids with a binary cross-entropy loss — when the categories are mutually exclusive. Although multiple sigmoids for multiple classes can also be used (and will be used in the next example), this is generally only used for the case of non-mutually-exclusive labels (i.e. we can have multiple labels). With a softmax output, since the sum of the outputs is constrained to equal 1, we have the advantage of interpreting the outputs as class probabilities.
+

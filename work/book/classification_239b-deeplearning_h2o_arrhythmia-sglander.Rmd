@@ -1,21 +1,6 @@
 # Building deep neural nets with h2o that predict arrhythmia of the heart
 
-```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE}
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment = "#>", 
-                      error = TRUE, 
-                      warning = FALSE, 
-                      message = FALSE, 
-                      fig.align = 'center')
-```
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
-
 ## Introduction
-
 27 February 2017
 
 This week, I am showing how to build feed-forward deep neural networks or multilayer perceptrons. The models in this example are built to classify ECG data into being either from healthy hearts or from someone suffering from arrhythmia. I will show how to prepare a dataset for modeling, setting weights and other modeling parameters, and finally, how to evaluate model performance with the `h2o` package.

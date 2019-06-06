@@ -1,19 +1,5 @@
 # Diagnostic Plots
 
-```{r setup, include=F, error=T, message=F, warning=F}
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment =":>", 
-                      error = TRUE, 
-                      message = FALSE, 
-                      warning = FALSE,
-                      fig.align = 'center')
-```
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
-
 I have tried to use fortify function in ggplot2 which can access different statistics related to linear model. The basic diagnostic plot which we often get using plot function in the fitted model using lm command.
 
 The function `diagPlots` gives an list of six different plots which can be arranged in a grid using `grid` and `gridExtra` packages.

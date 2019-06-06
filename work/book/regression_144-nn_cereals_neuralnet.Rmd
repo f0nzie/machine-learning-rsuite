@@ -1,22 +1,5 @@
 # Regression - cereals dataset
 
-```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE} 
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment = "#>", 
-                      error = TRUE, 
-                      warning = FALSE, 
-                      message = FALSE,
-                      fig.align = 'center')
-```
-
-```{r echo=FALSE}
-# first line kind of optional; for me it will provide the project folders
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-# this line is key; it will point to the location of user packages
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
-
-
 ## Introduction
 
 Source: https://www.analyticsvidhya.com/blog/2017/09/creating-visualizing-neural-network-in-r/
@@ -62,6 +45,11 @@ datatrain = data[ index, ]
 datatest = data[ -index, ]
 ```
 
+```{r}
+dplyr::glimpse(data)
+```
+
+
  
 Now we fit a neural network on our data. We use neuralnet library for the analysis. The first step is to scale the cereal dataset. The scaling of data is essential because otherwise a variable may have large impact on the prediction variable only because of its scale. Using unscaled may lead to meaningless results. The common techniques to scale data are: min-max normalization, Z-score normalization, median and MAD, and tan-h estimators. The min-max normalization transforms the data into a common range, thus removing the scaling effect from all the variables. Unlike Z-score normalization and median and MAD method, the min-max method retains the original distribution of the variables. We use min-max normalization to scale the data. The R script for scaling the data is as follows. 
 
@@ -89,7 +77,8 @@ testNN = scaled[-index , ]
 
 # fit neural network
 set.seed(2)
-NN = neuralnet(rating ~ calories + protein + fat + sodium + fiber, trainNN, hidden = 3 , linear.output = T )
+NN = neuralnet(rating ~ calories + protein + fat + sodium + fiber, 
+               trainNN, hidden = 3 , linear.output = T )
 
 # plot neural network
 plot(NN)

@@ -1,3 +1,23 @@
+```{r include=FALSE, cache=FALSE}
+set.seed(1014)
+options(digits = 3)
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  out.width = "70%",
+  fig.align = 'center',
+  fig.width = 6,
+  fig.asp = 0.618,  # 1 / phi
+  fig.show = "hold",
+  message = FALSE,
+  error = TRUE,
+  warning = FALSE,
+  cache = TRUE
+)
+
+options(dplyr.print_min = 6, dplyr.print_max = 6)
+```
 # Feature selection, Variable Importance
 
 Source: https://www.machinelearningplus.com/machine-learning/feature-selection/
@@ -374,7 +394,7 @@ You can see all of the top 10 variables from '`lmProfile$optVariables`' that was
 ## 7. Genetic Algorithm
 You can perform a supervised feature selection with genetic algorithms using the `gafs()`. This is **quite resource expensive** so consider that before choosing the number of iterations (iters) and the number of repeats in `gafsControl()`.
 
-```{r Genetic_Algorithm}
+```{r Genetic_Algorithm, warning=FALSE, message=FALSE}
 tic()
 # Define control function
 ga_ctrl <- gafsControl(functions = rfGA,  # another option is `caretGA`.

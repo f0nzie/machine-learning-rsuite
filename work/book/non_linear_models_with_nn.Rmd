@@ -1,14 +1,4 @@
----
-title: "Multivariate Regression with Neural Networks: Unique, Exact and Generic Models"
-output:
-  bookdown::pdf_document2:
-    df_print: paged
----
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
+# Multivariate Regression with Neural Networks: Unique, Exact and Generic Models
 
 Source: https://www.datasciencecentral.com/profiles/blogs/6448529:BlogPost:735264?xg_source=activity
 

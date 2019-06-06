@@ -1,0 +1,302 @@
+# Neural Networks from Scratch: Linear Regression
+
+## Introduction
+
+https://blog.revolutionanalytics.com/2017/07/nnets-from-scratch.html
+
+This post is for those of you with a statistics/econometrics background but not necessarily a machine-learning one and for those of you who want some guidance in building a neural-network from scratch in R to better understand how everything fits (and how it doesn't).
+
+Andrej Karpathy wrote that when CS231n (Deep Learning at Stanford) was offered:
+
+> "we intentionally designed the programming assignments to include explicit calculations involved in backpropagation on the lowest level. The students had to implement the forward and the backward pass of each layer in raw numpy. Inevitably, some students complained on the class message boards".
+
+Why bother with backpropagation when all frameworks do it for you automatically and there are more interesting deep-learning problems to consider?
+
+Nowadays we can literally train a full neural-network (on a GPU) in 5 lines.
+
+Karpathy, abstracts away from the "intellectual curiosity" or "you might want to improve on the core algorithm later" argument. His argument is that the calculations are a leaky abstraction:
+
+> “it is easy to fall into the trap of abstracting away the learning process—believing that you can simply stack arbitrary layers together and backprop will 'magically make them work' on your data”
+
+Hence, my motivation for this post is two-fold:
+
+Understanding (by writing from scratch) the leaky abstractions behind neural-networks dramatically shifted my focus to elements whose importance I initially overlooked. If my model is not learning I have a better idea of what to address rather than blindly wasting time switching optimisers (or even frameworks).
+
+A deep-neural-network (DNN), once taken apart into lego blocks, is no longer a black-box that is inaccessible to other disciplines outside of AI. It's a combination of many topics that are very familiar to most people with a basic knowledge of statistics. I believe they need to cover very little (just the glue that holds the blocks together) to get an insight into a whole new realm.
+
+Starting from a linear regression we will work through the maths and the code all the way to a deep-neural-network (DNN) in the accompanying R-notebooks. Hopefully to show that very little is actually new information.
+
+## Step 1 - Linear Regression (See Notebook)
+https://github.com/ilkarman/DemoNeuralNet/blob/master/01_LinearRegression.ipynb
+
+```{r echo=FALSE}
+knitr::include_graphics(file.path(assets_dir, "linear_regression.jpg"))
+```
+
+
+```{r}
+# Reproduce results
+set.seed(1234567)
+```
+
+
+```{r}
+# Random data in which y is a noisy function of x
+X <- runif(100, -5, 5)
+y <- X + rnorm(100) + 3
+```
+
+
+### Linear Regression in R
+A linear regression assumes that the true function (we are trying to replicate) can be written as:
+
+$$
+\begin{aligned}
+y = X\beta + \epsilon
+\end{aligned}
+$$
+
+In other words the true function is a linear combination of its parameters.
+
+
+### Vector of residuals
+The vector of residuals given an estimate of $\beta$ is thus:
+
+$$\begin{aligned} 
+   e = y - X\beta^{OLS}
+\end{aligned}$$
+
+Where OLS indicates that this is the Ordinary Least Squares estimate of $\beta$
+
+The OLS estimator by definition minimises the sum of squared residuals:
+
+$$\begin{aligned} 
+   e'e = (y - X\beta^{OLS})'(y - X\beta^{OLS})
+\end{aligned}$$
+
+$$\begin{aligned} 
+   e'e = y'y - y'X\beta^{OLS} - \beta^{OLS'}X'y + \beta^{OLS'}X'X\beta^{OLS'}
+\end{aligned}$$
+
+Since the tranpose of a scalar is a scalar: $y'X\beta^{OLS} = (y'X\beta^{OLS})' = \beta^{OLS'}X'y$ we get the Residual Sum of Squares (RSS):
+
+$$\begin{aligned} 
+   RSS = e'e = y'y - 2\beta^{OLS'}X'y + \beta^{OLS'}X'X\beta^{OLS'}
+\end{aligned}$$
+
+### Taking the derivative
+We take the derivative of this w.r.t to beta-hat and set it equal to 0:
+
+$$\begin{aligned} 
+   0 = -2X'y + 2X'X\beta^{OLS}
+\end{aligned}$$
+
+The chart below shows an example of such a function; for the example we assume that wages are a linear function of height:
+
+The line-of-best-fit here is a line that minimises the squared sum of residuals, it has a slope of 0.95 and an intercept of 2.95.
+
+
+```{r fig.width=5, fig.height=5}
+# Fit a model (regress weight on height)
+fit <- lm(y ~ X)
+print(fit)
+# Coefficients:
+#(Intercept)            X  
+#     2.9455       0.9519 
+
+# beta-hat
+fit_params <- fit$coefficients
+
+# Plot
+plot(x=X, y=y, cex = 1, col = "grey",
+     main = "Explain Wages with Height", xlab = "Height", ylab = "Wages")
+
+# Draw the regression line (intercept, slope)
+abline(a=fit_params[[1]], b=fit_params[[2]], col="blue")
+```
+
+
+
+### 2. Linear Regression from Scratch
+Assuming that $X'X$ is a positive definite matrix (our variables are not a perfect linear combination of each other & we have more observations than variables) we can find a closed-form solution for $\beta^{OLS}$:
+
+```{r fig.width=5, fig.height=5}
+# Matrix of predictors (we only have one in this example)
+X_mat <- as.matrix(X)
+# Add column of 1s for intercept coefficient
+intcpt <- rep(1, length(y))
+
+# Combine predictors with intercept
+X_mat <- cbind(intcpt, X_mat)
+
+# OLS (closed-form solution)
+beta_hat <- solve(t(X_mat) %*% X_mat) %*% t(X_mat) %*% y
+print(beta_hat)
+# 2.945535, 0.951942
+
+# Plot
+plot(x=X, y=y, cex = 1, col = "grey",
+     main = "Explain Wages with Height", xlab = "Height", ylab = "Wages")
+
+# Draw the previous regression line
+abline(a=fit_params[[1]], b=fit_params[[2]], col="blue")
+# Current regression line
+abline(a=beta_hat[[1]], b=beta_hat[[2]], col="green")
+
+# To get y-hat:
+y_hat <- X_mat %*% beta_hat
+points(x=X, y=y_hat, pch = 2, col='yellow')
+```
+
+Above we mentioned the assumption that the matrix $X'X$ is not-singular; below are two examples when this will fail and we cannot calculate the inverse:
+
+```{r}
+dim(X_mat)  # 100 by 2
+inv <- solve(t(X_mat) %*% X_mat)
+dim(inv)  # Possible to invert
+
+# 1. We have a column that is a (perfect) linear combo of another
+X_mat_fail <- cbind((10*X_mat[,1])+8, X_mat)
+inv <- try(solve(t(X_mat_fail) %*% X_mat_fail), silent = TRUE)
+dim(inv)  # Couldn't invert
+
+# 2. We have more variables than observations
+X_mat_fail <- matrix(runif(100, -5, 5), nrow=10, ncol=20)
+inv <- try(solve(t(X_mat_fail) %*% X_mat_fail), silent = TRUE)
+dim(inv)  # Couldn't invert
+```
+
+
+## 3. Linear Regression with Gradient Descent
+However, we can also use an interative method known as Gradient Descent, this is a generic method for continuous optimisation. With GD we randomly initialise $\beta^{GD}$ and then calculate the residual (error) and move in the opposite direction to the gradient by a small amount proportional to a parameter we call the learning-rate. GD is a bit like rolling a ball down a hill - it will gradually converge to a stationary-point. If the function is convex with a small enough step-size (learning-rate) and high-enough number of iterations we are guaranteed to find a global minimiser. Stochastic Gradient Descent is usually used for neural-networks to avoid getting stuck in a local minimum due to a non-convex cost function (along with other methods).
+
+The general-formula for GD:
+
+Find a cost-function
+Randomly initialise your $\beta$ vector
+Get the derivative of the cost-function given $\beta$
+Move the $\beta$ vector in the opposite direction to the gradient
+In the case of this linear-regression:
+
+Our cost-function is the Mean Squared Error (MSE) which is:
+
+$MSE = \frac{RSS}{N}$
+
+and:
+
+$RSS: y'y - 2\beta^{OLS'}X'y + \beta^{OLS'}X'X\beta^{OLS'}$
+
+The derivative of the RSS is: $-2X'y + 2X'X\beta^{OLS}$
+
+This can be simplified to: $2X'(X\beta^{OLS} - y)$
+
+So, we can write our 'delta' as:
+
+$$\begin{aligned} 
+    \frac{dLoss}{d\beta} = \frac{2}{N}\sum_ix_i(x_i\beta^{OLS} - y)
+\end{aligned}$$
+
+This means our equation for $\beta^{OLS}$ becomes:
+
+$$\begin{aligned} 
+    \beta^{OLS} = \beta^{OLS} - \frac{lr}{N}\sum_ix_i(x_i\beta^{OLS} - y)
+\end{aligned}$$
+
+
+    for (j in 1:epochs)
+    {
+        residual <- (X_mat %*% beta_hat) - y
+        delta <- (t(X_mat) %*% residual) * (1/nrow(X_mat))
+        beta_hat <- beta_hat - (lr*delta)
+    }
+
+
+```{r}
+gradient_descent <- function(X, y, lr, epochs)
+{
+  X_mat <- cbind(1, X)
+  # Initialise beta_hat matrix
+  beta_hat <- matrix(0.1, nrow=ncol(X_mat))
+  for (j in 1:epochs)
+  {
+    residual <- (X_mat %*% beta_hat) - y
+    delta <- (t(X_mat) %*% residual) * (1/nrow(X_mat))
+    beta_hat <- beta_hat - (lr*delta)
+    # Draw the regression line each epoch
+    abline(a=beta_hat[[1]], b=beta_hat[[2]], col="grey")
+  }
+  # Return 
+  beta_hat
+}
+```
+
+With learning-rate set to 0.1 and epochs set to 200 we converge to the same result: 2.95, 0.95. We can track how the line-of-best has been gradually fitted with this method by plotting it at each iteration:
+
+```{r}
+# Plot
+plot(x=X, y=y, cex = 1, col = "grey",
+     main = "Explain Wages with Height", xlab = "Height", ylab = "Wages")
+
+beta_hat <- gradient_descent(X, y, 0.1, 200)
+print(beta_hat)
+# 2.945535, 0.951942
+
+# Draw the regression line
+abline(a=beta_hat[[1]], b=beta_hat[[2]], col="red")
+
+# To get y-hat:
+y_hat <- X_mat %*% beta_hat
+points(x=X, y=y_hat, pch = 2, col='yellow')
+```
+
+Implementing the closed-form solution for the Ordinary Least Squares estimator in R requires just a few lines:
+
+```{r}
+# Matrix of explanatory variables
+X <- as.matrix(X)
+# Add column of 1s for intercept coefficient
+intcpt <- rep(1, length(y))
+# Combine predictors with intercept
+X <- cbind(intcpt, X)
+# OLS (closed-form solution)
+beta_hat <- solve(t(X) %*% X) %*% t(X) %*% y
+```
+
+The vector of values in the variable beta_hat define our "machine-learning model". A linear regression is used to predict a continuous variable (e.g. how many minutes will this plane be delayed by). In the case of predicting a category (e.g. will this plane be delayed - yes/no) we want our prediction to fall between 0 and 1 so that we can interpret it as the probability of observing the respective category (given the data).
+
+When we have just two mutually-exclusive outcomes we would use a binomial logistic regression. With more than two outcomes (or "classes"), which are mutually-exclusive (e.g. this plane will be delayed by less than 5 minutes, 5-10 minutes, or more than 10 minutes), we would use a multinomial logistic regression (or "softmax"). In the case of many (n) classes that are not mutually-exclusive (e.g. this post references "R" and "neural-networks" and "statistics"), we can fit n-binomial logistic regressions.
+
+An alternative approach to the closed-form solution we found above is to use an iterative method, called Gradient Descent (GD). The procedure may look like so:
+
+Start with a random guess for the weights
+Plug guess into loss function
+Move guess in the opposite direction of the gradient at that point by a small amount (something we call the `learning-rate')
+Repeat above for N steps
+GD only uses the Jacobian matrix (not the Hessian), however we know that when we have a convex loss, all local minima are global minima and thus GD is guaranteed to converge to the global minimum.
+
+The loss-function used for a linear-regression is the Mean Squared Error:
+
+
+
+
+To use GD we only need to find the partial derivative of this with respect to beta_hat (the 'delta'/gradient).
+
+This can be implemented in R, like so:
+
+```{r}
+N <-  200
+lr <-  0.1
+# Start with a random guess
+beta_hat <- matrix(0.1, nrow=ncol(X_mat))
+  # Repeat below for N-iterations
+  for (j in 1:N)
+  {
+    # Calculate the cost/error (y_guess - y_truth)
+    residual <- (X_mat %*% beta_hat) - y
+    # Calculate the gradient at that point
+    delta <- (t(X_mat) %*% residual) * (1/nrow(X_mat))
+    # Move guess in opposite direction of gradient
+    beta_hat <- beta_hat - (lr*delta)
+  }
+```
+

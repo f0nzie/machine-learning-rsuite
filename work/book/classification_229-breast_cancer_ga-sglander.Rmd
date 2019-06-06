@@ -1,20 +1,5 @@
 # Breast Cancer Wisconsin
 
-```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE}
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment = NA, 
-                      error = TRUE, 
-                      warning = FALSE, 
-                      message = FALSE, 
-                      cache = TRUE,
-                      fig.align = 'center')
-```
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
-
 Source: https://shiring.github.io/machine_learning/2017/01/15/rfe_ga_post
 
 ## Read and process the data

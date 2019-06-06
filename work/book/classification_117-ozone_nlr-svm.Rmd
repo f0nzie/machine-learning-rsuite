@@ -2,10 +2,6 @@
 
 https://cran.r-project.org/web/packages/e1071/vignettes/svmdoc.pdf
 
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
 
 ```{r}
 library(e1071)

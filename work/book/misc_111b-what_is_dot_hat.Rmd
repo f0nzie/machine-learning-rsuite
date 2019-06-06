@@ -1,19 +1,5 @@
 # What is .hat in regression output
 
-```{r setup, include=F, error=T, message=F, warning=F}
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment =":>", 
-                      error = TRUE, 
-                      message = FALSE, 
-                      warning = FALSE,
-                      fig.align = 'center')
-```
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
-
 https://stats.stackexchange.com/a/256364/154908
 
 **Q.**  The augment() function in the broom package for R creates a dataframe of predicted values from a regression model. Columns created include the fitted values, the standard error of the fit and Cook's distance. They also include something with which I'm not familar and that is the column .hat.

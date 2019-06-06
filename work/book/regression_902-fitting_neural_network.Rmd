@@ -1,20 +1,5 @@
 # Fitting a neural network
 
-```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE} 
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment = "#>", 
-                      error = TRUE, 
-                      warning = FALSE, 
-                      message = FALSE,
-                      fig.align = 'center')
-```
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
-
-
 ## Introduction
 
 https://www.r-bloggers.com/fitting-a-neural-network-in-r-neuralnet-package/
@@ -38,6 +23,11 @@ set.seed(500)
 library(MASS)
 data <- Boston
 ```
+
+```{r}
+dplyr::glimpse(data)
+```
+
 
 First we need to check that no datapoint is missing, otherwise we need to fix the dataset.
 

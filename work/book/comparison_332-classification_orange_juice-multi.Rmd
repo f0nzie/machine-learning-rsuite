@@ -3,19 +3,6 @@
 Source: https://www.machinelearningplus.com/machine-learning/caret-package/
 Data: https://raw.githubusercontent.com/selva86/datasets/master/orange_juice_withmissing.csv
 
-```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE}
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment = NA, 
-                      error = TRUE, 
-                      warning = FALSE, 
-                      message = FALSE, 
-                      fig.align = 'center')
-```
-
-```{r rsuite, echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
 
 ## Introduction
 A lot of exciting stuff ahead. To make it simpler, this tutorial is structured to cover the following 5 topics:

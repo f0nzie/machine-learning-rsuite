@@ -1,19 +1,5 @@
 # Visualization of neural networks
 
-```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE} 
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment = "#>", 
-                      error = TRUE, 
-                      warning = FALSE, 
-                      message = FALSE,
-                      fig.align = 'center')
-```
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
-
 https://beckmw.wordpress.com/tag/neuralnet/
 
 In my last post I said I wasn’t going to write anymore about neural networks (i.e., multilayer feedforward perceptron, supervised ANN, etc.). That was a lie. I’ve received several requests to update the neural network plotting function described in the original post. As previously explained, R does not provide a lot of options for visualizing neural networks. The only option I know of is a plotting method for objects from the neuralnet package. This may be my opinion, but I think this plot leaves much to be desired (see below). Also, no plotting methods exist for neural networks created in other packages, i.e., nnet and RSNNS. These packages are the only ones listed on the CRAN task view, so I’ve updated my original plotting function to work with all three. Additionally, I’ve added a new option for plotting a raw weight vector to allow use with neural networks created elsewhere. This blog describes these changes, as well as some new arguments added to the original function.
@@ -22,6 +8,7 @@ As usual, I’ll simulate some data to use for creating the neural networks. The
 
 ```{r}
 library(clusterGeneration)
+library(tictoc)
  
 seed.val<- 12345
 set.seed(seed.val)
@@ -29,31 +16,38 @@ set.seed(seed.val)
 num.vars<-8
 num.obs<-1000
  
-#input variables
+# input variables
 cov.mat <-genPositiveDefMat(num.vars,covMethod=c("unifcorrmat"))$Sigma
 rand.vars <-mvrnorm(num.obs,rep(0,num.vars),Sigma=cov.mat)
  
-#output variables
-parms<-runif(num.vars,-10,10)
-y1<-rand.vars %*% matrix(parms) + rnorm(num.obs,sd=20)
-parms2<-runif(num.vars,-10,10)
-y2<-rand.vars %*% matrix(parms2) + rnorm(num.obs,sd=20)
+# output variables
+parms <-runif(num.vars,-10,10)
+y1 <- rand.vars %*% matrix(parms) + rnorm(num.obs,sd=20)
+parms2 <- runif(num.vars,-10,10)
+y2 <- rand.vars %*% matrix(parms2) + rnorm(num.obs,sd=20)
  
-#final datasets
-rand.vars<-data.frame(rand.vars)
-resp<-data.frame(y1,y2)
-names(resp)<-c('Y1','Y2')
-dat.in<-data.frame(resp,rand.vars)
-
+# final datasets
+rand.vars <- data.frame(rand.vars)
+resp <- data.frame(y1,y2)
+names(resp) <- c('Y1','Y2')
+dat.in <- data.frame(resp, rand.vars)
 ```
+
+```{r}
+dplyr::glimpse(dat.in)
+```
+
 
 The various neural network packages are used to create separate models for plotting.
 
-```{r}
+```{r run-nnet}
+# first model with nnet
 #nnet function from nnet package
 library(nnet)
 set.seed(seed.val)
-mod1<-nnet(rand.vars,resp,data=dat.in,size=10,linout=T)
+tic()
+mod1 <- nnet(rand.vars, resp, data = dat.in, size = 10, linout = T)
+toc()
 ```
 
 ```{r}
@@ -66,7 +60,8 @@ mod1<-nnet(rand.vars,resp,data=dat.in,size=10,linout=T)
 #                 lifesign = "minimal")
 ```
 
-```{r run-nn}
+```{r run-neuralnet}
+# 2nd model with neuralnet
 # neuralnet function from neuralnet package, notice use of only one response
 library(neuralnet)
 
@@ -74,19 +69,24 @@ softplus <- function(x) log(1 + exp(x))
 sigmoid  <- function(x) log(1 + exp(-x))
 
 dat.sc <- scale(dat.in)
-form.in <-as.formula('Y1 ~ X1+X2+X3+X4+X5+X6+X7+X8')
+form.in <- as.formula('Y1 ~ X1+X2+X3+X4+X5+X6+X7+X8')
 set.seed(seed.val)
+tic()
 mod2 <- neuralnet(form.in, data = dat.sc, hidden = 10, lifesign = "minimal",
                   linear.output = FALSE,
                   act.fct = "tanh")
+toc()
 ```
 
 
-```{r}
-#mlp function from RSNNS package
+```{r run-rsnns}
+# third model with RSNNS
+# mlp function from RSNNS package
 library(RSNNS)
 set.seed(seed.val)
-mod3<-mlp(rand.vars, resp, size=10,linOut=T)
+tic()
+mod3 <- mlp(rand.vars, resp, size = 10, linOut = T)
+toc()
 ```
 
 I’ve noticed some differences between the functions that could lead to some confusion. For simplicity, the above code represents my interpretation of the most direct way to create a neural network in each package. Be very aware that direct comparison of results is not advised given that the default arguments differ between the packages. A few key differences are as follows, although many others should be noted. First, the functions differ in the methods for passing the primary input variables. 
@@ -97,21 +97,21 @@ Specifics aside, here’s how to use the updated plot function. Note that the sa
 
 
 ```{r}
-#import the function from Github
+# import the function from Github
 library(devtools)
 source_url('https://gist.githubusercontent.com/fawda123/7471137/raw/466c1474d0a505ff044412703516c34f1a4684a5/nnet_plot_update.r')
  
-#plot each model
+# plot each model
 plot.nnet(mod1)
-plot.nnet(mod3)
 plot.nnet(mod2) 
+plot.nnet(mod3)
 ```
 
 The plotting function can also now be used with an arbitrary weight vector, rather than a specific model object. The struct argument must also be included if this option is used. I thought the easiest way to use the plotting function with your own weights was to have the input weights as a numeric vector, including bias layers. I’ve shown how this can be done using the weights directly from mod1 for simplicity.
 
 ```{r}
-wts.in<-mod1$wts
-struct<-mod1$n
+wts.in <- mod1$wts
+struct <- mod1$n
 plot.nnet(wts.in,struct=struct)
 ```
 
@@ -156,17 +156,21 @@ plot.nnet(mod5,nid=T)
 ## Multiple hidden layers
 More updates… I’ve now modified the function to plot multiple hidden layers for networks created using the mlp function in the `RSNNS` package and neuralnet in the neuralnet package. As far as I know, these are the only neural network functions in R that can create multiple hidden layers. All others use a single hidden layer. I have not tested the plotting function using manual input for the weight vectors with multiple hidden layers. My guess is it won’t work but I can’t be bothered to change the function unless it’s specifically requested. The updated function can be grabbed here (all above links to the function have also been changed).
 
-```{r}
+```{r run-rsnns-hidden_layers}
 library(RSNNS)
  
-#neural net with three hidden layers, 9, 11, and 8 nodes in each
-mod <-mlp(rand.vars, resp, size=c(9,11,8),linOut=T)
+# neural net with three hidden layers, 9, 11, and 8 nodes in each
+tic()
+mod <-mlp(rand.vars, resp, 
+          size = c(9,11,8), 
+          linOut = T)
+toc()
 par(mar=numeric(4),family='serif')
 plot.nnet(mod)
 ```
 
 ## Binary predictors
-Here’s an example using the neuralnet function with binary predictors and categorical outputs (credit to Tao Ma for the model code).
+Here’s an example using the `neuralnet` function with binary predictors and categorical outputs (credit to Tao Ma for the model code).
 
 ```{r}
 library(neuralnet)
@@ -175,12 +179,17 @@ library(neuralnet)
 AND<-c(rep(0,7),1)
 OR<-c(0,rep(1,7))
  
-#response with predictors
-binary.data<-data.frame(expand.grid(c(0,1),c(0,1),c(0,1)),AND,OR)
+# response with predictors
+binary.data <- data.frame(expand.grid(c(0,1), c(0,1), c(0,1)), AND, OR)
  
 #model
-net<-neuralnet(AND+OR~Var1+Var2+Var3, binary.data,hidden=c(6,12,8),rep=10,err.fct="ce",linear.output=FALSE)
- 
+tic()
+net <- neuralnet(AND+OR ~ Var1+Var2+Var3,
+                 binary.data, hidden =c(6,12,8), 
+                 rep = 10, 
+                 err.fct="ce", 
+                 linear.output=FALSE)
+toc()
 #plot ouput
 par(mar=numeric(4),family='serif')
 plot.nnet(net)
@@ -192,8 +201,8 @@ The color vector argument (circle.col) for the nodes was changed to allow a sepa
 The following example shows how this can be done using relative importance of the input variables to color-code the first layer.
 
 ```{r}
-#example showing use of separate colors for input layer
-#color based on relative importance using 'gar.fun'
+# example showing use of separate colors for input layer
+# color based on relative importance using 'gar.fun'
  
 ##
 #create input data
@@ -208,28 +217,28 @@ library(clusterGeneration)
 cov.mat<-genPositiveDefMat(num.vars,covMethod=c("unifcorrmat"))$Sigma
 rand.vars<-mvrnorm(num.obs,rep(0,num.vars),Sigma=cov.mat)
   
-#output variables
+# output variables
 parms<-runif(num.vars,-10,10)
 y1<-rand.vars %*% matrix(parms) + rnorm(num.obs,sd=20)
  
-#final datasets
+# final datasets
 rand.vars<-data.frame(rand.vars)
 resp<-data.frame(y1)
 names(resp)<-'Y1'
-dat.in<-data.frame(resp,rand.vars)
+dat.in <- data.frame(resp,rand.vars)
  
 ##
-#create model
+# create model
 library(nnet)
-mod1<-nnet(rand.vars,resp,data=dat.in,size=10,linout=T)
+mod1 <- nnet(rand.vars,resp,data=dat.in,size=10,linout=T)
  
 ##
-#relative importance function
+# relative importance function
 library(devtools)
 source_url('https://gist.github.com/fawda123/6206737/raw/2e1bc9cbc48d1a56d2a79dd1d33f414213f5f1b1/gar_fun.r')
  
-#relative importance of input variables for Y1
-rel.imp<-gar.fun('Y1',mod1,bar.plot=F)$rel.imp
+# relative importance of input variables for Y1
+rel.imp <- gar.fun('Y1',mod1,bar.plot=F)$rel.imp
  
 #color vector based on relative importance of input values
 cols<-colorRampPalette(c('green','red'))(num.vars)[rank(rel.imp)]
