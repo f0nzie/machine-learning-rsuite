@@ -2,6 +2,12 @@ new_session: yes
 book_filename: "Applications of Machine Learning - Selection"
 delete_merged_file: true
 
+# rmd_files only defines the order of the notebooks
+#rmd_files: [
+#  "index.Rmd",
+#  "regression_141.2-3b.Rmd",
+#  "regression_903-visualization_nn.Rmd"
+# ]
 
 before_chapter_script: "_common.R"
 output_dir: ../../export/book_out
