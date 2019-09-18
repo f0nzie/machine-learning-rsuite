@@ -27,5 +27,6 @@ Imports: logging,
   corrgram, 
   ggthemes,
   DBI,
-  RSQLite
+  RSQLite,
+  corrr
 RoxygenNote: 6.1.1
