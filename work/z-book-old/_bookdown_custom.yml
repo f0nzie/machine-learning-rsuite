@@ -1,6 +1,8 @@
 new_session: yes
+book_filename: "Applications of Machine Learning - Selection"
+delete_merged_file: true
 rmd_files: [
-  "index.Rmd",
+# "index.Rmd",
 
 # "comparison_342-classification_employee_attrition-lime-multi.Rmd",
 # "classification_227-bike_sharing_demand-rf.Rmd",
@@ -9,12 +11,12 @@ rmd_files: [
 # "comparison_330-classification_flu_outcome-multi-sglander.Rmd",
 # "meta_230-missing_flu_prediction_micex5-sglander.Rmd",
 # "classification_239b-deeplearning_h2o_arrhythmia-sglander.Rmd",
-"misc-neural_networks_from_scratch.Rmd"
-
+"regression_141.2-3b.Rmd",
+"regression_903-visualization_nn.Rmd",
 ]
-book_filename: "Applications of Machine Learning - Selection"
-delete_merged_file: true
+
 language:
   ui:
     chapter_name: "Chapter "
+before_chapter_script: "_common.R"
 output_dir: ../../export/book_out

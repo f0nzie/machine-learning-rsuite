@@ -23,4 +23,4 @@ delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
-output_dir: ../../export/book_out
+output_dir: file.path(rprojroot::find_rstudio_root_file(), "export/book_out")

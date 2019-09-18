@@ -2,19 +2,27 @@ new_session: yes
 rmd_files: [
   "index.Rmd",
 
+# classification 101
+  "classification_112-social_networks-SVM.Rmd",
+  "classification_115-standalone_model-rf.Rmd",
+  "classification_116-glass-svm.Rmd",
+  "classification_117-ozone_nlr-svm.Rmd",
+  "classification_118-gentle_intro_to_SVM.Rmd",
+
 # classification 202
   "classification_225-sms_spam-tm-nb.Rmd",
   "classification_226-vehicle-mlbench-tree.Rmd",
   "classification_227-bike_sharing_demand-rf.Rmd",
   "classification_229-breast_cancer-ga.Rmd",
-  "classification_239b-deeplearning_h2o_arrhythmia-sglander.Rmd",
   "classification_252a-titanic-naives_bayes.Rmd",
   "classification_252b-iris-naive_bayes.Rmd",
-  "classification-h2o_hyper_params_mxnet_adult.Rmd"
+
+# other
+  "06-references.Rmd"
 ]
-book_filename: "Applications of Machine Learning - Classification 202"
+book_filename: "Applications of Machine Learning - Classification"
 delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
-output_dir: ../../export/book_out
+output_dir: file.path(rprojroot::find_rstudio_root_file(), "export/book_out")
