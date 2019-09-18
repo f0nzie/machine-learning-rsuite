@@ -1,3 +1,23 @@
+```{r include=FALSE, cache=FALSE}
+set.seed(1014)
+options(digits = 3)
+
+knitr::opts_chunk$set(
+  comment = "#>",
+  collapse = TRUE,
+  cache = TRUE,
+  out.width = "70%",
+  fig.align = 'center',
+  fig.width = 6,
+  fig.asp = 0.618,  # 1 / phi
+  fig.show = "hold"
+  # message = FALSE,
+  # error = TRUE,
+  # warning = FALSE,
+)
+
+options(dplyr.print_min = 6, dplyr.print_max = 6)
+```
 # Neural Networks from Scratch: Linear Regression
 
 ## Introduction
@@ -29,7 +49,15 @@ Starting from a linear regression we will work through the maths and the code al
 ## Step 1 - Linear Regression (See Notebook)
 https://github.com/ilkarman/DemoNeuralNet/blob/master/01_LinearRegression.ipynb
 
-```{r echo=FALSE}
+```{r}
+print(assets_dir)
+file.exists(file.path(assets_dir, "linear_regression.jpg"))
+a_folder <- assets_dir
+knitr::include_graphics(file.path(a_folder, "linear_regression.jpg"))
+```
+
+
+```{r}
 knitr::include_graphics(file.path(assets_dir, "linear_regression.jpg"))
 ```
 

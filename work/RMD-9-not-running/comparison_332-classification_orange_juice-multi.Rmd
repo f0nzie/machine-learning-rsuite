@@ -119,6 +119,8 @@ testData <- orange[-trainRowNumbers,]
 # Store X and Y for later use.
 x = trainData[, 2:18]
 y = trainData$Purchase
+
+tibble::as_tibble(x)
 ```
 
 `createDataPartition()` takes as input the `Y` variable in the source dataset and the percentage data that should go into training as the p argument. It returns the row numbers that should form the training dataset.
