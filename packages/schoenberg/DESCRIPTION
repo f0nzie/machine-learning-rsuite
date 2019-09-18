@@ -1,0 +1,26 @@
+Package: schoenberg
+Version: 0.0-6
+Date: 2018-04-08
+Title: Ggplot-based graphics and other useful functions for GAMs fitted using mgcv
+Authors@R: c(person(given = "Gavin L.", family = "Simpson",
+                    email = "ucfagls@gmail.com",
+                    role = c("aut","cre")))
+Maintainer: Gavin L. Simpson <ucfagls@gmail.com>
+Imports:
+    mgcv,
+    ggplot2,
+    cowplot,
+    grid,
+    MASS,
+    stats
+Suggests:
+    testthat,
+    vdiffr,
+    scam
+Description: Ggplot-based graphics and utility functions for working with GAMs fitted using the mgcv package.
+License: MIT + file LICENSE
+LazyData: true
+URL: https://github.com/gavinsimpson/schoenberg
+BugReports: https://github.com/gavinsimpson/schoenberg/issues
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
