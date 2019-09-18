@@ -1,10 +1,5 @@
 # Data Transformation with PCA in h2o
 
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
-
 Source: http://docs.h2o.ai/h2o/latest-stable/h2o-docs/data-science/algo-params/transform.html
 
 ```{r}
