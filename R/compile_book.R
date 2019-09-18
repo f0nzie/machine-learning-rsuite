@@ -65,8 +65,8 @@ logdebug(book_out_dir)
 
 # function to print RMD files
 knit_rmd <- function() {
-  # rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
-  rmarkdown::render_site(encoding = 'UTF-8')
+  rmarkdown::render_site(output_format = 'bookdown::gitbook', encoding = 'UTF-8')
+  # rmarkdown::render_site(encoding = 'UTF-8')
 }
 
 
