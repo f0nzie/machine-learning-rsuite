@@ -1,0 +1,7 @@
+new_session: true
+book_filename: "book-classification"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+before_chapter_script: "../_common.R"
