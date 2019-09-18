@@ -5,36 +5,27 @@ options(digits = 3)
 knitr::opts_chunk$set(
   comment = "#>",
   collapse = TRUE,
+  cache = FALSE,
   out.width = "70%",
   fig.align = 'center',
   fig.width = 6,
-  fig.asp = 0.618,  # 1 / phi
-  fig.show = "hold",
-  message = FALSE,
-  error = TRUE,
-  warning = FALSE,
-  cache = TRUE
+  fig.asp = 0.618 #,  # 1 / phi
+  # fig.show = "hold"
+  # message = FALSE,
+  # error = TRUE,
+  # warning = FALSE,
 )
+
+# knitr::opts_knit$set(root.dir = normalizePath(assets_dir))
 
 options(dplyr.print_min = 6, dplyr.print_max = 6)
 ```
-# Feature selection, Variable Importance
+# Ten different methods to assess Variable Importance
+
+## Glaucoma dataset
 
 Source: https://www.machinelearningplus.com/machine-learning/feature-selection/
 
-```{r setup, include = FALSE, error=TRUE, message=FALSE, warning=FALSE}
-knitr::opts_chunk$set(echo = TRUE, 
-                      comment = NA, 
-                      error = TRUE, 
-                      warning = FALSE, 
-                      message = FALSE, 
-                      fig.align = 'center')
-```
-
-```{r echo=FALSE}
-load(file.path(rprojroot::find_rstudio_root_file(), "workspace.RData"))
-.libPaths(c(normalizePath(sbox_path), normalizePath(lib_path), .libPaths()))
-```
 
 ## Introduction
 In real-world datasets, it is fairly common to have columns that are nothing but noise.
@@ -142,7 +133,7 @@ This plot reveals the importance of each of the features.
 The columns in green are 'confirmed' and the ones in red are not. There are couple of blue bars representing `ShadowMax` and `ShadowMin.` They are not actual features, but are used by the boruta algorithm to decide if a variable is important or not.
 
 
-## 2. Variable Importance from Machine Learning Algorithms
+## Variable Importance from Machine Learning Algorithms
 Another way to look at feature selection is to consider variables most used by various ML algorithms the most to be important.
 
 Depending on how the machine learning algorithm learns the relationship between X's and Y, different machine learning algorithms may possibly end up using different variables (but mostly common vars) to various degrees.
@@ -201,7 +192,7 @@ Some of the other algorithms available in `train()` that you can use to compute 
     ada, AdaBag, AdaBoost.M1, adaboost, bagEarth, bagEarthGCV, bagFDA, bagFDAGCV, bartMachine, blasso, BstLm, bstSm, C5.0, C5.0Cost, C5.0Rules, C5.0Tree, cforest, chaid, ctree, ctree2, cubist, deepboost, earth, enet, evtree, extraTrees, fda, gamboost, gbm_h2o, gbm, gcvEarth, glmnet_h2o, glmnet, glmStepAIC, J48, JRip, lars, lars2, lasso, LMT, LogitBoost, M5, M5Rules, msaenet, nodeHarvest, OneR, ordinalNet, ORFlog, ORFpls, ORFridge, ORFsvm, pam, parRF, PART, penalized, PenalizedLDA, qrf, ranger, Rborist, relaxo, rf, rFerns, rfRules, rotationForest, rotationForestCp, rpart, rpart1SE, rpart2, rpartCost, rpartScore, rqlasso, rqnc, RRF, RRFglobal, sdwd, smda, sparseLDA, spikeslab, wsrf, xgbLinear, xgbTree.
     
     
-## 3. Lasso Regression
+## Lasso Regression
 Least Absolute Shrinkage and Selection Operator (LASSO) regression is a type of regularization method that penalizes with L1-norm.
 
 It basically imposes a cost to having large weights (value of coefficients). And its called L1 regularization, because the cost added, is proportional to the absolute value of weight coefficients.
@@ -253,7 +244,7 @@ df_coef[df_coef[, 1] != 0, ]
 
 The above output shows what variables LASSO considered important. A high positive or low negative implies more important is that variable.
 
-## 4. Step wise Forward and Backward Selection
+## Step wise Forward and Backward Selection
 Stepwise regression can be used to select features if the Y variable is a numeric variable. It is particularly used in selecting best linear regression models.
 
 It searches for the best possible regression model by iteratively selecting and dropping variables to arrive at a model with the lowest possible AIC.
@@ -305,8 +296,7 @@ Finally, from a pool of shortlisted features (from small chunk models), run a fu
 You can take this as a learning assignment to be solved within 20 minutes.
 
 
-
-## 5. Relative Importance from Linear Regression
+## Relative Importance from Linear Regression
 This technique is specific to linear regression models.
 
 Relative importance can be used to assess which variables contributed how much in explaining the linear model's R-squared value. So, if you sum up the produced importances, it will add up to the model's R-sq value.
@@ -342,7 +332,7 @@ bootsub <- boot.relimp(ozone_reading ~ Temperature_Sandburg + Humidity + Tempera
 plot(booteval.relimp(bootsub, level=.95))
 ```
 
-## 6. Recursive Feature Elimination (RFE)
+## Recursive Feature Elimination (RFE)
 Recursive feature elimnation (rfe) offers a rigorous way to determine the important variables before you even feed them into a ML algo.
 
 It can be implemented using the `rfe()` from caret package.
@@ -391,7 +381,7 @@ And the best model size out of the provided models sizes (in subsets) is 10.
 You can see all of the top 10 variables from '`lmProfile$optVariables`' that was created using `rfe` function above.
 
 
-## 7. Genetic Algorithm
+## Genetic Algorithm
 You can perform a supervised feature selection with genetic algorithms using the `gafs()`. This is **quite resource expensive** so consider that before choosing the number of iterations (iters) and the number of repeats in `gafsControl()`.
 
 ```{r Genetic_Algorithm, warning=FALSE, message=FALSE}
@@ -427,7 +417,7 @@ ga_obj$optVariables
 So the optimal variables according to the genetic algorithms are listed above. But, I wouldn't use it just yet because, the above variant was tuned for only 3 iterations, which is quite low. I had to set it so low to save computing time.
 
 
-## 8. Simulated Annealing
+## Simulated Annealing
 Simulated annealing is a global search algorithm that allows a suboptimal solution to be accepted in hope that a better solution will show up eventually.
 
 It works by making small random changes to an initial solution and sees if the performance improved. The change is accepted if it improves, else it can still be accepted if the difference of performances meet an acceptance criteria.
@@ -459,7 +449,7 @@ sa_obj
 print(sa_obj$optVariables)
 ```
 
-## 9. Information Value and Weights of Evidence
+## Information Value and Weights of Evidence
 The Information Value can be used to judge how important a given categorical variable is in explaining the binary Y variable. It goes well with logistic regression and other classification models that can model binary variables.
 
 Let's try to find out how important the categorical variables are in predicting if an individual will earn > 50k from the `adult.csv` dataset. Just run the code below to import the dataset.
@@ -521,7 +511,7 @@ WOETable(X=inputData[, 'WORKCLASS'], Y=inputData$ABOVE50K)
 
 The total IV of a variable is the sum of IV's of its categories.
 
-## 10. DALEX Package
+## DALEX Package
 The `DALEX` is a powerful package that explains various things about the variables used in an ML model.
 
 For example, using the `variable_dropout()` function you can find out how important a variable is based on a dropout loss, that is how much loss is incurred by removing a variable from the model.

@@ -1,5 +1,7 @@
 # Dealing with unbalanced data
 
+## Breast cancer dataset
+
 ## Introduction
 
 Source: https://shiring.github.io/machine_learning/2017/04/02/unbalanced

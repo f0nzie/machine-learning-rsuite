@@ -1,9 +1,11 @@
-# Flu Prediction with mice
+# Imputting missing values with Random Forest
+
+## Flu Prediction. `fluH7N9_china_2013` dataset
 
 Source: https://shirinsplayground.netlify.com/2018/04/flu_prediction/
 
 
-```{r}
+```{r message=FALSE}
 library(outbreaks)
 library(tidyverse)
 library(plyr)

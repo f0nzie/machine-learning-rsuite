@@ -1,4 +1,4 @@
-# *Employee attrition* dataset
+# Employee attrition. Employee-Attrition dataset. *LIME* package
 
 
 Article: https://www.business-science.io/business/2017/09/18/hr_employee_attrition.html
@@ -36,7 +36,7 @@ In this example we’ll show how we can use the combination of H2O for developin
 ### Load packages 
 Load the following packages.
 
-```{r}
+```{r load_libs, warning=FALSE, message=FALSE}
 # Load the following packages
 library(tidyquant)  # Loads tidyverse and several other pkgs 
 library(readxl)     # Super simple excel reader
@@ -85,10 +85,6 @@ First, we need to initialize the *Java Virtual Machine (JVM)* that H2O uses loca
 ```{r h2o_init, warning=FALSE, message=FALSE}
 # Initialize H2O JVM
 h2o.init()
-```
-
-
-```{r}
 h2o.no_progress() # Turn off output of progress bars
 ```
 
@@ -99,7 +95,6 @@ Next, we change our data to an h2o object that the package can interpret. We als
 hr_data_h2o <- as.h2o(hr_data)
 
 split_h2o <- h2o.splitFrame(hr_data_h2o, c(0.7, 0.15), seed = 1234 )
-
 train_h2o <- h2o.assign(split_h2o[[1]], "train" ) # 70%
 valid_h2o <- h2o.assign(split_h2o[[2]], "valid" ) # 15%
 test_h2o  <- h2o.assign(split_h2o[[3]], "test" )  # 15%
@@ -122,7 +117,7 @@ Now the fun begins. We run the h2o.automl() setting the arguments it needs to ru
 * `leaderboard_frame` = valid_h2o: Our validation set consisting of 15% of the data. H2O uses this to ensure the model does not overfit the data.
 * `max_runtime_secs = 30`: We supply this to speed up H2O’s modeling. The algorithm has a large number of complex models so we want to keep things moving at the expense of some accuracy.
 
-```{r h2o_automl, cache=TRUE}
+```{r h2o_automl}
 # Run the automated machine learning 
 automl_models_h2o <- h2o.automl(
     x = x, 
@@ -273,7 +268,7 @@ explainer <- lime::lime(
 
 Now we run the `explain()` function, which returns our explanation. This can take a minute to run so we limit it to just the first ten rows of the test data set. We set n_labels = 1 because we care about explaining a single class. Setting n_features = 4 returns the top four features that are critical to each case. Finally, setting kernel_width = 0.5 allows us to increase the “model_r2” value by shrinking the localized evaluation. \
 
-```{r lime_explain, cache=TRUE}
+```{r lime_explain, warning=FALSE, message=FALSE}
 # Run explain() on explainer
 explanation <- lime::explain(
     as.data.frame(test_h2o[1:10,-1]), 
@@ -286,7 +281,7 @@ explanation <- lime::explain(
 ## Feature Importance Visualization
 The payoff for the work we put in using LIME is this feature importance plot. This allows us to visualize each of the ten cases (observations) from the test data. The top four features for each case are shown. Note that they are not the same for each case. The green bars mean that the feature supports the model conclusion, and the red bars contradict. We’ll focus in on Cases with `Label = Yes`, which are predicted to have attrition. We can see a common theme with Case 3 and Case 7: Training Time, Job Role, and Over Time are among the top factors influencing attrition. These are only two cases, but they can be used to potentially generalize to the larger population as we will see next.
 
-```{r plot-features, fig.height=12, fig.width=7}
+```{r plot-features, fig.height=14, fig.width=7}
 plot_features(explanation) +
     labs(title = "HR Predictive Analytics: LIME Feature Importance Visualization",
          subtitle = "Hold Out (Test) Set, First 10 Cases Shown")
