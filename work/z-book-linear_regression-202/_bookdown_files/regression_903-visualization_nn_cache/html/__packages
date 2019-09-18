@@ -1,0 +1,16 @@
+base
+logging
+MASS
+clusterGeneration
+tictoc
+nnet
+neuralnet
+Rcpp
+RSNNS
+devtools
+usethis
+scales
+reshape
+lattice
+ggplot2
+caret
