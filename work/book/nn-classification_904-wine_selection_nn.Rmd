@@ -1,5 +1,6 @@
 # Wine with neuralnet
 
+
 Source: https://www.r-bloggers.com/multilabel-classification-with-neuralnet-package/
 
 The neuralnet package is perhaps not the best option in R for using neural networks. If you ask why, for starters it does not recognize the typical formula y~., it does not support factors, it does not provide a lot of models other than a standard MLP, and it has great competitors in the nnet package that seems to be better integrated in R and can be used with the caret package, and in the MXnet package that is a high level deep learning library which provides a wide variety of neural networks.

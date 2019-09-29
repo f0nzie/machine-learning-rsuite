@@ -187,5 +187,71 @@ to prevent collision of chunk labels.
 
 
 
+```
+rmd_files: [
+  "index.Rmd",
 
+  # Algorithms comparison
+  "classification_907-bad_loans-h2o.Rmd",
+  "comparison_312-classification-diabetes-multi.Rmd",
+  "comparison_320-classification_iris-multi.Rmd",
+  "comparison_321-regression_boston-multi.Rmd",
+  "comparison_322-classification_BreastCancer-mlbench-multi.Rmd",
+  "comparison_330-classification_flu_outcome-multi-sglander.Rmd",
+
+  # Classification
+  "classification_109a-gentle_intro_to_SVM.Rmd",
+  "classification_112-social_networks-SVM.Rmd",
+  "classification_113-broad_view-SVM.Rmd",
+  "classification_115-standalone_model-rf.Rmd",
+  "classification_116-glass-svm.Rmd",
+  "classification_117-ozone_nlr-svm.Rmd",
+  "classification_118-gentle_intro_to_SVM.Rmd",
+  "classification_225-sms_spam-tm-nb.Rmd",
+  "classification_226-vehicle-mlbench-tree.Rmd",
+  "classification_227-bike_sharing_demand-rf.Rmd",
+  "classification_229-breast_cancer_ga-sglander.Rmd",
+  "classification_252a-titanic-naives_bayes.Rmd",
+  "classification_252b-iris-naive_bayes.Rmd",
+  "meta_137-logistic_regression-diabetes.Rmd",
+
+  # Feature Engineering
+  "comparison_342-classification_employee_attrition-lime-multi.Rmd",
+  "meta_131-dealing_with_unbalanced_data-sglander.Rmd",
+  "meta_133-variable_importance.Rmd",
+  "meta_230-missing_flu_prediction_micex5-sglander.Rmd",
+
+  # Linear Regression
+  "misc_906-visualizing_residuals.Rmd",
+  "regression_114-nested_temperature.Rmd",
+  "regression_136-happiness.Rmd",
+  "regression_138-advertising.Rmd",
+  "regression_141.1-3a-iris_dataset.Rmd",
+  "regression_141.2-3b-rates_dataset.Rmd",
+  "regression_921-nn_lm_vs_nn.Rmd",
+  "regression-diamonds_nn.Rmd",
+
+  # ML meta
+  "meta_110a-PCA-prcomp_vs_princomp.Rmd",
+  "meta_110b-PCA-Principal_Component_Methods_in_R.Rmd",
+  "meta_110c-PCA-Phan_2016-Introduction_To_PCA_with_examples_in_R.Rmd",
+  "misc_111b-what_is_dot_hat.Rmd",
+  "misc_111c-comparing_distributions_with_qq_plot.Rmd",
+  "misc_111d-qq_plots_pp_plots.Rmd",
+  "misc_140-data_visualization-modeling.Rmd",
+
+
+  # Neural Networks
+  "classification_239b-deeplearning_h2o_arrhythmia-sglander.Rmd",
+  "classification_900-credit_neuralnet.Rmd",
+  "classification_904-wine_selection_nn.Rmd",
+  "clssification-901-build_fully_connected_nn_from_scratch-nnet.Rmd",
+  "comparison-classification_regression_with_h2o_deep_learning.Rmd",
+  "meta_905-regression_-sensitivity_analysis_nn.Rmd",
+  "regression_142-neural_network_yacht.Rmd",
+  "regression_144-nn_cereals_neuralnet.Rmd",
+  "regression_902-fitting_neural_network.Rmd",
+  "regression_903-visualization_nn.Rmd"
+]
+```
 

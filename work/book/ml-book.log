@@ -1,0 +1,5532 @@
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.5.19)  20 SEP 2019 15:22
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**ml-book.tex
+(./ml-book.tex
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (/usr/share/texmf/tex/latex/lm/lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks14
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip43
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks15
+\ex@=\dimen103
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen104
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count88
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count89
+\leftroot@=\count90
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count91
+\DOTSCASE@=\count92
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen105
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count93
+\c@MaxMatrixCols=\count94
+\dotsspace@=\muskip10
+\c@parentequation=\count95
+\dspbrk@lvl=\count96
+\tag@help=\toks16
+\row@=\count97
+\column@=\count98
+\maxfields@=\count99
+\andhelp@=\toks17
+\eqnshift@=\dimen106
+\alignsep@=\dimen107
+\tagshift@=\dimen108
+\tagwidth@=\dimen109
+\totwidth@=\dimen110
+\lineht@=\dimen111
+\@envbody=\toks18
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks19
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+) (/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fixltx2e.sty
+Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
+Applying: [2015/01/01] Old fixltx2e package on input line 46.
+
+Package fixltx2e Warning: fixltx2e is not required with releases after 2015
+(fixltx2e)                All fixes are now in the LaTeX kernel.
+(fixltx2e)                See the latexrelease package for details.
+
+Already applied: [0000/00/00] Old fixltx2e package on input line 53.
+) (/usr/share/texlive/texmf-dist/tex/xelatex/mathspec/mathspec.sty
+Package: mathspec 2016/12/22 v0.2b LaTeX Package (Mathematics font selection fo
+r XeLaTeX)
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count100
+) (/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.sty (/usr/share/te
+xlive/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/usr/share/texlive/tex
+mf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2018/02/21 L3 programming layer (loader) 
+(/usr/share/texlive/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2018/02/21 L3 programming layer (code)
+\c_max_int=\count101
+\l_tmpa_int=\count102
+\l_tmpb_int=\count103
+\g_tmpa_int=\count104
+\g_tmpb_int=\count105
+\g__intarray_font_int=\count106
+\g__prg_map_int=\count107
+\c_log_iow=\count108
+\l_iow_line_count_int=\count109
+\l__iow_line_target_int=\count110
+\l__iow_one_indent_int=\count111
+\l__iow_indent_int=\count112
+\c_zero_dim=\dimen112
+\c_max_dim=\dimen113
+\l_tmpa_dim=\dimen114
+\l_tmpb_dim=\dimen115
+\g_tmpa_dim=\dimen116
+\g_tmpb_dim=\dimen117
+\c_zero_skip=\skip46
+\c_max_skip=\skip47
+\l_tmpa_skip=\skip48
+\l_tmpb_skip=\skip49
+\g_tmpa_skip=\skip50
+\g_tmpb_skip=\skip51
+\c_zero_muskip=\muskip11
+\c_max_muskip=\muskip12
+\l_tmpa_muskip=\muskip13
+\l_tmpb_muskip=\muskip14
+\g_tmpa_muskip=\muskip15
+\g_tmpb_muskip=\muskip16
+\l_keys_choice_int=\count113
+\c__fp_leading_shift_int=\count114
+\c__fp_middle_shift_int=\count115
+\c__fp_trailing_shift_int=\count116
+\c__fp_big_leading_shift_int=\count117
+\c__fp_big_middle_shift_int=\count118
+\c__fp_big_trailing_shift_int=\count119
+\c__fp_Bigg_leading_shift_int=\count120
+\c__fp_Bigg_middle_shift_int=\count121
+\c__fp_Bigg_trailing_shift_int=\count122
+\l__sort_length_int=\count123
+\l__sort_min_int=\count124
+\l__sort_top_int=\count125
+\l__sort_max_int=\count126
+\l__sort_true_max_int=\count127
+\l__sort_block_int=\count128
+\l__sort_begin_int=\count129
+\l__sort_end_int=\count130
+\l__sort_A_int=\count131
+\l__sort_B_int=\count132
+\l__sort_C_int=\count133
+\l__tl_build_start_index_int=\count134
+\l__tl_build_index_int=\count135
+\l__tl_analysis_normal_int=\count136
+\l__tl_analysis_index_int=\count137
+\l__tl_analysis_nesting_int=\count138
+\l__tl_analysis_type_int=\count139
+\l__regex_internal_a_int=\count140
+\l__regex_internal_b_int=\count141
+\l__regex_internal_c_int=\count142
+\l__regex_balance_int=\count143
+\l__regex_group_level_int=\count144
+\l__regex_mode_int=\count145
+\c__regex_cs_in_class_mode_int=\count146
+\c__regex_cs_mode_int=\count147
+\l__regex_catcodes_int=\count148
+\l__regex_default_catcodes_int=\count149
+\c__regex_catcode_L_int=\count150
+\c__regex_catcode_O_int=\count151
+\c__regex_catcode_A_int=\count152
+\c__regex_all_catcodes_int=\count153
+\l__regex_show_lines_int=\count154
+\l__regex_min_state_int=\count155
+\l__regex_max_state_int=\count156
+\l__regex_left_state_int=\count157
+\l__regex_right_state_int=\count158
+\l__regex_capturing_group_int=\count159
+\l__regex_min_pos_int=\count160
+\l__regex_max_pos_int=\count161
+\l__regex_curr_pos_int=\count162
+\l__regex_start_pos_int=\count163
+\l__regex_success_pos_int=\count164
+\l__regex_curr_char_int=\count165
+\l__regex_curr_catcode_int=\count166
+\l__regex_last_char_int=\count167
+\l__regex_case_changed_char_int=\count168
+\l__regex_curr_state_int=\count169
+\l__regex_step_int=\count170
+\l__regex_min_active_int=\count171
+\l__regex_max_active_int=\count172
+\l__regex_replacement_csnames_int=\count173
+\l__regex_match_count_int=\count174
+\l__regex_min_submatch_int=\count175
+\l__regex_submatch_int=\count176
+\l__regex_zeroth_submatch_int=\count177
+\g__regex_trace_regex_int=\count178
+\c_empty_box=\box28
+\l_tmpa_box=\box29
+\l_tmpb_box=\box30
+\g_tmpa_box=\box31
+\g_tmpb_box=\box32
+\l__box_top_dim=\dimen118
+\l__box_bottom_dim=\dimen119
+\l__box_left_dim=\dimen120
+\l__box_right_dim=\dimen121
+\l__box_top_new_dim=\dimen122
+\l__box_bottom_new_dim=\dimen123
+\l__box_left_new_dim=\dimen124
+\l__box_right_new_dim=\dimen125
+\l__box_internal_box=\box33
+\l__coffin_internal_box=\box34
+\l__coffin_internal_dim=\dimen126
+\l__coffin_offset_x_dim=\dimen127
+\l__coffin_offset_y_dim=\dimen128
+\l__coffin_x_dim=\dimen129
+\l__coffin_y_dim=\dimen130
+\l__coffin_x_prime_dim=\dimen131
+\l__coffin_y_prime_dim=\dimen132
+\c_empty_coffin=\box35
+\l__coffin_aligned_coffin=\box36
+\l__coffin_aligned_internal_coffin=\box37
+\l_tmpa_coffin=\box38
+\l_tmpb_coffin=\box39
+\l__coffin_display_coffin=\box40
+\l__coffin_display_coord_coffin=\box41
+\l__coffin_display_pole_coffin=\box42
+\l__coffin_display_offset_dim=\dimen133
+\l__coffin_display_x_dim=\dimen134
+\l__coffin_display_y_dim=\dimen135
+\l__coffin_bounding_shift_dim=\dimen136
+\l__coffin_left_corner_dim=\dimen137
+\l__coffin_right_corner_dim=\dimen138
+\l__coffin_bottom_corner_dim=\dimen139
+\l__coffin_top_corner_dim=\dimen140
+\l__coffin_scaled_total_height_dim=\dimen141
+\l__coffin_scaled_width_dim=\dimen142
+) (/usr/share/texlive/texmf-dist/tex/latex/l3kernel/l3xdvipdfmx.def
+File: l3xdvidpfmx.def 2017/03/18 v L3 Experimental driver: xdvipdfmx
+\g__driver_image_int=\count179
+\l__driver_tmp_box=\box43
+))
+Package: xparse 2018/02/21 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count180
+\g__xparse_grabber_int=\count181
+\l__xparse_m_args_int=\count182
+\l__xparse_mandatory_args_int=\count183
+\l__xparse_v_nesting_int=\count184
+)
+Package: fontspec 2017/11/09 v2.6g Font selection for XeLaTeX and LuaLaTeX
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec-xetex.sty
+Package: fontspec-xetex 2017/11/09 v2.6g Font selection for XeLaTeX and LuaLaTe
+X
+\l__fontspec_script_int=\count185
+\l__fontspec_language_int=\count186
+\l__fontspec_strnum_int=\count187
+\l__fontspec_tmp_int=\count188
+\l__fontspec_em_int=\count189
+\l__fontspec_emdef_int=\count190
+\l__fontspec_strong_int=\count191
+\l__fontspec_strongdef_int=\count192
+\l__fontspec_tmpa_dim=\dimen143
+\l__fontspec_tmpb_dim=\dimen144
+\l__fontspec_tmpc_dim=\dimen145
+\g__file_internal_ior=\read1
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
+(/usr/share/texlive/texmf-dist/tex/latex/base/tuenc.def
+File: tuenc.def 2017/04/05 v2.0i Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding TU on input line 82.
+))
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \fontspec with sig. 'O{}mO{}' on line 542.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmainfont with sig. 'O{}mO{}' on line 546.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setsansfont with sig. 'O{}mO{}' on line 550.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmonofont with sig. 'O{}mO{}' on line 554.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathrm with sig. 'O{}mO{}' on line 558.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setboldmathrm with sig. 'O{}mO{}' on line 562.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathsf with sig. 'O{}mO{}' on line 566.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setmathtt with sig. 'O{}mO{}' on line 570.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \setromanfont with sig. 'O{}mO{}' on line 574.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontfamily with sig. 'mO{}mO{}' on line 578.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontface with sig. 'mO{}mO{}' on line 582.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \defaultfontfeatures with sig. 't+om' on line 586.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \addfontfeatures with sig. 'm' on line 590.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \addfontfeature with sig. 'm' on line 594.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontfeature with sig. 'mm' on line 598.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newAATfeature with sig. 'mmmm' on line 602.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newopentypefeature with sig. 'mmm' on line 606.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newICUfeature with sig. 'mmm' on line 610.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \aliasfontfeature with sig. 'mm' on line 614.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \aliasfontfeatureoption with sig. 'mmm' on line 618.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontscript with sig. 'mm' on line 622.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newfontlanguage with sig. 'mm' on line 626.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareFontsExtensions with sig. 'm' on line 630.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \IfFontFeatureActiveTF with sig. 'mmm' on line 634.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \EncodingCommand with sig. 'mO{}m' on line 3632.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \EncodingAccent with sig. 'mm' on line 3638.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \EncodingSymbol with sig. 'mm' on line 3644.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \EncodingComposite with sig. 'mmm' on line 3650.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \EncodingCompositeCommand with sig. 'mmm' on line 3656.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \DeclareUnicodeEncoding with sig. 'mm' on line 3681.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \UndeclareSymbol with sig. 'm' on line 3687.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \UndeclareAccent with sig. 'm' on line 3693.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \UndeclareCommand with sig. 'm' on line 3699.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \UndeclareComposite with sig. 'mm' on line 3706.
+.................................................
+(/usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg)
+LaTeX Info: Redefining \itshape on input line 3891.
+LaTeX Info: Redefining \slshape on input line 3896.
+LaTeX Info: Redefining \scshape on input line 3901.
+LaTeX Info: Redefining \upshape on input line 3906.
+LaTeX Info: Redefining \em on input line 3936.
+LaTeX Info: Redefining \emph on input line 3961.
+LaTeX Info: Redefining \- on input line 4015.
+.................................................
+. LaTeX info: "xparse/redefine-command"
+. 
+. Redefining command \oldstylenums with sig. 'm' on line 4110.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \liningnums with sig. 'm' on line 4114.
+.................................................
+)) (/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/share/texl
+ive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks20
+\XKV@tempa@toks=\toks21
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/keyval.tex))
+\XKV@depth=\count193
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\c@eu@=\count194
+\c@eu@i=\count195
+\c@mkern=\count196
+) (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)) (/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2018/01/14 v2.7a Micro-typographical refinements (RS)
+\MT@toks=\toks22
+\MT@count=\count197
+LaTeX Info: Redefining \textls on input line 793.
+\MT@outer@kern=\dimen146
+LaTeX Info: Redefining \textmicrotypecontext on input line 1339.
+\MT@listname@count=\count198
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-xetex.def
+File: microtype-xetex.def 2018/01/14 v2.7a Definitions specific to xetex (RS)
+LaTeX Info: Redefining \lsstyle on input line 256.
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2018/01/14 v2.7a microtype main configuration file (RS)
+)) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+\Gm@cnth=\count199
+\Gm@cntv=\count266
+\c@Gm@tempcnt=\count267
+\Gm@bindingoffset=\dimen147
+\Gm@wd@mp=\dimen148
+\Gm@odd@mp=\dimen149
+\Gm@even@mp=\dimen150
+\Gm@layoutwidth=\dimen151
+\Gm@layoutheight=\dimen152
+\Gm@layouthoffset=\dimen153
+\Gm@layoutvoffset=\dimen154
+\Gm@dimlist=\toks23
+) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package hobsub Info: Skipping package `ifluatex' (already loaded).
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: pdfTeX >= 1.30 not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen155
+\Hy@linkcounter=\count268
+\Hy@pagecounter=\count269
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count270
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4509.
+Package hyperref Info: Link nesting OFF on input line 4514.
+Package hyperref Info: Hyper index ON on input line 4517.
+Package hyperref Info: Plain pages OFF on input line 4524.
+Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4762.
+\c@Hy@tempcnt=\count271
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5115.
+\XeTeXLinkMargin=\dimen156
+\Fld@menulength=\count272
+\Field@Width=\dimen157
+\Fld@charsize=\dimen158
+Package hyperref Info: Hyper figures OFF on input line 6369.
+Package hyperref Info: Link nesting OFF on input line 6374.
+Package hyperref Info: Hyper index ON on input line 6377.
+Package hyperref Info: backreferencing OFF on input line 6384.
+Package hyperref Info: Link coloring OFF on input line 6389.
+Package hyperref Info: Link coloring with OCG OFF on input line 6394.
+Package hyperref Info: PDF/A mode OFF on input line 6399.
+LaTeX Info: Redefining \ref on input line 6439.
+LaTeX Info: Redefining \pageref on input line 6443.
+\Hy@abspage=\count273
+\c@Item=\count274
+\c@Hfootnote=\count275
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2018/02/06 v6.86b Hyperref driver for XeTeX
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2018/02/06 v6.86b Hyperref: PDF Unicode definition (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/stringenc.sty
+Package: stringenc 2016/05/16 v1.11 Convert strings between diff. encodings (HO
+)
+)
+\pdfm@box=\box44
+\c@Hy@AnnotLevel=\count276
+\HyField@AnnotCount=\count277
+\Fld@listcount=\count278
+\c@bookmark@seq@number=\count279
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package rerunfilecheck Info: Feature \pdfmdfivesum is not available
+(rerunfilecheck)             (e.g. pdfTeX or LuaTeX with package `pdftexcmds').
+
+(rerunfilecheck)             Therefore file contents cannot be checked efficien
+tly
+(rerunfilecheck)             and the loading of the package is aborted.
+)
+\Hy@SectionHShift=\skip52
+)
+Package hyperref Info: Option `unicode' set `true' on input line 30.
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
+File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
+
+)
+Package hyperref Info: Option `breaklinks' set `true' on input line 30.
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip53
+\bibsep=\skip54
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count280
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: xetex.def on input line 147.
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
+)) (/usr/share/texlive/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count281
+\FV@InFile=\read2
+\FV@TabBox=\box45
+\c@FancyVerbLine=\count282
+\FV@StepNumber=\count283
+\FV@OutFile=\write3
+) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip55
+\fb@frw=\dimen159
+\fb@frh=\dimen160
+\FrameRule=\dimen161
+\FrameSep=\dimen162
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
+\LTleft=\skip56
+\LTright=\skip57
+\LTpre=\skip58
+\LTpost=\skip59
+\LTchunksize=\count284
+\LTcapwidth=\dimen163
+\LT@head=\box46
+\LT@firsthead=\box47
+\LT@foot=\box48
+\LT@lastfoot=\box49
+\LT@cols=\count285
+\LT@rows=\count286
+\c@LT@tables=\count287
+\c@LT@chunks=\count288
+\LT@p@ftn=\toks24
+) (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen164
+\lightrulewidth=\dimen165
+\cmidrulewidth=\dimen166
+\belowrulesep=\dimen167
+\belowbottomsep=\dimen168
+\aboverulesep=\dimen169
+\abovetopsep=\dimen170
+\cmidrulesep=\dimen171
+\cmidrulekern=\dimen172
+\defaultaddspace=\dimen173
+\@cmidla=\count289
+\@cmidlb=\count290
+\@aboverulesep=\dimen174
+\@belowrulesep=\dimen175
+\@thisruleclass=\count291
+\@lastruleclass=\count292
+\@thisrulewidth=\dimen176
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: xetex.def on input line 99.
+)
+\Gin@req@height=\dimen177
+\Gin@req@width=\dimen178
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grffile.sty
+Package: grffile 2017/06/30 v1.18 Extended file name support for graphics (HO)
+Package grffile Info: Option `multidot' is set to `true'.
+Package grffile Info: Option `extendedchars' is set to `false'.
+Package grffile Info: Option `space' is set to `true'.
+Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 494.
+) (/usr/share/texlive/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2001/04/09 non-zero parskip adjustments
+) (/usr/share/texlive/texmf-dist/tex/latex/titling/titling.sty
+Package: titling 2009/09/04 v2.1d maketitle typesetting
+\thanksmarkwidth=\skip60
+\thanksmargin=\skip61
+\droptitle=\skip62
+) (./ml-book.aux)
+\openout1 = `ml-book.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 132.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 132.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 132.
+LaTeX Font Info:    ... okay on input line 132.
+LaTeX Info: Redefining \microtypecontext on input line 132.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using protrusion set `basicmath'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of spacing.
+Package microtype Info: No adjustment of kerning.
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
+File: mt-LatinModernRoman.cfg 2013/03/13 v1.0 microtype config. file: Latin Mod
+ern Roman (RS)
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-30.06749pt
+* \headheight=12.0pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=125.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\AtBeginShipoutBox=\box50
+Package hyperref Info: Link coloring OFF on input line 132.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count293
+)
+LaTeX Info: Redefining \ref on input line 132.
+LaTeX Info: Redefining \pageref on input line 132.
+LaTeX Info: Redefining \nameref on input line 132.
+(./ml-book.out) (./ml-book.out)
+\@outlinefile=\write4
+\openout4 = `ml-book.out'.
+
+[1
+
+
+] [2
+
+] (./ml-book.toc
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 4.
+(/usr/share/texmf/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmr' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 4.
+(/usr/share/texmf/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 4.
+(/usr/share/texmf/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 4.
+(/usr/share/texmf/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 4.
+LaTeX Font Info:    Try loading font information for U+msa on input line 4.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 4.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) [3] [4] [5]
+Underfull \vbox (badness 2564) has occurred while \output is active []
+
+[6] [7] [8] [9]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 564.
+)
+\tf@toc=\write5
+\openout5 = `ml-book.toc'.
+
+[10] [11
+
+] [12
+
+] [13] [14]
+Chapter 1.
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 173.
+[15
+
+] [16]
+Underfull \vbox (badness 2237) has occurred while \output is active []
+
+[17] [18]
+Underfull \vbox (badness 10000) detected at line 485
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 485
+ []
+
+[19] [20] [21]
+Underfull \vbox (badness 7504) detected at line 720
+ []
+
+
+Underfull \vbox (badness 2913) has occurred while \output is active []
+
+[22]
+Underfull \vbox (badness 10000) detected at line 720
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 720
+ []
+
+[23] [24]
+Underfull \vbox (badness 10000) detected at line 860
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 860
+ []
+
+[25] [26]
+Underfull \vbox (badness 5741) detected at line 946
+ []
+
+
+Underfull \vbox (badness 4084) has occurred while \output is active []
+
+[27] [28]
+Underfull \vbox (badness 10000) detected at line 1100
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1100
+ []
+
+[29]
+Overfull \hbox (9.55699pt too wide) in paragraph at lines 1102--1108
+[]\TU/lmr/m/n/10 To examine the scoring history, use the \TU/lmtt/m/n/10 scorin
+g_history \TU/lmr/m/n/10 method on a trained model. If \TU/lmtt/m/n/10 score_tr
+ee_interval
+ []
+
+[30]
+Underfull \vbox (badness 7504) detected at line 1269
+ []
+
+
+Underfull \vbox (badness 3000) has occurred while \output is active []
+
+[31]
+Underfull \vbox (badness 10000) detected at line 1269
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1269
+ []
+
+[32]
+Underfull \vbox (badness 10000) detected at line 1283
+ []
+
+
+Underfull \vbox (badness 5607) has occurred while \output is active []
+
+[33]
+File: algo-classification_907-bad_loans-h2o_files/figure-latex/plot-gbm-fit3-1.
+pdf Graphic file (type pdf)
+<use algo-classification_907-bad_loans-h2o_files/figure-latex/plot-gbm-fit3-1.p
+df>
+File: algo-classification_907-bad_loans-h2o_files/figure-latex/plot-gbm-fit3-2.
+pdf Graphic file (type pdf)
+<use algo-classification_907-bad_loans-h2o_files/figure-latex/plot-gbm-fit3-2.p
+df>
+[34] [35] [36]
+Underfull \vbox (badness 10000) detected at line 1521
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1521
+ []
+
+[37]
+Underfull \vbox (badness 10000) detected at line 1532
+ []
+
+
+Underfull \vbox (badness 4266) has occurred while \output is active []
+
+[38]
+File: algo-classification_907-bad_loans-h2o_files/figure-latex/unnamed-chunk-14
+-1.pdf Graphic file (type pdf)
+<use algo-classification_907-bad_loans-h2o_files/figure-latex/unnamed-chunk-14-
+1.pdf>
+
+Overfull \vbox (0.58116pt too high) detected at line 1628
+ []
+
+[39]
+Underfull \vbox (badness 10000) detected at line 1628
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1628
+ []
+
+[40] [41]
+Underfull \vbox (badness 10000) detected at line 1753
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1753
+ []
+
+[42] [43] [44
+
+]
+Chapter 2.
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1759.
+[45]
+Underfull \vbox (badness 1584) has occurred while \output is active []
+
+
+Overfull \hbox (79.03838pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 46 \TU/lmr/m/sl/10 CHAPTER 2.  CLASSIFICATION ALGORITHMS COMPARI
+SON. DIABETES DATSET. (\TU/lmr/m/it/10 CART, LDA, SVM, KNN, RF\TU/lmr/m/sl/10 )
+
+ []
+
+[46]
+File: algo-comparison_312-classification-diabetes-multi_files/figure-latex/unna
+med-chunk-5-1.pdf Graphic file (type pdf)
+<use algo-comparison_312-classification-diabetes-multi_files/figure-latex/unnam
+ed-chunk-5-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[47]
+File: algo-comparison_312-classification-diabetes-multi_files/figure-latex/dens
+ity_plot-1.pdf Graphic file (type pdf)
+<use algo-comparison_312-classification-diabetes-multi_files/figure-latex/densi
+ty_plot-1.pdf>
+File: algo-comparison_312-classification-diabetes-multi_files/figure-latex/dot_
+plot-1.pdf Graphic file (type pdf)
+<use algo-comparison_312-classification-diabetes-multi_files/figure-latex/dot_p
+lot-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (79.03838pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 48 \TU/lmr/m/sl/10 CHAPTER 2.  CLASSIFICATION ALGORITHMS COMPARI
+SON. DIABETES DATSET. (\TU/lmr/m/it/10 CART, LDA, SVM, KNN, RF\TU/lmr/m/sl/10 )
+
+ []
+
+[48]
+File: algo-comparison_312-classification-diabetes-multi_files/figure-latex/para
+llel_plot-1.pdf Graphic file (type pdf)
+<use algo-comparison_312-classification-diabetes-multi_files/figure-latex/paral
+lel_plot-1.pdf>
+File: algo-comparison_312-classification-diabetes-multi_files/figure-latex/pair
+wise_plot-1.pdf Graphic file (type pdf)
+<use algo-comparison_312-classification-diabetes-multi_files/figure-latex/pairw
+ise_plot-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[49]
+File: algo-comparison_312-classification-diabetes-multi_files/figure-latex/xy_p
+lot-1.pdf Graphic file (type pdf)
+<use algo-comparison_312-classification-diabetes-multi_files/figure-latex/xy_pl
+ot-1.pdf>
+
+Overfull \hbox (79.03838pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 50 \TU/lmr/m/sl/10 CHAPTER 2.  CLASSIFICATION ALGORITHMS COMPARI
+SON. DIABETES DATSET. (\TU/lmr/m/it/10 CART, LDA, SVM, KNN, RF\TU/lmr/m/sl/10 )
+
+ []
+
+[50] [51]
+Overfull \hbox (79.03838pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 52 \TU/lmr/m/sl/10 CHAPTER 2.  CLASSIFICATION ALGORITHMS COMPARI
+SON. DIABETES DATSET. (\TU/lmr/m/it/10 CART, LDA, SVM, KNN, RF\TU/lmr/m/sl/10 )
+
+ []
+
+[52
+
+]
+Chapter 3.
+[53]
+Overfull \hbox (80.9184pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 54 \TU/lmr/m/sl/10 CHAPTER 3.  MULTICLASS CLASSIFICATION COMPARI
+SON. DIABETES DATASET. (\TU/lmr/m/it/10 LDA, CART, KNN, SVM, RF\TU/lmr/m/sl/10 
+)
+ []
+
+[54]
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▂ in font [lmmono10-italic]:!
+Missing character: There is no ▅ in font [lmmono10-italic]:!
+Missing character: There is no ▅ in font [lmmono10-italic]:!
+Missing character: There is no ▃ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▅ in font [lmmono10-italic]:!
+Missing character: There is no ▃ in font [lmmono10-italic]:!
+Missing character: There is no ▃ in font [lmmono10-italic]:!
+Missing character: There is no ▃ in font [lmmono10-italic]:!
+Missing character: There is no ▂ in font [lmmono10-italic]:!
+Missing character: There is no ▂ in font [lmmono10-italic]:!
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▅ in font [lmmono10-italic]:!
+Missing character: There is no ▆ in font [lmmono10-italic]:!
+Missing character: There is no ▆ in font [lmmono10-italic]:!
+Missing character: There is no ▅ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▂ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▃ in font [lmmono10-italic]:!
+Missing character: There is no ▅ in font [lmmono10-italic]:!
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▅ in font [lmmono10-italic]:!
+Missing character: There is no ▂ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+[55]
+File: algo-comparison_320-classification_iris-multi_files/figure-latex/unnamed-
+chunk-11-1.pdf Graphic file (type pdf)
+<use algo-comparison_320-classification_iris-multi_files/figure-latex/unnamed-c
+hunk-11-1.pdf>
+File: algo-comparison_320-classification_iris-multi_files/figure-latex/unnamed-
+chunk-12-1.pdf Graphic file (type pdf)
+<use algo-comparison_320-classification_iris-multi_files/figure-latex/unnamed-c
+hunk-12-1.pdf>
+File: algo-comparison_320-classification_iris-multi_files/figure-latex/unnamed-
+chunk-13-1.pdf Graphic file (type pdf)
+<use algo-comparison_320-classification_iris-multi_files/figure-latex/unnamed-c
+hunk-13-1.pdf>
+
+Overfull \hbox (80.9184pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 56 \TU/lmr/m/sl/10 CHAPTER 3.  MULTICLASS CLASSIFICATION COMPARI
+SON. DIABETES DATASET. (\TU/lmr/m/it/10 LDA, CART, KNN, SVM, RF\TU/lmr/m/sl/10 
+)
+ []
+
+[56]
+File: algo-comparison_320-classification_iris-multi_files/figure-latex/unnamed-
+chunk-14-1.pdf Graphic file (type pdf)
+<use algo-comparison_320-classification_iris-multi_files/figure-latex/unnamed-c
+hunk-14-1.pdf>
+File: algo-comparison_320-classification_iris-multi_files/figure-latex/unnamed-
+chunk-15-1.pdf Graphic file (type pdf)
+<use algo-comparison_320-classification_iris-multi_files/figure-latex/unnamed-c
+hunk-15-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[57]
+Overfull \hbox (80.9184pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 58 \TU/lmr/m/sl/10 CHAPTER 3.  MULTICLASS CLASSIFICATION COMPARI
+SON. DIABETES DATASET. (\TU/lmr/m/it/10 LDA, CART, KNN, SVM, RF\TU/lmr/m/sl/10 
+)
+ []
+
+[58]
+File: algo-comparison_320-classification_iris-multi_files/figure-latex/unnamed-
+chunk-19-1.pdf Graphic file (type pdf)
+<use algo-comparison_320-classification_iris-multi_files/figure-latex/unnamed-c
+hunk-19-1.pdf>
+
+Underfull \vbox (badness 2426) has occurred while \output is active []
+
+[59]
+Overfull \hbox (80.9184pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 60 \TU/lmr/m/sl/10 CHAPTER 3.  MULTICLASS CLASSIFICATION COMPARI
+SON. DIABETES DATASET. (\TU/lmr/m/it/10 LDA, CART, KNN, SVM, RF\TU/lmr/m/sl/10 
+)
+ []
+
+[60]
+Chapter 4.
+[61
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 2611--2612
+
+ []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 62 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[62]
+Underfull \hbox (badness 10000) in paragraph at lines 2663--2665
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2672--2673
+
+ []
+
+[63]
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 64 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[64]
+Underfull \vbox (badness 10000) detected at line 3005
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[65]
+Underfull \vbox (badness 10000) detected at line 3052
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 66 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[66] [67]
+Underfull \vbox (badness 10000) detected at line 3182
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 68 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[68]
+File: algo-comparison_321-regression_boston-multi_files/figure-latex/plot-histo
+grams-1.pdf Graphic file (type pdf)
+<use algo-comparison_321-regression_boston-multi_files/figure-latex/plot-histog
+rams-1.pdf>
+File: algo-comparison_321-regression_boston-multi_files/figure-latex/plot-densi
+ty-1.pdf Graphic file (type pdf)
+<use algo-comparison_321-regression_boston-multi_files/figure-latex/plot-densit
+y-1.pdf>
+File: algo-comparison_321-regression_boston-multi_files/figure-latex/plot-boxpl
+ots, -1.pdf Graphic file (type pdf)
+<use algo-comparison_321-regression_boston-multi_files/figure-latex/plot-boxplo
+ts, -1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[69]
+File: algo-comparison_321-regression_boston-multi_files/figure-latex/unnamed-ch
+unk-18-1.pdf Graphic file (type pdf)
+<use algo-comparison_321-regression_boston-multi_files/figure-latex/unnamed-chu
+nk-18-1.pdf>
+File: algo-comparison_321-regression_boston-multi_files/figure-latex/plot-corre
+lation-1.pdf Graphic file (type pdf)
+<use algo-comparison_321-regression_boston-multi_files/figure-latex/plot-correl
+ation-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 70 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[70] [71]
+File: algo-comparison_321-regression_boston-multi_files/figure-latex/unnamed-ch
+unk-20-1.pdf Graphic file (type pdf)
+<use algo-comparison_321-regression_boston-multi_files/figure-latex/unnamed-chu
+nk-20-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 72 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[72] [73]
+Underfull \vbox (badness 10000) detected at line 3439
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3439
+ []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 74 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[74]
+File: algo-comparison_321-regression_boston-multi_files/figure-latex/models-sec
+ond-run-removeFeatures-1.pdf Graphic file (type pdf)
+<use algo-comparison_321-regression_boston-multi_files/figure-latex/models-seco
+nd-run-removeFeatures-1.pdf>
+[75]
+Underfull \vbox (badness 10000) detected at line 3534
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3534
+ []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 76 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[76]
+File: algo-comparison_321-regression_boston-multi_files/figure-latex/model-thir
+d-run-boxcox-1.pdf Graphic file (type pdf)
+<use algo-comparison_321-regression_boston-multi_files/figure-latex/model-third
+-run-boxcox-1.pdf>
+[77]
+Underfull \vbox (badness 5696) detected at line 3637
+ []
+
+
+Underfull \vbox (badness 5460) has occurred while \output is active []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 78 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[78]
+File: algo-comparison_321-regression_boston-multi_files/figure-latex/model-svm-
+run-1.pdf Graphic file (type pdf)
+<use algo-comparison_321-regression_boston-multi_files/figure-latex/model-svm-r
+un-1.pdf>
+[79]
+File: algo-comparison_321-regression_boston-multi_files/figure-latex/models-ens
+embling-run-1.pdf Graphic file (type pdf)
+<use algo-comparison_321-regression_boston-multi_files/figure-latex/models-ense
+mbling-run-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 80 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[80]
+Underfull \vbox (badness 2689) detected at line 3810
+ []
+
+
+Underfull \vbox (badness 1454) has occurred while \output is active []
+
+[81]
+Underfull \vbox (badness 10000) detected at line 3810
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3810
+ []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 82 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[82]
+File: algo-comparison_321-regression_boston-multi_files/figure-latex/model-cubi
+st-run-1.pdf Graphic file (type pdf)
+<use algo-comparison_321-regression_boston-multi_files/figure-latex/model-cubis
+t-run-1.pdf>
+[83]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 84 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[84]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+[85]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 86 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[86]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+[87]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 88 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[88]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+[89]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 90 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[90]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+[91]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 92 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[92]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+[93]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 94 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[94]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+[95]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 96 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[96]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+[97]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Overfull \hbox (111.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 98 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON.
+ BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/1
+0 )
+ []
+
+[98]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+[99]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Overfull \hbox (116.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 100 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON
+. BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/
+10 )
+ []
+
+[100]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+[101]
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4862
+ []
+
+
+Overfull \hbox (116.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 102 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON
+. BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/
+10 )
+ []
+
+[102] [103]
+Overfull \hbox (116.39507pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 104 \TU/lmr/m/sl/10 CHAPTER 4.  REGRESSION ALGORITHMS COMPARISON
+. BOSTON DATASET. (\TU/lmr/m/it/10 LM, GKM, GLMNET, SVM, CART, KNN\TU/lmr/m/sl/
+10 )
+ []
+
+[104
+
+]
+Chapter 5.
+[105]
+Underfull \hbox (badness 10000) in paragraph at lines 5021--5022
+
+ []
+
+
+Overfull \hbox (201.65947pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 106 \TU/lmr/m/sl/10 CHAPTER 5.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. BREAST CANCER DATASET, (\TU/lmr/m/it/10 LG, LDA, GLMNET, KNN, CARTM NB, S
+VM\TU/lmr/m/sl/10 )
+ []
+
+[106]
+Underfull \hbox (badness 10000) in paragraph at lines 5195--5196
+
+ []
+
+[107]
+Underfull \vbox (badness 10000) detected at line 5365
+ []
+
+
+Overfull \vbox (0.94992pt too high) detected at line 5365
+ []
+
+
+Overfull \hbox (201.65947pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 108 \TU/lmr/m/sl/10 CHAPTER 5.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. BREAST CANCER DATASET, (\TU/lmr/m/it/10 LG, LDA, GLMNET, KNN, CARTM NB, S
+VM\TU/lmr/m/sl/10 )
+ []
+
+[108]
+Underfull \vbox (badness 10000) detected at line 5408
+ []
+
+
+Overfull \vbox (1.22997pt too high) detected at line 5408
+ []
+
+[109]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (201.65947pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 110 \TU/lmr/m/sl/10 CHAPTER 5.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. BREAST CANCER DATASET, (\TU/lmr/m/it/10 LG, LDA, GLMNET, KNN, CARTM NB, S
+VM\TU/lmr/m/sl/10 )
+ []
+
+[110]
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▂ in font [lmmono10-italic]:!
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▅ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▂ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▂ in font [lmmono10-italic]:!
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▅ in font [lmmono10-italic]:!
+Missing character: There is no ▃ in font [lmmono10-italic]:!
+Missing character: There is no ▅ in font [lmmono10-italic]:!
+Missing character: There is no ▂ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▂ in font [lmmono10-italic]:!
+Missing character: There is no ▃ in font [lmmono10-italic]:!
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▂ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▇ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▁ in font [lmmono10-italic]:!
+Missing character: There is no ▂ in font [lmmono10-italic]:!
+
+Underfull \vbox (badness 10000) detected at line 5539
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[111]
+Overfull \hbox (201.65947pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 112 \TU/lmr/m/sl/10 CHAPTER 5.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. BREAST CANCER DATASET, (\TU/lmr/m/it/10 LG, LDA, GLMNET, KNN, CARTM NB, S
+VM\TU/lmr/m/sl/10 )
+ []
+
+[112]
+File: algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figur
+e-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
+<use algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figure
+-latex/unnamed-chunk-16-1.pdf>
+File: algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figur
+e-latex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
+<use algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figure
+-latex/unnamed-chunk-17-1.pdf>
+
+Underfull \vbox (badness 2726) has occurred while \output is active []
+
+[113]
+File: algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figur
+e-latex/unnamed-chunk-18-1.pdf Graphic file (type pdf)
+<use algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figure
+-latex/unnamed-chunk-18-1.pdf>
+File: algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figur
+e-latex/unnamed-chunk-19-1.pdf Graphic file (type pdf)
+<use algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figure
+-latex/unnamed-chunk-19-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (201.65947pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 114 \TU/lmr/m/sl/10 CHAPTER 5.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. BREAST CANCER DATASET, (\TU/lmr/m/it/10 LG, LDA, GLMNET, KNN, CARTM NB, S
+VM\TU/lmr/m/sl/10 )
+ []
+
+[114]
+File: algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figur
+e-latex/unnamed-chunk-20-1.pdf Graphic file (type pdf)
+<use algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figure
+-latex/unnamed-chunk-20-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[115]
+Overfull \hbox (201.65947pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 116 \TU/lmr/m/sl/10 CHAPTER 5.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. BREAST CANCER DATASET, (\TU/lmr/m/it/10 LG, LDA, GLMNET, KNN, CARTM NB, S
+VM\TU/lmr/m/sl/10 )
+ []
+
+[116]
+Underfull \vbox (badness 10000) detected at line 5779
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 5779
+ []
+
+[117]
+File: algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figur
+e-latex/models-first-run-1.pdf Graphic file (type pdf)
+<use algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figure
+-latex/models-first-run-1.pdf>
+
+Overfull \hbox (201.65947pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 118 \TU/lmr/m/sl/10 CHAPTER 5.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. BREAST CANCER DATASET, (\TU/lmr/m/it/10 LG, LDA, GLMNET, KNN, CARTM NB, S
+VM\TU/lmr/m/sl/10 )
+ []
+
+[118]
+Underfull \vbox (badness 10000) detected at line 5909
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 5909
+ []
+
+[119]
+File: algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figur
+e-latex/models-second-run-BoxCox-1.pdf Graphic file (type pdf)
+<use algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figure
+-latex/models-second-run-BoxCox-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (201.65947pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 120 \TU/lmr/m/sl/10 CHAPTER 5.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. BREAST CANCER DATASET, (\TU/lmr/m/it/10 LG, LDA, GLMNET, KNN, CARTM NB, S
+VM\TU/lmr/m/sl/10 )
+ []
+
+[120] [121]
+File: algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figur
+e-latex/model-svm-run-takes_a_while-1.pdf Graphic file (type pdf)
+<use algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figure
+-latex/model-svm-run-takes_a_while-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (201.65947pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 122 \TU/lmr/m/sl/10 CHAPTER 5.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. BREAST CANCER DATASET, (\TU/lmr/m/it/10 LG, LDA, GLMNET, KNN, CARTM NB, S
+VM\TU/lmr/m/sl/10 )
+ []
+
+[122] [123]
+File: algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figur
+e-latex/model-knn-run-1.pdf Graphic file (type pdf)
+<use algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figure
+-latex/model-knn-run-1.pdf>
+
+Overfull \hbox (201.65947pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 124 \TU/lmr/m/sl/10 CHAPTER 5.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. BREAST CANCER DATASET, (\TU/lmr/m/it/10 LG, LDA, GLMNET, KNN, CARTM NB, S
+VM\TU/lmr/m/sl/10 )
+ []
+
+[124]
+File: algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figur
+e-latex/models-ensembling-run-1.pdf Graphic file (type pdf)
+<use algo-comparison_322-classification_BreastCancer-mlbench-multi_files/figure
+-latex/models-ensembling-run-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[125]
+Overfull \hbox (201.65947pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 126 \TU/lmr/m/sl/10 CHAPTER 5.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. BREAST CANCER DATASET, (\TU/lmr/m/it/10 LG, LDA, GLMNET, KNN, CARTM NB, S
+VM\TU/lmr/m/sl/10 )
+ []
+
+[126]
+Underfull \vbox (badness 10000) detected at line 6228
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[127]
+Overfull \hbox (201.65947pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 128 \TU/lmr/m/sl/10 CHAPTER 5.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. BREAST CANCER DATASET, (\TU/lmr/m/it/10 LG, LDA, GLMNET, KNN, CARTM NB, S
+VM\TU/lmr/m/sl/10 )
+ []
+
+[128]
+Chapter 6.
+[129
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 6351--6353
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6373--6374
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6421--6422
+
+ []
+
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 130 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[130] [131]
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 132 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[132]
+File: algo-comparison_330-classification_flu_outcome-multi-sglander_files/figur
+e-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
+<use algo-comparison_330-classification_flu_outcome-multi-sglander_files/figure
+-latex/unnamed-chunk-6-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[133]
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 134 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[134]
+File: algo-comparison_330-classification_flu_outcome-multi-sglander_files/figur
+e-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+<use algo-comparison_330-classification_flu_outcome-multi-sglander_files/figure
+-latex/unnamed-chunk-7-1.pdf>
+
+Underfull \vbox (badness 7504) has occurred while \output is active []
+
+[135]
+File: algo-comparison_330-classification_flu_outcome-multi-sglander_files/figur
+e-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use algo-comparison_330-classification_flu_outcome-multi-sglander_files/figure
+-latex/unnamed-chunk-8-1.pdf>
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 136 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[136] [137]
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 138 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[138]
+Underfull \vbox (badness 10000) detected at line 6973
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 6973
+ []
+
+[139]
+Underfull \vbox (badness 10000) detected at line 6973
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 6973
+ []
+
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 140 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[140]
+Underfull \vbox (badness 10000) detected at line 7122
+ []
+
+
+Overfull \vbox (0.61996pt too high) detected at line 7122
+ []
+
+[141]
+Underfull \vbox (badness 10000) detected at line 7122
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 7122
+ []
+
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 142 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[142]
+Underfull \vbox (badness 10000) detected at line 7122
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 7122
+ []
+
+[143]
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 144 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[144]
+File: algo-comparison_330-classification_flu_outcome-multi-sglander_files/figur
+e-latex/model-rpart-run-1.pdf Graphic file (type pdf)
+<use algo-comparison_330-classification_flu_outcome-multi-sglander_files/figure
+-latex/model-rpart-run-1.pdf>
+[145]
+File: algo-comparison_330-classification_flu_outcome-multi-sglander_files/figur
+e-latex/plot-var-importance-1.pdf Graphic file (type pdf)
+<use algo-comparison_330-classification_flu_outcome-multi-sglander_files/figure
+-latex/plot-var-importance-1.pdf>
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 146 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[146]
+File: algo-comparison_330-classification_flu_outcome-multi-sglander_files/figur
+e-latex/plot-datasets-distribution-1.pdf Graphic file (type pdf)
+<use algo-comparison_330-classification_flu_outcome-multi-sglander_files/figure
+-latex/plot-datasets-distribution-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[147]
+File: algo-comparison_330-classification_flu_outcome-multi-sglander_files/figur
+e-latex/unnamed-chunk-16-1.pdf Graphic file (type pdf)
+<use algo-comparison_330-classification_flu_outcome-multi-sglander_files/figure
+-latex/unnamed-chunk-16-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 148 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[148] [149]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 150 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[150] [151]
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 152 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[152] [153]
+Underfull \vbox (badness 10000) detected at line 7853
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 7853
+ []
+
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 154 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[154]
+Underfull \vbox (badness 10000) detected at line 7853
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 7853
+ []
+
+[155]
+Underfull \vbox (badness 10000) detected at line 7853
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 7853
+ []
+
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 156 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[156]
+Underfull \vbox (badness 10000) detected at line 7886
+ []
+
+
+Overfull \vbox (1.29996pt too high) detected at line 7886
+ []
+
+[157]
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 158 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[158] [159]
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 160 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[160] [161]
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 162 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[162]
+File: algo-comparison_330-classification_flu_outcome-multi-sglander_files/figur
+e-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
+<use algo-comparison_330-classification_flu_outcome-multi-sglander_files/figure
+-latex/unnamed-chunk-27-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[163]
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 164 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[164] [165]
+Underfull \vbox (badness 10000) detected at line 8550
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8550
+ []
+
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 166 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[166]
+Underfull \vbox (badness 10000) detected at line 8550
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8550
+ []
+
+[167]
+Underfull \vbox (badness 10000) detected at line 8550
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8550
+ []
+
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 168 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[168]
+Underfull \vbox (badness 10000) detected at line 8550
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8550
+ []
+
+[169]
+File: algo-comparison_330-classification_flu_outcome-multi-sglander_files/figur
+e-latex/model-train-all-run-1.pdf Graphic file (type pdf)
+<use algo-comparison_330-classification_flu_outcome-multi-sglander_files/figure
+-latex/model-train-all-run-1.pdf>
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 170 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[170]
+Underfull \vbox (badness 10000) detected at line 8641
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8641
+ []
+
+[171]
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 172 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[172]
+Underfull \vbox (badness 10000) detected at line 8748
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 8748
+ []
+
+[173]
+File: algo-comparison_330-classification_flu_outcome-multi-sglander_files/figur
+e-latex/unnamed-chunk-32-1.pdf Graphic file (type pdf)
+<use algo-comparison_330-classification_flu_outcome-multi-sglander_files/figure
+-latex/unnamed-chunk-32-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 174 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[174] [175]
+Overfull \hbox (186.38708pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 176 \TU/lmr/m/sl/10 CHAPTER 6.  CLASSIFICATION ALGORITHMS COMPAR
+ISON. OUTBREAKS DATASET. (\TU/lmr/m/it/10 RF, GLMNET, KNN, PDA, LDA, NSC, C5, P
+LS\TU/lmr/m/sl/10 )
+ []
+
+[176] [177
+
+] [178]
+Chapter 7.
+
+Overfull \hbox (27.84998pt too wide) in paragraph at lines 8851--8852
+\TU/lmr/m/n/10 Source: []$[][][][][] [] [] [] [][][][][][][][][][] [] [][][][][
+][][][][] [] [][][] [] [][][][] [] [][] [] [][] [] [][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][]$[] 
+ []
+
+File: /home/datascience/repos/machine-learning-rsuite/import/assets/svm-fig-1.p
+ng Graphic file (type bmp)
+</home/datascience/repos/machine-learning-rsuite/import/assets/svm-fig-1.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[179
+
+]
+File: /home/datascience/repos/machine-learning-rsuite/import/assets/svm-fig-2.p
+ng Graphic file (type bmp)
+</home/datascience/repos/machine-learning-rsuite/import/assets/svm-fig-2.png>
+[180]
+File: /home/datascience/repos/machine-learning-rsuite/import/assets/svm-fig-3.p
+ng Graphic file (type bmp)
+</home/datascience/repos/machine-learning-rsuite/import/assets/svm-fig-3.png>
+File: /home/datascience/repos/machine-learning-rsuite/import/assets/svm-fig-4.p
+ng Graphic file (type bmp)
+</home/datascience/repos/machine-learning-rsuite/import/assets/svm-fig-4.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[181]
+File: /home/datascience/repos/machine-learning-rsuite/import/assets/svm-fig-5.p
+ng Graphic file (type bmp)
+</home/datascience/repos/machine-learning-rsuite/import/assets/svm-fig-5.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[182]
+Missing character: There is no 🙂 in font [lmmono10-regular]:!
+
+Overfull \hbox (52.79498pt too wide) in paragraph at lines 8909--8909
+[]\TU/lmtt/m/n/10 Non-negativity – a distance cannot be negative, a point that 
+needs no further explanation I reckon 🙂[] 
+ []
+
+
+Overfull \hbox (144.49498pt too wide) in paragraph at lines 8909--8909
+[]\TU/lmtt/m/n/10 Symmetry – that is, the distance between point A and point B 
+is the same as the distance between point B and point A.[] 
+ []
+
+
+Overfull \hbox (669.49498pt too wide) in paragraph at lines 8909--8909
+[]\TU/lmtt/m/n/10 Triangle inequality – that is the sum of distances between po
+int A and B and points B and C must be less than or equal to the distance betwe
+en A and C (equality holds only if all three points lie along the same line).[]
+ 
+ []
+
+[183] [184] [185] [186]
+Underfull \vbox (badness 5316) has occurred while \output is active []
+
+[187] [188] [189] [190
+
+]
+Chapter 8.
+[191]
+Underfull \vbox (badness 10000) detected at line 9397
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[192]
+Underfull \vbox (badness 10000) detected at line 9457
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[193]
+File: classification_112-social_networks-SVM_files/figure-latex/plot_training_s
+et-1.pdf Graphic file (type pdf)
+<use classification_112-social_networks-SVM_files/figure-latex/plot_training_se
+t-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[194]
+File: classification_112-social_networks-SVM_files/figure-latex/unnamed-chunk-1
+6-1.pdf Graphic file (type pdf)
+<use classification_112-social_networks-SVM_files/figure-latex/unnamed-chunk-16
+-1.pdf>
+[195] [196
+
+]
+Chapter 9.
+[197]
+File: classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-3-1.pd
+f Graphic file (type pdf)
+<use classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-3-1.pdf
+>
+File: classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-4-1.pd
+f Graphic file (type pdf)
+<use classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-4-1.pdf
+>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[198]
+File: classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-5-1.pd
+f Graphic file (type pdf)
+<use classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-5-1.pdf
+>
+[199]
+File: classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-6-1.pd
+f Graphic file (type pdf)
+<use classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-6-1.pdf
+>
+File: classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-7-1.pd
+f Graphic file (type pdf)
+<use classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-7-1.pdf
+>
+[200]
+File: classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-8-1.pd
+f Graphic file (type pdf)
+<use classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-8-1.pdf
+>
+[201]
+File: classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-11-1.p
+df Graphic file (type pdf)
+<use classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-11-1.pd
+f>
+
+Overfull \vbox (2.05292pt too high) detected at line 9757
+ []
+
+[202]
+File: classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-12-1.p
+df Graphic file (type pdf)
+<use classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-12-1.pd
+f>
+File: classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-13-1.p
+df Graphic file (type pdf)
+<use classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-13-1.pd
+f>
+[203]
+File: classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-16-1.p
+df Graphic file (type pdf)
+<use classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-16-1.pd
+f>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[204]
+File: classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-17-1.p
+df Graphic file (type pdf)
+<use classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-17-1.pd
+f>
+[205]
+File: classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-19-1.p
+df Graphic file (type pdf)
+<use classification_113-broad_view-SVM_files/figure-latex/unnamed-chunk-19-1.pd
+f>
+[206] [207] [208
+
+]
+Chapter 10.
+[209]
+Underfull \vbox (badness 10000) detected at line 10072
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 10072
+ []
+
+[210]
+Underfull \vbox (badness 10000) detected at line 10153
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[211]
+Overfull \vbox (0.70837pt too high) detected at line 10199
+ []
+
+[212] [213] [214]
+Chapter 11.
+[215
+
+] [216]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[217] [218]
+Chapter 12.
+[219
+
+] [220
+
+]
+Chapter 13.
+[221]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[222] [223] [224] [225] [226] [227] [228
+
+]
+Chapter 14.
+
+Overfull \vbox (0.66281pt too high) detected at line 10950
+ []
+
+[229] [230]
+Underfull \vbox (badness 1776) has occurred while \output is active []
+
+[231] [232]
+Underfull \vbox (badness 10000) detected at line 11268
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 11268
+ []
+
+[233]
+File: classification_225-sms_spam-tm-nb_files/figure-latex/unnamed-chunk-29-1.p
+df Graphic file (type pdf)
+<use classification_225-sms_spam-tm-nb_files/figure-latex/unnamed-chunk-29-1.pd
+f>
+File: classification_225-sms_spam-tm-nb_files/figure-latex/unnamed-chunk-31-1.p
+df Graphic file (type pdf)
+<use classification_225-sms_spam-tm-nb_files/figure-latex/unnamed-chunk-31-1.pd
+f>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[234]
+File: classification_225-sms_spam-tm-nb_files/figure-latex/unnamed-chunk-32-1.p
+df Graphic file (type pdf)
+<use classification_225-sms_spam-tm-nb_files/figure-latex/unnamed-chunk-32-1.pd
+f>
+[235]
+Underfull \vbox (badness 10000) detected at line 11439
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[236] [237] [238]
+Chapter 15.
+[239
+
+] [240]
+File: classification_226-vehicle-mlbench-tree_files/figure-latex/unnamed-chunk-
+7-1.pdf Graphic file (type pdf)
+<use classification_226-vehicle-mlbench-tree_files/figure-latex/unnamed-chunk-7
+-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[241]
+File: classification_226-vehicle-mlbench-tree_files/figure-latex/plot-fit-1.pdf
+ Graphic file (type pdf)
+<use classification_226-vehicle-mlbench-tree_files/figure-latex/plot-fit-1.pdf>
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[242] [243] [244]
+Chapter 16.
+
+Overfull \hbox (5.00996pt too wide) in paragraph at lines 11876--11877
+[]\TU/lmr/m/n/10 Source: []$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][
+][][][][] [] [][][] [] [][][][] [] [][][][] [] [][] [] [][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][]$[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[245
+
+]
+Overfull \hbox (55.24498pt too wide) in paragraph at lines 11930--11930
+[]            \TU/lmtt/m/n/10 3-> Light Snow and Rain + Thunderstorm + Scattere
+d clouds, Light Rain + Scattered clouds[] 
+ []
+
+[246] [247]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-8-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-8-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[248]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-9-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-9-1.pdf>
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-10-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-10-1.pdf>
+
+Underfull \vbox (badness 1215) has occurred while \output is active []
+
+[249] [250] [251]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-19-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-19-1.pdf>
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-21-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-21-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[252]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-22-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-22-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[253]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-25-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-25-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[254]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-26-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-26-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[255]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-27-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-27-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[256]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-29-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-29-1.pdf>
+[257]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-32-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-32-1.pdf>
+
+Underfull \vbox (badness 8038) has occurred while \output is active []
+
+[258]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-33-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-33-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[259]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-34-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-34-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[260]
+Underfull \vbox (badness 7012) has occurred while \output is active []
+
+[261]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/model-rpart-
+registered-hour-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/model-rpart-r
+egistered-hour-1.pdf>
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/model-rpart-
+casual-hour-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/model-rpart-c
+asual-hour-1.pdf>
+[262]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/model-rpart-
+temperature-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/model-rpart-t
+emperature-1.pdf>
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-42-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-42-1.pdf>
+[263] [264]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-49-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-49-1.pdf>
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-50-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-50-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[265]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-51-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-51-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[266]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-52-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-52-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[267]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-53-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-53-1.pdf>
+[268] [269] [270]
+Underfull \hbox (badness 1953) in paragraph at lines 12942--12944
+[]\TU/lmr/m/n/10 Predict bike demand registered and casual users separately. $\
+OML/lmm/m/it/10 y\OT1/lmr/m/n/10 1 = [](\OML/lmm/m/it/10 casual \OT1/lmr/m/n/10
+ + 1)$ \TU/lmr/m/n/10 and
+ []
+
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-63-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-63-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[271]
+File: classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chun
+k-64-1.pdf Graphic file (type pdf)
+<use classification_227-bike_sharing_demand-rf_files/figure-latex/unnamed-chunk
+-64-1.pdf>
+[272] [273] [274]
+Chapter 17.
+
+Underfull \vbox (badness 7064) has occurred while \output is active []
+
+[275
+
+] [276] [277]
+Underfull \vbox (badness 10000) detected at line 13361
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 13361
+ []
+
+[278]
+Underfull \vbox (badness 10000) detected at line 13361
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 13361
+ []
+
+[279]
+File: classification_229-breast_cancer_ga-sglander_files/figure-latex/plot-pca-
+1.pdf Graphic file (type pdf)
+<use classification_229-breast_cancer_ga-sglander_files/figure-latex/plot-pca-1
+.pdf>
+File: classification_229-breast_cancer_ga-sglander_files/figure-latex/plot-dend
+rogram-1.pdf Graphic file (type pdf)
+<use classification_229-breast_cancer_ga-sglander_files/figure-latex/plot-dendr
+ogram-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[280]
+File: classification_229-breast_cancer_ga-sglander_files/figure-latex/unnamed-c
+hunk-9-1.pdf Graphic file (type pdf)
+<use classification_229-breast_cancer_ga-sglander_files/figure-latex/unnamed-ch
+unk-9-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[281] [282]
+File: classification_229-breast_cancer_ga-sglander_files/figure-latex/plot-feat
+ureImportance-1.pdf Graphic file (type pdf)
+<use classification_229-breast_cancer_ga-sglander_files/figure-latex/plot-featu
+reImportance-1.pdf>
+[283]
+File: classification_229-breast_cancer_ga-sglander_files/figure-latex/plot-corr
+elation-1.pdf Graphic file (type pdf)
+<use classification_229-breast_cancer_ga-sglander_files/figure-latex/plot-corre
+lation-1.pdf>
+[284] [285]
+File: classification_229-breast_cancer_ga-sglander_files/figure-latex/plot-auc-
+1.pdf Graphic file (type pdf)
+<use classification_229-breast_cancer_ga-sglander_files/figure-latex/plot-auc-1
+.pdf>
+[286] [287]
+File: classification_229-breast_cancer_ga-sglander_files/figure-latex/unnamed-c
+hunk-20-1.pdf Graphic file (type pdf)
+<use classification_229-breast_cancer_ga-sglander_files/figure-latex/unnamed-ch
+unk-20-1.pdf>
+[288] [289] [290] [291] [292]
+File: classification_229-breast_cancer_ga-sglander_files/figure-latex/unnamed-c
+hunk-27-1.pdf Graphic file (type pdf)
+<use classification_229-breast_cancer_ga-sglander_files/figure-latex/unnamed-ch
+unk-27-1.pdf>
+[293] [294
+
+]
+Chapter 18.
+[295] [296]
+Chapter 19.
+
+Overfull \vbox (0.37593pt too high) detected at line 14257
+ []
+
+[297
+
+] [298]
+Chapter 20.
+
+Overfull \hbox (73.38496pt too wide) in paragraph at lines 14280--14281
+[]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][][][][][][][][][] [] [][]
+[] [] [][][][][][][][][][][][][][][][][][][][] [] [][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
+[][][][][][][][][][][][][][]$[] 
+ []
+
+[299
+
+]
+File: classification_252b-iris-naive_bayes_files/figure-latex/unnamed-chunk-5-1
+.pdf Graphic file (type pdf)
+<use classification_252b-iris-naive_bayes_files/figure-latex/unnamed-chunk-5-1.
+pdf>
+
+Underfull \vbox (badness 10000) detected at line 14380
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[300]
+File: classification_252b-iris-naive_bayes_files/figure-latex/unnamed-chunk-6-1
+.pdf Graphic file (type pdf)
+<use classification_252b-iris-naive_bayes_files/figure-latex/unnamed-chunk-6-1.
+pdf>
+[301] [302
+
+] [303] [304]
+Chapter 21.
+[305
+
+]
+Overfull \hbox (2483.82562pt too wide) in paragraph at lines 14480--14505
+ [][] 
+ []
+
+[306]
+Underfull \vbox (badness 10000) detected at line 14560
+ []
+
+
+Underfull \vbox (badness 1173) has occurred while \output is active []
+
+[307] [308]
+Underfull \hbox (badness 10000) in paragraph at lines 14676--14677
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14688--14689
+
+ []
+
+
+Underfull \vbox (badness 1377) has occurred while \output is active []
+
+[309]
+Underfull \hbox (badness 10000) in paragraph at lines 14712--14713
+
+ []
+
+[310] [311]
+Underfull \hbox (badness 10000) in paragraph at lines 14805--14806
+
+ []
+
+[312]
+Underfull \hbox (badness 10000) in paragraph at lines 14862--14863
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14875--14876
+
+ []
+
+File: fe-comparison_342-classification_employee_attrition-lime-multi_files/figu
+re-latex/plot-features-1.pdf Graphic file (type pdf)
+<use fe-comparison_342-classification_employee_attrition-lime-multi_files/figur
+e-latex/plot-features-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[313]
+Underfull \hbox (badness 10000) in paragraph at lines 14945--14946
+
+ []
+
+[314]
+File: fe-comparison_342-classification_employee_attrition-lime-multi_files/figu
+re-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+<use fe-comparison_342-classification_employee_attrition-lime-multi_files/figur
+e-latex/unnamed-chunk-5-1.pdf>
+File: fe-comparison_342-classification_employee_attrition-lime-multi_files/figu
+re-latex/plot-critical_training-1.pdf Graphic file (type pdf)
+<use fe-comparison_342-classification_employee_attrition-lime-multi_files/figur
+e-latex/plot-critical_training-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 14977--14978
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[315]
+File: fe-comparison_342-classification_employee_attrition-lime-multi_files/figu
+re-latex/plot-overtime-1.pdf Graphic file (type pdf)
+<use fe-comparison_342-classification_employee_attrition-lime-multi_files/figur
+e-latex/plot-overtime-1.pdf>
+File: fe-comparison_342-classification_employee_attrition-lime-multi_files/figu
+re-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
+<use fe-comparison_342-classification_employee_attrition-lime-multi_files/figur
+e-latex/unnamed-chunk-6-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[316]
+File: fe-comparison_342-classification_employee_attrition-lime-multi_files/figu
+re-latex/unnamed-chunk-7-1.pdf Graphic file (type pdf)
+<use fe-comparison_342-classification_employee_attrition-lime-multi_files/figur
+e-latex/unnamed-chunk-7-1.pdf>
+File: fe-comparison_342-classification_employee_attrition-lime-multi_files/figu
+re-latex/unnamed-chunk-8-1.pdf Graphic file (type pdf)
+<use fe-comparison_342-classification_employee_attrition-lime-multi_files/figur
+e-latex/unnamed-chunk-8-1.pdf>
+[317]
+Underfull \vbox (badness 10000) detected at line 15100
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[318]
+File: fe-comparison_342-classification_employee_attrition-lime-multi_files/figu
+re-latex/unnamed-chunk-11-1.pdf Graphic file (type pdf)
+<use fe-comparison_342-classification_employee_attrition-lime-multi_files/figur
+e-latex/unnamed-chunk-11-1.pdf>
+[319] [320
+
+]
+Chapter 22.
+[321] [322] [323] [324] [325]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[326]
+File: fe-meta_131-dealing_with_unbalanced_data-sglander_files/figure-latex/plot
+-resampling-1.pdf Graphic file (type pdf)
+<use fe-meta_131-dealing_with_unbalanced_data-sglander_files/figure-latex/plot-
+resampling-1.pdf>
+[327]
+File: fe-meta_131-dealing_with_unbalanced_data-sglander_files/figure-latex/comp
+arison-plot-1.pdf Graphic file (type pdf)
+<use fe-meta_131-dealing_with_unbalanced_data-sglander_files/figure-latex/compa
+rison-plot-1.pdf>
+[328] [329] [330
+
+]
+Chapter 23.
+[331]
+Underfull \vbox (badness 10000) detected at line 15653
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 15653
+ []
+
+[332] [333]
+Underfull \hbox (badness 1275) in paragraph at lines 15715--15716
+[]\TU/lmr/m/n/10 If you are not sure about the tentative variables being select
+ed for granted, you can choose a
+ []
+
+File: fe-meta_133-variable_importance_files/figure-latex/boruta-plot-1.pdf Grap
+hic file (type pdf)
+<use fe-meta_133-variable_importance_files/figure-latex/boruta-plot-1.pdf>
+[334] [335] [336]
+File: fe-meta_133-variable_importance_files/figure-latex/unnamed-chunk-9-1.pdf 
+Graphic file (type pdf)
+<use fe-meta_133-variable_importance_files/figure-latex/unnamed-chunk-9-1.pdf>
+
+Overfull \hbox (3231.49498pt too wide) in paragraph at lines 15886--15886
+[]\TU/lmtt/m/n/10 ada, AdaBag, AdaBoost.M1, adaboost, bagEarth, bagEarthGCV, ba
+gFDA, bagFDAGCV, bartMachine, blasso, BstLm, bstSm, C5.0, C5.0Cost, C5.0Rules, 
+C5.0Tree, cforest, chaid, ctree, ctree2, cubist, deepboost, earth, enet, evtree
+, extraTrees, fda, gamboost, gbm_h2o, gbm, gcvEarth, glmnet_h2o, glmnet, glmSte
+pAIC, J48, JRip, lars, lars2, lasso, LMT, LogitBoost, M5, M5Rules, msaenet, nod
+eHarvest, OneR, ordinalNet, ORFlog, ORFpls, ORFridge, ORFsvm, pam, parRF, PART,
+ penalized, PenalizedLDA, qrf, ranger, Rborist, relaxo, rf, rFerns, rfRules, ro
+tationForest, rotationForestCp, rpart, rpart1SE, rpart2, rpartCost, rpartScore,
+ rqlasso, rqnc, RRF, RRFglobal, sdwd, smda, sparseLDA, spikeslab, wsrf, xgbLine
+ar, xgbTree.[] 
+ []
+
+[337]
+File: fe-meta_133-variable_importance_files/figure-latex/lasso-train-1.pdf Grap
+hic file (type pdf)
+<use fe-meta_133-variable_importance_files/figure-latex/lasso-train-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[338] [339] [340]
+File: fe-meta_133-variable_importance_files/figure-latex/unnamed-chunk-11-1.pdf
+ Graphic file (type pdf)
+<use fe-meta_133-variable_importance_files/figure-latex/unnamed-chunk-11-1.pdf>
+
+[341]
+Overfull \vbox (2.00996pt too high) detected at line 16190
+ []
+
+[342] [343] [344] [345]
+Underfull \vbox (badness 10000) detected at line 16417
+ []
+
+
+Overfull \vbox (0.51996pt too high) detected at line 16417
+ []
+
+[346] [347]
+Underfull \vbox (badness 10000) detected at line 16537
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 16537
+ []
+
+[348]
+File: fe-meta_133-variable_importance_files/figure-latex/unnamed-chunk-15-1.pdf
+ Graphic file (type pdf)
+<use fe-meta_133-variable_importance_files/figure-latex/unnamed-chunk-15-1.pdf>
+
+[349] [350
+
+]
+Chapter 24.
+[351] [352] [353]
+File: fe-meta_230-missing_flu_prediction_micex5-sglander_files/figure-latex/unn
+amed-chunk-6-1.pdf Graphic file (type pdf)
+<use fe-meta_230-missing_flu_prediction_micex5-sglander_files/figure-latex/unna
+med-chunk-6-1.pdf>
+File: fe-meta_230-missing_flu_prediction_micex5-sglander_files/figure-latex/unn
+amed-chunk-7-1.pdf Graphic file (type pdf)
+<use fe-meta_230-missing_flu_prediction_micex5-sglander_files/figure-latex/unna
+med-chunk-7-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[354] [355]
+File: fe-meta_230-missing_flu_prediction_micex5-sglander_files/figure-latex/unn
+amed-chunk-11-1.pdf Graphic file (type pdf)
+<use fe-meta_230-missing_flu_prediction_micex5-sglander_files/figure-latex/unna
+med-chunk-11-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[356] [357]
+File: fe-meta_230-missing_flu_prediction_micex5-sglander_files/figure-latex/unn
+amed-chunk-14-1.pdf Graphic file (type pdf)
+<use fe-meta_230-missing_flu_prediction_micex5-sglander_files/figure-latex/unna
+med-chunk-14-1.pdf>
+[358]
+Underfull \vbox (badness 1360) detected at line 17023
+ []
+
+[359] [360]
+File: fe-meta_230-missing_flu_prediction_micex5-sglander_files/figure-latex/unn
+amed-chunk-25-1.pdf Graphic file (type pdf)
+<use fe-meta_230-missing_flu_prediction_micex5-sglander_files/figure-latex/unna
+med-chunk-25-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[361]
+File: fe-meta_230-missing_flu_prediction_micex5-sglander_files/figure-latex/unn
+amed-chunk-27-1.pdf Graphic file (type pdf)
+<use fe-meta_230-missing_flu_prediction_micex5-sglander_files/figure-latex/unna
+med-chunk-27-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[362] [363] [364] [365
+
+] [366]
+Chapter 25.
+
+Overfull \hbox (211.73495pt too wide) in paragraph at lines 17242--17243
+[]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][][]
+[][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][] [] [][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][]$[] 
+ []
+
+[367
+
+] [368]
+File: meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-8-1.pdf
+ Graphic file (type pdf)
+<use meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-8-1.pdf>
+
+File: meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-9-1.pdf
+ Graphic file (type pdf)
+<use meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-9-1.pdf>
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[369]
+File: meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-10-1.pd
+f Graphic file (type pdf)
+<use meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-10-1.pdf
+>
+[370]
+File: meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-11-1.pd
+f Graphic file (type pdf)
+<use meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-11-1.pdf
+>
+[371]
+Underfull \vbox (badness 10000) detected at line 17703
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 17703
+ []
+
+[372]
+Underfull \vbox (badness 10000) detected at line 17703
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 17703
+ []
+
+[373]
+Underfull \vbox (badness 10000) detected at line 17703
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 17703
+ []
+
+[374] [375]
+File: meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-15-1.pd
+f Graphic file (type pdf)
+<use meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-15-1.pdf
+>
+[376]
+File: meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-17-1.pd
+f Graphic file (type pdf)
+<use meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-17-1.pdf
+>
+[377] [378]
+File: meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-20-1.pd
+f Graphic file (type pdf)
+<use meta_110a-PCA-prcomp_vs_princomp_files/figure-latex/unnamed-chunk-20-1.pdf
+>
+
+Overfull \vbox (1.00784pt too high) detected at line 17939
+ []
+
+[379]
+Overfull \hbox (14.6pt too wide) in paragraph at lines 17993--17994
+[]\TU/lmr/m/n/10 Contributions of individuals to the principal components: 100 
+* (1 / number_of_individuals)*(ind.coord^2
+ []
+
+[380] [381] [382
+
+]
+Chapter 26.
+
+Overfull \hbox (160.51497pt too wide) in paragraph at lines 18063--18064
+[]$[][][][] [] [] [] [][][] [] [][][][][] [] [][][] [] [][][][][][][] [] [][][]
+[][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][] [] [][][][][][][][][][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][]$[] 
+ []
+
+[383] [384]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-9-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-9-1.pdf>
+
+Underfull \vbox (badness 2894) has occurred while \output is active []
+
+[385] [386]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-13-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-13-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[387]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-15-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-15-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[388]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-16-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-16-1.pdf>
+[389]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-17-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-17-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-18-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-18-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[390]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-20-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-20-1.pdf>
+
+Underfull \vbox (badness 5696) has occurred while \output is active []
+
+[391]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-21-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-21-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-21-2.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-21-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[392]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-22-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-22-1.pdf>
+[393]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-23-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-23-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-24-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-24-1.pdf>
+[394]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-25-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-25-1.pdf>
+[395]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-26-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-26-1.pdf>
+
+Package natbib Warning: Citation `ref' on page 396 undefined on input line 1859
+4.
+
+[396]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[397]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-31-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-31-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-32-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-32-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-33-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-33-1.pdf>
+[398]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-34-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-34-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-35-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-35-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[399]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-36-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-36-1.pdf>
+
+Overfull \vbox (1.0336pt too high) detected at line 18776
+ []
+
+[400]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-37-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-37-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-40-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-40-1.pdf>
+[401]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-41-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-41-1.pdf>
+[402]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-42-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-42-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-43-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-43-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-43-2.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-43-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[403]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-44-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-44-1.pdf>
+
+Underfull \vbox (badness 3746) has occurred while \output is active []
+
+[404]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-45-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-45-1.pdf>
+[405]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-46-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-46-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-46-2.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-46-2.pdf>
+[406]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-47-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-47-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-47-2.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-47-2.pdf>
+
+Package natbib Warning: Citation `ref' on page 407 undefined on input line 1898
+0.
+
+[407]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-48-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-48-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-49-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-49-1.pdf>
+[408]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-50-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-50-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-51-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-51-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[409]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-52-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-52-1.pdf>
+[410]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-53-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-53-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-54-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-54-1.pdf>
+
+Underfull \vbox (badness 3000) has occurred while \output is active []
+
+[411]
+
+Package natbib Warning: Citation `ref' on page 412 undefined on input line 1912
+3.
+
+[412]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-57-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-57-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-58-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-58-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-58-2.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-58-2.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-58-3.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-58-3.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[413]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[414]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-59-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-59-1.pdf>
+[415]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-61-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-61-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[416]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-63-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-63-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[417]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-64-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-64-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-64-2.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-64-2.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-64-3.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-64-3.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-64-4.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-64-4.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[418]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[419] [420] [421] [422]
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-76-1.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-76-1.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-76-2.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-76-2.pdf>
+File: meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed
+-chunk-76-3.pdf Graphic file (type pdf)
+<use meta_110b-PCA-Principal_Component_Methods_in_R_files/figure-latex/unnamed-
+chunk-76-3.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[423] [424]
+Chapter 27.
+
+Overfull \vbox (1.41995pt too high) detected at line 19584
+ []
+
+[425
+
+]
+File: meta_110c-PCA-Phan_2016-Introduction_To_PCA_with_examples_in_R_files/figu
+re-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
+<use meta_110c-PCA-Phan_2016-Introduction_To_PCA_with_examples_in_R_files/figur
+e-latex/unnamed-chunk-4-1.pdf>
+[426] [427] [428]
+Chapter 28.
+
+Underfull \hbox (badness 10000) in paragraph at lines 19729--19732
+\TU/lmr/m/n/10 Source: []$[][][][][] [] [] [] [][][][][][] [] [][][] [] [][][][
+][][][][][][][][][][][] [] [][][][][][][][][][][][][][][][][][][][][][][] [] []
+[][][] [] [][][][][][] [] [][][][][][] [] []$[] Source:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 19729--19732
+[]$[][][][] [] [] [] [][][][][][][][][][][][][][][][][][] [] [][][] [] [][][][]
+ [] [][] [] [][] [] [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][]$[] \TU/lmr/m/n/10 Data: []$[][][][][] [] [] [] [][][] [
+]
+ []
+
+[429
+
+]
+File: meta_137-logistic_regression-diabetes_files/figure-latex/plot-matrix-1.pd
+f Graphic file (type pdf)
+<use meta_137-logistic_regression-diabetes_files/figure-latex/plot-matrix-1.pdf
+>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[430] [431]
+Underfull \vbox (badness 10000) detected at line 19901
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 19901
+ []
+
+[432]
+Overfull \vbox (0.59837pt too high) detected at line 19946
+ []
+
+[433] [434]
+File: meta_137-logistic_regression-diabetes_files/figure-latex/plot-bmi-vs-gluc
+ose-1.pdf Graphic file (type pdf)
+<use meta_137-logistic_regression-diabetes_files/figure-latex/plot-bmi-vs-gluco
+se-1.pdf>
+File: meta_137-logistic_regression-diabetes_files/figure-latex/unnamed-chunk-3-
+1.pdf Graphic file (type pdf)
+<use meta_137-logistic_regression-diabetes_files/figure-latex/unnamed-chunk-3-1
+.pdf>
+[435]
+File: meta_137-logistic_regression-diabetes_files/figure-latex/bmi-vs-predicted
+-1.pdf Graphic file (type pdf)
+<use meta_137-logistic_regression-diabetes_files/figure-latex/bmi-vs-predicted-
+1.pdf>
+File: meta_137-logistic_regression-diabetes_files/figure-latex/glucose-vs-predi
+cted-1.pdf Graphic file (type pdf)
+<use meta_137-logistic_regression-diabetes_files/figure-latex/glucose-vs-predic
+ted-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[436] [437] [438
+
+]
+Chapter 29.
+[439]
+Underfull \vbox (badness 3168) detected at line 20160
+ []
+
+[440]
+File: meta_905-regression_-sensitivity_analysis_nn_files/figure-latex/unnamed-c
+hunk-4-1.pdf Graphic file (type pdf)
+<use meta_905-regression_-sensitivity_analysis_nn_files/figure-latex/unnamed-ch
+unk-4-1.pdf>
+File: meta_905-regression_-sensitivity_analysis_nn_files/figure-latex/unnamed-c
+hunk-5-1.pdf Graphic file (type pdf)
+<use meta_905-regression_-sensitivity_analysis_nn_files/figure-latex/unnamed-ch
+unk-5-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[441]
+File: meta_905-regression_-sensitivity_analysis_nn_files/figure-latex/unnamed-c
+hunk-6-1.pdf Graphic file (type pdf)
+<use meta_905-regression_-sensitivity_analysis_nn_files/figure-latex/unnamed-ch
+unk-6-1.pdf>
+[442]
+File: meta_905-regression_-sensitivity_analysis_nn_files/figure-latex/unnamed-c
+hunk-7-1.pdf Graphic file (type pdf)
+<use meta_905-regression_-sensitivity_analysis_nn_files/figure-latex/unnamed-ch
+unk-7-1.pdf>
+[443]
+File: meta_905-regression_-sensitivity_analysis_nn_files/figure-latex/unnamed-c
+hunk-9-1.pdf Graphic file (type pdf)
+<use meta_905-regression_-sensitivity_analysis_nn_files/figure-latex/unnamed-ch
+unk-9-1.pdf>
+[444]
+File: meta_905-regression_-sensitivity_analysis_nn_files/figure-latex/unnamed-c
+hunk-13-1.pdf Graphic file (type pdf)
+<use meta_905-regression_-sensitivity_analysis_nn_files/figure-latex/unnamed-ch
+unk-13-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[445] [446]
+Chapter 30.
+[447
+
+] [448
+
+]
+Chapter 31.
+[449] [450]
+Chapter 32.
+File: misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed
+-chunk-2-1.pdf Graphic file (type pdf)
+<use misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed-
+chunk-2-1.pdf>
+[451
+
+] [452]
+File: misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed
+-chunk-5-1.pdf Graphic file (type pdf)
+<use misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed-
+chunk-5-1.pdf>
+File: misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed
+-chunk-6-1.pdf Graphic file (type pdf)
+<use misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed-
+chunk-6-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[453]
+File: misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed
+-chunk-10-1.pdf Graphic file (type pdf)
+<use misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed-
+chunk-10-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[454]
+File: misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed
+-chunk-11-1.pdf Graphic file (type pdf)
+<use misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed-
+chunk-11-1.pdf>
+[455]
+File: misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed
+-chunk-12-1.pdf Graphic file (type pdf)
+<use misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed-
+chunk-12-1.pdf>
+File: misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed
+-chunk-13-1.pdf Graphic file (type pdf)
+<use misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed-
+chunk-13-1.pdf>
+File: misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed
+-chunk-13-2.pdf Graphic file (type pdf)
+<use misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed-
+chunk-13-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[456]
+Underfull \vbox (badness 6300) detected at line 20750
+ []
+
+
+Underfull \vbox (badness 2293) has occurred while \output is active []
+
+[457]
+File: misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed
+-chunk-15-1.pdf Graphic file (type pdf)
+<use misc_111c-comparing_distributions_with_qq_plot_files/figure-latex/unnamed-
+chunk-15-1.pdf>
+[458]
+Chapter 33.
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-2-1.pdf Grap
+hic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-2-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[459
+
+]
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-3-1.pdf Grap
+hic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-3-1.pdf>
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-4-1.pdf Grap
+hic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-4-1.pdf>
+[460]
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-5-1.pdf Grap
+hic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-5-1.pdf>
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/psych_galton-1.pdf Graphic
+ file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/psych_galton-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[461]
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/usingr-father_son-1.pdf Gr
+aphic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/usingr-father_son-1.pdf>
+[462]
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-7-1.pdf Grap
+hic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-7-1.pdf>
+[463]
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-8-1.pdf Grap
+hic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-8-1.pdf>
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-9-1.pdf Grap
+hic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-9-1.pdf>
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-10-1.pdf Gra
+phic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-10-1.pdf>
+[464]
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-11-1.pdf Gra
+phic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-11-1.pdf>
+[465]
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/compare_distributions-1.pd
+f Graphic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/compare_distributions-1.pdf
+>
+Missing character: There is no ∼ in font rm-lmr10!
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-12-1.pdf Gra
+phic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-12-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[466]
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-13-1.pdf Gra
+phic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-13-1.pdf>
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-14-1.pdf Gra
+phic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-14-1.pdf>
+
+Underfull \vbox (badness 4886) has occurred while \output is active []
+
+[467]
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-15-1.pdf Gra
+phic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-15-1.pdf>
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-16-1.pdf Gra
+phic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-16-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[468]
+File: misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-17-1.pdf Gra
+phic file (type pdf)
+<use misc_111d-qq_plots_pp_plots_files/figure-latex/unnamed-chunk-17-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[469] [470]
+Chapter 34.
+
+Underfull \hbox (badness 10000) in paragraph at lines 21153--21154
+
+ []
+
+[471
+
+]
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-4-1
+.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-4-1.
+pdf>
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-5-1
+.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-5-1.
+pdf>
+
+Underfull \vbox (badness 1270) detected at line 21219
+ []
+
+[472]
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-6-1
+.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-6-1.
+pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 21232--21233
+
+ []
+
+[473]
+Underfull \hbox (badness 10000) in paragraph at lines 21242--21243
+
+ []
+
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-8-1
+.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-8-1.
+pdf>
+[474]
+Underfull \hbox (badness 10000) in paragraph at lines 21278--21279
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21296--21297
+
+ []
+
+[475]
+Underfull \hbox (badness 10000) in paragraph at lines 21324--21325
+
+ []
+
+[476] [477]
+Underfull \hbox (badness 10000) in paragraph at lines 21396--21397
+
+ []
+
+[478]
+Underfull \hbox (badness 10000) in paragraph at lines 21447--21448
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21463--21464
+
+ []
+
+[479]
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-17-
+1.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-17-1
+.pdf>
+[480]
+Underfull \hbox (badness 10000) in paragraph at lines 21508--21509
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21527--21528
+
+ []
+
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-20-
+1.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-20-1
+.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[481]
+Underfull \hbox (badness 10000) in paragraph at lines 21559--21560
+
+ []
+
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-23-
+1.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-23-1
+.pdf>
+
+Underfull \vbox (badness 7944) has occurred while \output is active []
+
+[482]
+Underfull \hbox (badness 10000) in paragraph at lines 21605--21606
+
+ []
+
+[483]
+Underfull \hbox (badness 10000) in paragraph at lines 21624--21625
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21646--21647
+
+ []
+
+File: misc_140-data_visualization-modeling_files/figure-latex/fig-67-1.pdf Grap
+hic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/fig-67-1.pdf>
+[484]
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-28-
+1.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-28-1
+.pdf>
+[485]
+Underfull \hbox (badness 10000) in paragraph at lines 21710--21711
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21745--21746
+
+ []
+
+[486] [487]
+Underfull \hbox (badness 10000) in paragraph at lines 21818--21819
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 21847--21848
+
+ []
+
+[488]
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-35-
+1.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-35-1
+.pdf>
+[489]
+Underfull \vbox (badness 3078) detected at line 21953
+ []
+
+[490]
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-40-
+1.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-40-1
+.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[491]
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-41-
+1.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-41-1
+.pdf>
+
+Underfull \vbox (badness 1609) has occurred while \output is active []
+
+[492]
+Underfull \hbox (badness 10000) in paragraph at lines 22024--22025
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22050--22051
+
+ []
+
+[493]
+Underfull \hbox (badness 10000) in paragraph at lines 22066--22067
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22093--22094
+
+ []
+
+
+Overfull \vbox (2.27994pt too high) detected at line 22117
+ []
+
+[494]
+Underfull \hbox (badness 10000) in paragraph at lines 22148--22149
+
+ []
+
+[495]
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-47-
+1.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-47-1
+.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 22182--22184
+
+ []
+
+[496]
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-48-
+1.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-48-1
+.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 22215--22216
+
+ []
+
+[497]
+Underfull \hbox (badness 10000) in paragraph at lines 22223--22224
+
+ []
+
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-50-
+1.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-50-1
+.pdf>
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-50-
+2.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-50-2
+.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 22236--22237
+
+ []
+
+[498]
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-51-
+1.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-51-1
+.pdf>
+File: misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-52-
+1.pdf Graphic file (type pdf)
+<use misc_140-data_visualization-modeling_files/figure-latex/unnamed-chunk-52-1
+.pdf>
+[499] [500]
+Chapter 35.
+File: misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-3-1.pdf G
+raphic file (type pdf)
+<use misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-3-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[501
+
+] [502]
+File: misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-6-1.pdf G
+raphic file (type pdf)
+<use misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-6-1.pdf>
+File: misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-7-1.pdf G
+raphic file (type pdf)
+<use misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-7-1.pdf>
+File: misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-8-1.pdf G
+raphic file (type pdf)
+<use misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-8-1.pdf>
+[503]
+File: misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-9-1.pdf G
+raphic file (type pdf)
+<use misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-9-1.pdf>
+[504]
+File: misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-10-1.pdf 
+Graphic file (type pdf)
+<use misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-10-1.pdf>
+File: misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-11-1.pdf 
+Graphic file (type pdf)
+<use misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-11-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[505]
+File: misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-12-1.pdf 
+Graphic file (type pdf)
+<use misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-12-1.pdf>
+
+Underfull \vbox (badness 8151) detected at line 22517
+ []
+
+
+Underfull \vbox (badness 3250) has occurred while \output is active []
+
+[506]
+File: misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-13-1.pdf 
+Graphic file (type pdf)
+<use misc_906-visualizing_residuals_files/figure-latex/unnamed-chunk-13-1.pdf>
+[507] [508
+
+] [509] [510]
+Chapter 36.
+[511
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 512 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[512]
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/plot-cases-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/plot-cases-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[513]
+Underfull \vbox (badness 1655) detected at line 22770
+ []
+
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 514 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[514]
+Underfull \vbox (badness 10000) detected at line 22785
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[515]
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/plot-pca-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/plot-pca-1.pdf>
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 516 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[516]
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/plot-feature-variance-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/plot-feature-variance-1.pdf>
+[517]
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/plot-h2o-describe-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/plot-h2o-describe-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 22909--22910
+
+ []
+
+
+Underfull \vbox (badness 2538) detected at line 22940
+ []
+
+
+Underfull \vbox (badness 2538) has occurred while \output is active []
+
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 518 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[518]
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/plot-correlation-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/plot-correlation-1.pdf>
+[519]
+Underfull \hbox (badness 10000) in paragraph at lines 22998--22999
+
+ []
+
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 520 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[520]
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/plot-eigenvectors-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/plot-eigenvectors-1.pdf>
+[521]
+Underfull \hbox (badness 10000) in paragraph at lines 23075--23076
+
+ []
+
+
+Underfull \vbox (badness 1661) detected at line 23190
+ []
+
+
+Underfull \vbox (badness 1292) has occurred while \output is active []
+
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 522 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[522]
+Underfull \vbox (badness 10000) detected at line 23190
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 23190
+ []
+
+[523]
+Overfull \vbox (0.33835pt too high) detected at line 23533
+ []
+
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 524 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[524]
+Underfull \vbox (badness 10000) detected at line 23533
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 23533
+ []
+
+[525]
+Underfull \vbox (badness 10000) detected at line 23533
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 23533
+ []
+
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 526 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[526]
+Underfull \vbox (badness 10000) detected at line 23533
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 23533
+ []
+
+[527]
+Underfull \vbox (badness 10000) detected at line 23533
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 23533
+ []
+
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 528 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[528]
+Underfull \vbox (badness 10000) detected at line 23533
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 23533
+ []
+
+[529]
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/unnamed-chunk-19-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/unnamed-chunk-19-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 530 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[530]
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/unnamed-chunk-20-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/unnamed-chunk-20-1.pdf>
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/unnamed-chunk-21-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/unnamed-chunk-21-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[531]
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/unnamed-chunk-22-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/unnamed-chunk-22-1.pdf>
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 532 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[532]
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/unnamed-chunk-28-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/unnamed-chunk-28-1.pdf>
+[533]
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/unnamed-chunk-30-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/unnamed-chunk-30-1.pdf>
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 534 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[534] [535]
+Underfull \vbox (badness 10000) detected at line 23869
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 536 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[536]
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/unnamed-chunk-39-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/unnamed-chunk-39-1.pdf>
+File: nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-
+latex/unnamed-chunk-40-1.pdf Graphic file (type pdf)
+<use nn-classification_239b-deeplearning_h2o_arrhythmia-sglander_files/figure-l
+atex/unnamed-chunk-40-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[537]
+Overfull \vbox (0.86522pt too high) detected at line 23962
+ []
+
+
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 538 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[538] [539]
+Overfull \hbox (58.27292pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 540 \TU/lmr/m/sl/10 CHAPTER 36.  BUILDING DEEP NEURAL NETS WITH 
+H2O THAT PREDICT ARRHYTHMIA OF THE HEART
+ []
+
+[540
+
+]
+Chapter 37.
+[541]
+File: nn-classification_900-credit_neuralnet_files/figure-latex/unnamed-chunk-5
+-1.pdf Graphic file (type pdf)
+<use nn-classification_900-credit_neuralnet_files/figure-latex/unnamed-chunk-5-
+1.pdf>
+
+Underfull \vbox (badness 10000) detected at line 24062
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[542]
+File: nn-classification_900-credit_neuralnet_files/figure-latex/unnamed-chunk-6
+-1.pdf Graphic file (type pdf)
+<use nn-classification_900-credit_neuralnet_files/figure-latex/unnamed-chunk-6-
+1.pdf>
+File: nn-classification_900-credit_neuralnet_files/figure-latex/unnamed-chunk-7
+-1.pdf Graphic file (type pdf)
+<use nn-classification_900-credit_neuralnet_files/figure-latex/unnamed-chunk-7-
+1.pdf>
+File: nn-classification_900-credit_neuralnet_files/figure-latex/unnamed-chunk-8
+-1.pdf Graphic file (type pdf)
+<use nn-classification_900-credit_neuralnet_files/figure-latex/unnamed-chunk-8-
+1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[543] [544]
+File: nn-classification_900-credit_neuralnet_files/figure-latex/unnamed-chunk-1
+1-1.pdf Graphic file (type pdf)
+<use nn-classification_900-credit_neuralnet_files/figure-latex/unnamed-chunk-11
+-1.pdf>
+[545] [546]
+Chapter 38.
+[547
+
+]
+Underfull \vbox (badness 10000) detected at line 24436
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 24436
+ []
+
+[548]
+Underfull \vbox (badness 10000) detected at line 24436
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 24436
+ []
+
+[549]
+Underfull \vbox (badness 10000) detected at line 24511
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[550]
+Underfull \vbox (badness 10000) detected at line 24511
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 24511
+ []
+
+[551]
+File: nn-classification_901-build_fully_connected_nn_from_scratch-nnet_files/fi
+gure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
+<use nn-classification_901-build_fully_connected_nn_from_scratch-nnet_files/fig
+ure-latex/unnamed-chunk-3-1.pdf>
+[552]
+Underfull \vbox (badness 10000) detected at line 24661
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[553]
+File: nn-classification_901-build_fully_connected_nn_from_scratch-nnet_files/fi
+gure-latex/unnamed-chunk-6-1.pdf Graphic file (type pdf)
+<use nn-classification_901-build_fully_connected_nn_from_scratch-nnet_files/fig
+ure-latex/unnamed-chunk-6-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[554] [555] [556
+
+]
+Chapter 39.
+[557]
+Underfull \vbox (badness 10000) detected at line 25071
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 25071
+ []
+
+[558]
+Underfull \vbox (badness 10000) detected at line 25071
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 25071
+ []
+
+[559]
+Underfull \vbox (badness 10000) detected at line 25071
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 25071
+ []
+
+[560]
+Underfull \vbox (badness 10000) detected at line 25071
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 25071
+ []
+
+[561]
+Underfull \vbox (badness 10000) detected at line 25071
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 25071
+ []
+
+[562]
+Underfull \vbox (badness 10000) detected at line 25071
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 25071
+ []
+
+[563]
+Underfull \vbox (badness 10000) detected at line 25090
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[564]
+File: nn-classification_904-wine_selection_nn_files/figure-latex/unnamed-chunk-
+7-1.pdf Graphic file (type pdf)
+<use nn-classification_904-wine_selection_nn_files/figure-latex/unnamed-chunk-7
+-1.pdf>
+File: nn-classification_904-wine_selection_nn_files/figure-latex/unnamed-chunk-
+8-1.pdf Graphic file (type pdf)
+<use nn-classification_904-wine_selection_nn_files/figure-latex/unnamed-chunk-8
+-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[565] [566] [567] [568] [569] [570
+
+]
+Chapter 40.
+[571] [572]
+Underfull \vbox (badness 5741) detected at line 25505
+ []
+
+
+Underfull \vbox (badness 5741) has occurred while \output is active []
+
+[573] [574]
+File: nn-comparison-classification_regression_with_h2o_deep_learning_files/figu
+re-latex/deeplearning_gbm_drf_glm-1.pdf Graphic file (type pdf)
+<use nn-comparison-classification_regression_with_h2o_deep_learning_files/figur
+e-latex/deeplearning_gbm_drf_glm-1.pdf>
+File: nn-comparison-classification_regression_with_h2o_deep_learning_files/figu
+re-latex/deeplearning_evolution_training_time-1.pdf Graphic file (type pdf)
+<use nn-comparison-classification_regression_with_h2o_deep_learning_files/figur
+e-latex/deeplearning_evolution_training_time-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[575]
+File: nn-comparison-classification_regression_with_h2o_deep_learning_files/figu
+re-latex/deeplearning_for_loop_hidden-1.pdf Graphic file (type pdf)
+<use nn-comparison-classification_regression_with_h2o_deep_learning_files/figur
+e-latex/deeplearning_for_loop_hidden-1.pdf>
+[576]
+File: nn-comparison-classification_regression_with_h2o_deep_learning_files/figu
+re-latex/compare_activation_functions-1.pdf Graphic file (type pdf)
+<use nn-comparison-classification_regression_with_h2o_deep_learning_files/figur
+e-latex/compare_activation_functions-1.pdf>
+
+Overfull \vbox (0.46857pt too high) detected at line 25677
+ []
+
+[577]
+File: nn-comparison-classification_regression_with_h2o_deep_learning_files/figu
+re-latex/plot_cover_type-1.pdf Graphic file (type pdf)
+<use nn-comparison-classification_regression_with_h2o_deep_learning_files/figur
+e-latex/plot_cover_type-1.pdf>
+File: nn-comparison-classification_regression_with_h2o_deep_learning_files/figu
+re-latex/plot_cover_type-2.pdf Graphic file (type pdf)
+<use nn-comparison-classification_regression_with_h2o_deep_learning_files/figur
+e-latex/plot_cover_type-2.pdf>
+File: nn-comparison-classification_regression_with_h2o_deep_learning_files/figu
+re-latex/plot_cover_type-3.pdf Graphic file (type pdf)
+<use nn-comparison-classification_regression_with_h2o_deep_learning_files/figur
+e-latex/plot_cover_type-3.pdf>
+File: nn-comparison-classification_regression_with_h2o_deep_learning_files/figu
+re-latex/plot_cover_type-4.pdf Graphic file (type pdf)
+<use nn-comparison-classification_regression_with_h2o_deep_learning_files/figur
+e-latex/plot_cover_type-4.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[578]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[579] [580]
+Underfull \vbox (badness 3078) detected at line 25972
+ []
+
+
+Underfull \vbox (badness 2913) has occurred while \output is active []
+
+[581]
+Underfull \vbox (badness 10000) detected at line 25972
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 25972
+ []
+
+[582]
+Underfull \vbox (badness 10000) detected at line 25972
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 25972
+ []
+
+[583]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[584] [585]
+Underfull \vbox (badness 10000) detected at line 26236
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 26236
+ []
+
+[586]
+Underfull \vbox (badness 10000) detected at line 26236
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 26236
+ []
+
+[587]
+Underfull \vbox (badness 10000) detected at line 26236
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 26236
+ []
+
+[588]
+File: nn-comparison-classification_regression_with_h2o_deep_learning_files/figu
+re-latex/dl_ctype_early_stopping-1.pdf Graphic file (type pdf)
+<use nn-comparison-classification_regression_with_h2o_deep_learning_files/figur
+e-latex/dl_ctype_early_stopping-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[589]
+Underfull \hbox (badness 2318) in paragraph at lines 26245--26246
+[]\TU/lmr/m/n/10 If adaptive_rate is disabled, several manual learning rate par
+ameters become important: rate,
+ []
+
+
+Overfull \hbox (79.163pt too wide) in paragraph at lines 26245--26246
+\TU/lmr/m/n/10 rate_annealing, rate_decay, momentum_start, momentum_ramp, momen
+tum_stable and \TU/lmtt/m/n/10 nesterov_accelerated_gradient\TU/lmr/m/n/10 ,
+ []
+
+[590]
+Underfull \vbox (badness 10000) detected at line 26557
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 26557
+ []
+
+[591]
+Underfull \vbox (badness 10000) detected at line 26557
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 26557
+ []
+
+[592]
+Underfull \vbox (badness 10000) detected at line 26557
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 26557
+ []
+
+[593]
+Underfull \vbox (badness 10000) detected at line 26557
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 26557
+ []
+
+[594]
+Underfull \vbox (badness 10000) detected at line 26557
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 26557
+ []
+
+[595]
+Underfull \vbox (badness 10000) detected at line 26783
+ []
+
+
+Underfull \vbox (badness 5217) has occurred while \output is active []
+
+[596]
+Underfull \vbox (badness 10000) detected at line 26783
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 26783
+ []
+
+[597]
+Underfull \vbox (badness 10000) detected at line 26783
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 26783
+ []
+
+[598]
+Underfull \vbox (badness 10000) detected at line 26783
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 26783
+ []
+
+[599]
+Underfull \vbox (badness 10000) detected at line 26809
+ []
+
+
+Underfull \vbox (badness 4266) has occurred while \output is active []
+
+[600] [601]
+Underfull \vbox (badness 10000) detected at line 26964
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 26964
+ []
+
+[602]
+Underfull \vbox (badness 4582) detected at line 27478
+ []
+
+
+Underfull \vbox (badness 1502) has occurred while \output is active []
+
+[603]
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+[604]
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+[605]
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+[606]
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+[607]
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+[608]
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+[609]
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+[610]
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+[611]
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 27478
+ []
+
+[612] [613]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[614]
+File: nn-comparison-classification_regression_with_h2o_deep_learning_files/figu
+re-latex/checpointing-1.pdf Graphic file (type pdf)
+<use nn-comparison-classification_regression_with_h2o_deep_learning_files/figur
+e-latex/checpointing-1.pdf>
+[615]
+Underfull \vbox (badness 3058) detected at line 27836
+ []
+
+
+Underfull \vbox (badness 1205) has occurred while \output is active []
+
+[616]
+Underfull \vbox (badness 10000) detected at line 27836
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 27836
+ []
+
+[617]
+Underfull \vbox (badness 10000) detected at line 27836
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 27836
+ []
+
+[618]
+Underfull \vbox (badness 10000) detected at line 27836
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 27836
+ []
+
+[619]
+Overfull \vbox (1.31125pt too high) detected at line 27886
+ []
+
+[620]
+File: nn-comparison-classification_regression_with_h2o_deep_learning_files/figu
+re-latex/bin_class_as_factor-1.pdf Graphic file (type pdf)
+<use nn-comparison-classification_regression_with_h2o_deep_learning_files/figur
+e-latex/bin_class_as_factor-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[621] [622] [623]
+Underfull \vbox (badness 10000) detected at line 28291
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 28291
+ []
+
+[624]
+Underfull \vbox (badness 10000) detected at line 28291
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 28291
+ []
+
+[625]
+Underfull \vbox (badness 10000) detected at line 28291
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 28291
+ []
+
+[626]
+Underfull \vbox (badness 10000) detected at line 28291
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 28291
+ []
+
+[627]
+Underfull \vbox (badness 10000) detected at line 28291
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 28291
+ []
+
+[628]
+File: nn-comparison-classification_regression_with_h2o_deep_learning_files/figu
+re-latex/export_weight_biases-1.pdf Graphic file (type pdf)
+<use nn-comparison-classification_regression_with_h2o_deep_learning_files/figur
+e-latex/export_weight_biases-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[629] [630]
+Chapter 41.
+[631
+
+] [632]
+File: nn-regression_142-neural_network_yacht_files/figure-latex/unnamed-chunk-6
+-1.pdf Graphic file (type pdf)
+<use nn-regression_142-neural_network_yacht_files/figure-latex/unnamed-chunk-6-
+1.pdf>
+[633]
+File: nn-regression_142-neural_network_yacht_files/figure-latex/unnamed-chunk-9
+-1.pdf Graphic file (type pdf)
+<use nn-regression_142-neural_network_yacht_files/figure-latex/unnamed-chunk-9-
+1.pdf>
+[634]
+Overfull \vbox (1.47838pt too high) detected at line 28582
+ []
+
+[635]
+File: nn-regression_142-neural_network_yacht_files/figure-latex/unnamed-chunk-1
+3-1.pdf Graphic file (type pdf)
+<use nn-regression_142-neural_network_yacht_files/figure-latex/unnamed-chunk-13
+-1.pdf>
+File: nn-regression_142-neural_network_yacht_files/figure-latex/unnamed-chunk-1
+4-1.pdf Graphic file (type pdf)
+<use nn-regression_142-neural_network_yacht_files/figure-latex/unnamed-chunk-14
+-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[636]
+File: nn-regression_142-neural_network_yacht_files/figure-latex/unnamed-chunk-1
+5-1.pdf Graphic file (type pdf)
+<use nn-regression_142-neural_network_yacht_files/figure-latex/unnamed-chunk-15
+-1.pdf>
+[637] [638]
+Chapter 42.
+[639
+
+] [640]
+File: nn-regression_144-nn_cereals_neuralnet_files/figure-latex/predict_nn-1.pd
+f Graphic file (type pdf)
+<use nn-regression_144-nn_cereals_neuralnet_files/figure-latex/predict_nn-1.pdf
+>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[641]
+File: nn-regression_144-nn_cereals_neuralnet_files/figure-latex/boxplot-1.pdf G
+raphic file (type pdf)
+<use nn-regression_144-nn_cereals_neuralnet_files/figure-latex/boxplot-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[642]
+File: nn-regression_144-nn_cereals_neuralnet_files/figure-latex/var-rmse-1.pdf 
+Graphic file (type pdf)
+<use nn-regression_144-nn_cereals_neuralnet_files/figure-latex/var-rmse-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[643] [644]
+Chapter 43.
+
+Overfull \vbox (0.95137pt too high) detected at line 28933
+ []
+
+[645
+
+] [646] [647]
+File: nn-regression_902-fitting_neural_network_files/figure-latex/unnamed-chunk
+-11-1.pdf Graphic file (type pdf)
+<use nn-regression_902-fitting_neural_network_files/figure-latex/unnamed-chunk-
+11-1.pdf>
+[648]
+File: nn-regression_902-fitting_neural_network_files/figure-latex/unnamed-chunk
+-12-1.pdf Graphic file (type pdf)
+<use nn-regression_902-fitting_neural_network_files/figure-latex/unnamed-chunk-
+12-1.pdf>
+[649] [650]
+File: nn-regression_902-fitting_neural_network_files/figure-latex/unnamed-chunk
+-17-1.pdf Graphic file (type pdf)
+<use nn-regression_902-fitting_neural_network_files/figure-latex/unnamed-chunk-
+17-1.pdf>
+[651] [652]
+Chapter 44.
+[653
+
+] [654]
+File: nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-5-1.p
+df Graphic file (type pdf)
+<use nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-5-1.pd
+f>
+File: nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-5-2.p
+df Graphic file (type pdf)
+<use nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-5-2.pd
+f>
+File: nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-5-3.p
+df Graphic file (type pdf)
+<use nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-5-3.pd
+f>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[655]
+File: nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-6-1.p
+df Graphic file (type pdf)
+<use nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-6-1.pd
+f>
+[656]
+File: nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-7-1.p
+df Graphic file (type pdf)
+<use nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-7-1.pd
+f>
+[657]
+File: nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-8-1.p
+df Graphic file (type pdf)
+<use nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-8-1.pd
+f>
+File: nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-9-1.p
+df Graphic file (type pdf)
+<use nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-9-1.pd
+f>
+[658]
+File: nn-regression_903-visualization_nn_files/figure-latex/run-rsnns-hidden_la
+yers-1.pdf Graphic file (type pdf)
+<use nn-regression_903-visualization_nn_files/figure-latex/run-rsnns-hidden_lay
+ers-1.pdf>
+[659]
+File: nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-10-1.
+pdf Graphic file (type pdf)
+<use nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-10-1.p
+df>
+[660]
+File: nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-11-1.
+pdf Graphic file (type pdf)
+<use nn-regression_903-visualization_nn_files/figure-latex/unnamed-chunk-11-1.p
+df>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[661] [662] [663
+
+] [664]
+Chapter 45.
+[665
+
+]
+Underfull \vbox (badness 1478) has occurred while \output is active []
+
+[666]
+File: regression_114-nested_temperature_files/figure-latex/unnamed-chunk-3-1.pd
+f Graphic file (type pdf)
+<use regression_114-nested_temperature_files/figure-latex/unnamed-chunk-3-1.pdf
+>
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 29786.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 29786.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 29786.
+[667]
+File: regression_114-nested_temperature_files/figure-latex/unnamed-chunk-5-1.pd
+f Graphic file (type pdf)
+<use regression_114-nested_temperature_files/figure-latex/unnamed-chunk-5-1.pdf
+>
+[668] [669]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[670]
+File: regression_114-nested_temperature_files/figure-latex/unnamed-chunk-11-1.p
+df Graphic file (type pdf)
+<use regression_114-nested_temperature_files/figure-latex/unnamed-chunk-11-1.pd
+f>
+[671] [672]
+File: regression_114-nested_temperature_files/figure-latex/unnamed-chunk-18-1.p
+df Graphic file (type pdf)
+<use regression_114-nested_temperature_files/figure-latex/unnamed-chunk-18-1.pd
+f>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[673] [674] [675] [676]
+File: regression_114-nested_temperature_files/figure-latex/unnamed-chunk-28-1.p
+df Graphic file (type pdf)
+<use regression_114-nested_temperature_files/figure-latex/unnamed-chunk-28-1.pd
+f>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[677]
+File: regression_114-nested_temperature_files/figure-latex/unnamed-chunk-30-1.p
+df Graphic file (type pdf)
+<use regression_114-nested_temperature_files/figure-latex/unnamed-chunk-30-1.pd
+f>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[678] [679]
+Overfull \hbox (11.91498pt too wide) in paragraph at lines 30505--30506
+[]\TU/lmr/m/n/10 there seem to be parallels between \TU/lmtt/m/n/10 tidyr::nest
+()/purrr::map() \TU/lmr/m/n/10 and \TU/lmtt/m/n/10 dplyr::group_by()/dplyr::do(
+) 
+ []
+
+[680]
+Chapter 46.
+[681
+
+]
+File: regression_136-happiness_files/figure-latex/pairplot-1.pdf Graphic file (
+type pdf)
+<use regression_136-happiness_files/figure-latex/pairplot-1.pdf>
+[682]
+File: regression_136-happiness_files/figure-latex/unnamed-chunk-2-1.pdf Graphic
+ file (type pdf)
+<use regression_136-happiness_files/figure-latex/unnamed-chunk-2-1.pdf>
+
+Underfull \vbox (badness 6173) has occurred while \output is active []
+
+[683] [684] [685]
+File: regression_136-happiness_files/figure-latex/normal-curve-1.pdf Graphic fi
+le (type pdf)
+<use regression_136-happiness_files/figure-latex/normal-curve-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[686]
+File: regression_136-happiness_files/figure-latex/residuals-vs-fitted-1.pdf Gra
+phic file (type pdf)
+<use regression_136-happiness_files/figure-latex/residuals-vs-fitted-1.pdf>
+[687] [688]
+Chapter 47.
+
+Overfull \hbox (3.61496pt too wide) in paragraph at lines 30898--30899
+[][]$[][][][][] [] [] [] [][][] [] [][][][][][][][][][][] [] [][][] [] [][][][]
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]$[
+] 
+ []
+
+
+Overfull \vbox (1.72998pt too high) detected at line 30961
+ []
+
+[689
+
+]
+File: regression_138-advertising_files/figure-latex/unnamed-chunk-3-1.pdf Graph
+ic file (type pdf)
+<use regression_138-advertising_files/figure-latex/unnamed-chunk-3-1.pdf>
+File: regression_138-advertising_files/figure-latex/unnamed-chunk-4-1.pdf Graph
+ic file (type pdf)
+<use regression_138-advertising_files/figure-latex/unnamed-chunk-4-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[690]
+File: regression_138-advertising_files/figure-latex/unnamed-chunk-5-1.pdf Graph
+ic file (type pdf)
+<use regression_138-advertising_files/figure-latex/unnamed-chunk-5-1.pdf>
+[691]
+File: regression_138-advertising_files/figure-latex/unnamed-chunk-7-1.pdf Graph
+ic file (type pdf)
+<use regression_138-advertising_files/figure-latex/unnamed-chunk-7-1.pdf>
+[692]
+File: regression_138-advertising_files/figure-latex/unnamed-chunk-10-1.pdf Grap
+hic file (type pdf)
+<use regression_138-advertising_files/figure-latex/unnamed-chunk-10-1.pdf>
+File: regression_138-advertising_files/figure-latex/unnamed-chunk-11-1.pdf Grap
+hic file (type pdf)
+<use regression_138-advertising_files/figure-latex/unnamed-chunk-11-1.pdf>
+[693] [694
+
+]
+Chapter 48.
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <24.88> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 31131.
+
+File: regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-5-1.pdf
+ Graphic file (type pdf)
+<use regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-5-1.pdf>
+
+[695]
+File: regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-6-1.pdf
+ Graphic file (type pdf)
+<use regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-6-1.pdf>
+
+File: regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-9-1.pdf
+ Graphic file (type pdf)
+<use regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-9-1.pdf>
+
+[696]
+File: regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-14-1.pd
+f Graphic file (type pdf)
+<use regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-14-1.pdf
+>
+[697]
+File: regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-17-1.pd
+f Graphic file (type pdf)
+<use regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-17-1.pdf
+>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[698]
+File: regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-22-1.pd
+f Graphic file (type pdf)
+<use regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-22-1.pdf
+>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[699] [700]
+File: regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-28-1.pd
+f Graphic file (type pdf)
+<use regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-28-1.pdf
+>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[701]
+File: regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-31-1.pd
+f Graphic file (type pdf)
+<use regression_141.1-3a-iris_dataset_files/figure-latex/unnamed-chunk-31-1.pdf
+>
+[702] [703] [704
+
+]
+Chapter 49.
+
+Overfull \vbox (2.03296pt too high) detected at line 31660
+ []
+
+[705]
+File: regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-6-1.pd
+f Graphic file (type pdf)
+<use regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-6-1.pdf
+>
+
+Underfull \vbox (badness 3713) detected at line 31707
+ []
+
+
+Underfull \vbox (badness 1102) has occurred while \output is active []
+
+[706]
+File: regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-9-1.pd
+f Graphic file (type pdf)
+<use regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-9-1.pdf
+>
+
+Underfull \vbox (badness 1308) has occurred while \output is active []
+
+[707]
+File: regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-14-1.p
+df Graphic file (type pdf)
+<use regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-14-1.pd
+f>
+[708]
+File: regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-17-1.p
+df Graphic file (type pdf)
+<use regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-17-1.pd
+f>
+[709]
+File: regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-22-1.p
+df Graphic file (type pdf)
+<use regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-22-1.pd
+f>
+[710]
+Underfull \vbox (badness 6658) has occurred while \output is active []
+
+[711]
+File: regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-31-1.p
+df Graphic file (type pdf)
+<use regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-31-1.pd
+f>
+File: regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-32-1.p
+df Graphic file (type pdf)
+<use regression_141.2-3b-rates_dataset_files/figure-latex/unnamed-chunk-32-1.pd
+f>
+[712] [713] [714
+
+]
+Chapter 50.
+File: regression_921-nn_lm_vs_nn_files/figure-latex/unnamed-chunk-2-1.pdf Graph
+ic file (type pdf)
+<use regression_921-nn_lm_vs_nn_files/figure-latex/unnamed-chunk-2-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[715]
+File: regression_921-nn_lm_vs_nn_files/figure-latex/unnamed-chunk-3-1.pdf Graph
+ic file (type pdf)
+<use regression_921-nn_lm_vs_nn_files/figure-latex/unnamed-chunk-3-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[716] [717] [718] [719] [720
+
+]
+Chapter 51.
+[721]
+Overfull \vbox (1.91835pt too high) detected at line 32434
+ []
+
+[722]
+Underfull \vbox (badness 10000) detected at line 32434
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 32434
+ []
+
+[723]
+Underfull \vbox (badness 4266) detected at line 32459
+ []
+
+
+Underfull \vbox (badness 1303) has occurred while \output is active []
+
+[724]
+File: regression_950-diamonds_nn_files/figure-latex/unnamed-chunk-7-1.pdf Graph
+ic file (type pdf)
+<use regression_950-diamonds_nn_files/figure-latex/unnamed-chunk-7-1.pdf>
+File: regression_950-diamonds_nn_files/figure-latex/unnamed-chunk-9-1.pdf Graph
+ic file (type pdf)
+<use regression_950-diamonds_nn_files/figure-latex/unnamed-chunk-9-1.pdf>
+[725]
+Overfull \vbox (0.55997pt too high) detected at line 32540
+ []
+
+[726]
+File: regression_950-diamonds_nn_files/figure-latex/unnamed-chunk-15-1.pdf Grap
+hic file (type pdf)
+<use regression_950-diamonds_nn_files/figure-latex/unnamed-chunk-15-1.pdf>
+[727]
+File: regression_950-diamonds_nn_files/figure-latex/unnamed-chunk-16-1.pdf Grap
+hic file (type pdf)
+<use regression_950-diamonds_nn_files/figure-latex/unnamed-chunk-16-1.pdf>
+File: regression_950-diamonds_nn_files/figure-latex/unnamed-chunk-17-1.pdf Grap
+hic file (type pdf)
+<use regression_950-diamonds_nn_files/figure-latex/unnamed-chunk-17-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[728] [729] (./ml-book.bbl [730]
+
+Package natbib Warning: Empty `thebibliography' environment on input line 3.
+
+)
+
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 32704.
+[731
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 32704.
+(./ml-book.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 32704.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 32704.
+ ) 
+Here is how much of TeX's memory you used:
+ 24811 strings out of 493007
+ 545178 string characters out of 6136719
+ 747910 words of memory out of 5000000
+ 28324 multiletter control sequences out of 15000+600000
+ 572756 words of font info for 83 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 45i,8n,68p,10448b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on ml-book.pdf (731 pages).

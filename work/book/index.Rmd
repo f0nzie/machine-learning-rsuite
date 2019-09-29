@@ -1,5 +1,5 @@
 --- 
-title: "Machine Learning"
+title: "A Machine Learning Book"
 author: "Alfonso R. Reyes"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

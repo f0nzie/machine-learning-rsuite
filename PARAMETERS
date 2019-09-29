@@ -1,4 +1,4 @@
-RSuiteVersion: 0.36.252
+RSuiteVersion: 0.37.252
 RVersion: 3.6.0
 Project: machine-learning-rsuite
 Repositories: MRAN[2019-05-12], Dir
